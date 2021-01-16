@@ -24,4 +24,18 @@
     <string name="gold">Gold</string>
     <string name="mk_5_000">MK 5,000</string>
     <string name="silver_plan">Silver plan</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="profile">Profile</string>
+    <string name="image">image</string>
+    <string name="app_settings">App settings</string>
+    <string name="log_out">Log out</string>
+    <string name="dots">dots</string>
+    <string name="jerome_msapha">Jerome Msapha</string>
+    <string name="phone_no">+265 999 67 99 75</string>
+    <string name="personal_infomation">Personal infomation</string>
+    <string name="your_location_email_address_status">Your location, email address, status</string>
+    <string name="general">General</string>
+    <string name="driver_catalogue">Driver catalogue</string>
+    <string name="terms_and_conditions">Terms and conditions</string>
+    <string name="contact_and_support">Contact and support</string>
 </resources>
