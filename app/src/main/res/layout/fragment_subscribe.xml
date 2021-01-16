@@ -98,6 +98,7 @@
                     android:layout_weight="1"
                     android:orientation="vertical"
                     android:background="@drawable/rounded_blue"
+                    android:id="@+id/silverSubscription"
                     >
                     <ImageView
                         android:layout_width="wrap_content"
@@ -161,6 +162,7 @@
                     android:orientation="vertical"
                     android:layout_marginLeft="8dp"
                     android:background="@drawable/rounded_green"
+                    android:id="@+id/bronzeSubscription"
                     android:layout_marginStart="8dp">
 
                     <ImageView
@@ -224,6 +226,7 @@
                     android:layout_weight="1"
                     android:orientation="vertical"
                     android:layout_marginLeft="8dp"
+                    android:id="@+id/goldSubscription"
                     android:background="@drawable/rounded_gold"
                     android:layout_marginStart="8dp">
 
