@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import app.mulipati_agent.MainActivity
+import app.mulipati_agent.auth.Authentication
 import app.mulipati_agent.databinding.FragmentThirdSliderBinding
 
 
@@ -33,7 +33,7 @@ class ThirdSlider : Fragment() {
             requireActivity().startActivity(
                 Intent(
                     requireActivity(),
-                    MainActivity::class.java
+                    Authentication::class.java
                 )
             )
         }
