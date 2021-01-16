@@ -26,6 +26,8 @@ class OnBoarding : AppCompatActivity() {
         val adapter = PagerAdapter(supportFragmentManager)
 
         adapter.addFragment(FirstSlider() , " One ")
+        adapter.addFragment(SecondSlider(), "two")
+        adapter.addFragment(ThirdSlider(), "third")
 
 
         onBoardingBinding.onBoardPager.adapter = adapter

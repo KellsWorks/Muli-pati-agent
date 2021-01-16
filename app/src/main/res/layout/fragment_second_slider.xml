@@ -6,12 +6,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".onboard.FirstSlider">
+        tools:context=".onboard.SecondSlider">
 
         <ImageView
             android:layout_width="250dp"
             android:layout_height="200dp"
-            android:src="@drawable/onboard_one"
+            android:src="@drawable/subscribe"
             android:layout_marginTop="200dp"
             android:layout_gravity="center"
             android:id="@+id/firstImage"
@@ -20,15 +20,18 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/find_customers_easily"
+            android:text="Subscribe to our service"
             android:textSize="32sp"
             android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_gravity="center"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/post_your_trip_to_reach_out_to_people_around_you"
+            android:text="Get basic, bronze and premium subscriptions to reach out more"
             android:layout_gravity="center"
             android:textAlignment="center"
             android:gravity="center"
