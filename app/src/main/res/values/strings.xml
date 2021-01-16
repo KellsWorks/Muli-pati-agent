@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Muli pati? - agent</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="illustration">illustration</string>
+    <string name="find_customers_easily">Find customers easily</string>
+    <string name="post_your_trip_to_reach_out_to_people_around_you">Post your trip to reach out to people around you</string>
 </resources>
