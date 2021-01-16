@@ -30,7 +30,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="75dp"
             android:layout_marginLeft="20dp"
-            android:id="@+id/tabLike"
+            android:id="@+id/dotsContainer"
             android:layout_alignParentStart="true"
             android:layout_marginStart="20dp">
 
@@ -64,6 +64,56 @@
             android:layout_marginRight="44dp"
             android:layout_marginBottom="54dp"
             android:contentDescription="@string/image" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@id/dotsContainer"
+            android:layout_marginTop="10dp"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/rounded_white"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/your_trips"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="20dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tripsRecycler"
+                android:layout_margin="20dp"
+                android:orientation="vertical"
+                >
+                <include
+                    layout="@layout/model_trips"
+                    />
+                <include
+                    android:layout_marginTop="10dp"
+                    layout="@layout/model_trips"
+                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    />
+                <include
+                    android:layout_marginTop="10dp"
+                    layout="@layout/model_trips"
+                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content" />
+
+            </LinearLayout>
+        </LinearLayout>
 
 
     </RelativeLayout>
