@@ -1,12 +1,14 @@
 package app.mulipati_agent.activities
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
-import app.mulipati_agent.R
+import androidx.appcompat.app.AppCompatActivity
+import app.mulipati_agent.onboard.OnBoarding
 
 class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash_screen)
+
+        startActivity(Intent(this, OnBoarding::class.java))
     }
 }
