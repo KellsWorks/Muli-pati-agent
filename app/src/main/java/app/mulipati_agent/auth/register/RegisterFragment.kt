@@ -30,5 +30,13 @@ class RegisterFragment : Fragment() {
         registerBinding.registerBack.setOnClickListener {
             findNavController().navigateUp()
         }
+
+        registerBinding.toSignIn.setOnClickListener {
+            findNavController().navigateUp()
+        }
+
+        registerBinding.RegisterButton.setOnClickListener {
+            findNavController().navigate(R.id.action_registerFragment_to_subscribeFragment)
+        }
     }
 }

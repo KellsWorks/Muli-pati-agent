@@ -14,5 +14,13 @@
     <fragment
         android:id="@+id/registerFragment"
         android:name="app.mulipati_agent.auth.register.RegisterFragment"
-        android:label="RegisterFragment" />
+        android:label="RegisterFragment" >
+        <action
+            android:id="@+id/action_registerFragment_to_subscribeFragment"
+            app:destination="@id/subscribeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/subscribeFragment"
+        android:name="app.mulipati_agent.auth.subscribe.SubscribeFragment"
+        android:label="SubscribeFragment" />
 </navigation>

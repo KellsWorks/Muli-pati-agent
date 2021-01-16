@@ -14,4 +14,13 @@
     <string name="password">Password</string>
     <string name="already_registered">Already Registered?</string>
     <string name="sign_in">Sign in.</string>
+    <string name="select_plan">Select plan</string>
+    <string name="silver">Silver</string>
+    <string name="mk1_000">MK1,000</string>
+    <string name="month">/ month</string>
+    <string name="subscribe_to_service">Subscribe to service</string>
+    <string name="bronze">Bronze</string>
+    <string name="mk_2000">MK, 2000</string>
+    <string name="gold">Gold</string>
+    <string name="mk_5_000">MK 5,000</string>
 </resources>
