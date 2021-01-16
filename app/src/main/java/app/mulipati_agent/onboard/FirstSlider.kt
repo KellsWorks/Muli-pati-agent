@@ -6,17 +6,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import app.mulipati_agent.R
+import app.mulipati_agent.databinding.FragmentFirstSliderBinding
 
 
 class FirstSlider : Fragment() {
 
+    private lateinit var firstSliderBinding: FragmentFirstSliderBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        return inflater.inflate(R.layout.fragment_first_slider, container, false)
+        firstSliderBinding = FragmentFirstSliderBinding.inflate(inflater, container, false)
+        firstSliderBinding.lifecycleOwner = this
+
+        return  firstSliderBinding.root
     }
 
 
