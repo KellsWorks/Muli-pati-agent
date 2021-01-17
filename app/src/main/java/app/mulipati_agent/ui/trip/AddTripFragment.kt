@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import app.mulipati_agent.R
 import app.mulipati_agent.databinding.FragmentAddTripBinding
 
@@ -22,4 +23,11 @@ class AddTripFragment : Fragment() {
         return addTripBinding.root
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        addTripBinding.addTripBack.setOnClickListener {
+            findNavController().navigateUp()
+        }
+    }
 }
