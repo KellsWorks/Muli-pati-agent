@@ -41,4 +41,5 @@
     <string name="your_trips">Your trips</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
+    <string name="add_trip">Add trip</string>
 </resources>

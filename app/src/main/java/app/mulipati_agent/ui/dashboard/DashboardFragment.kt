@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import app.mulipati_agent.R
 import app.mulipati_agent.data.Trips
 import app.mulipati_agent.databinding.FragmentDashboardBinding
@@ -40,6 +41,14 @@ class DashboardFragment : Fragment() {
 
         dashboardBinding.tripsRecycler
                 .setController(controller)
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        dashboardBinding.addTrip.setOnClickListener {
+            findNavController().navigate(R.id.action_dashboardFragment_to_addTripFragment)
+        }
     }
 
 }

@@ -21,7 +21,7 @@ class TripsEpoxyController: Typed2EpoxyController<Boolean?, List<Trips>>() {
                             popupMenu.setOnMenuItemClickListener { item ->
                                 when(item.itemId) {
                                     R.id.edit -> {
-                                        Toast.makeText(parentView.route!!.context, "Marked as read!", Toast.LENGTH_SHORT)
+                                        Toast.makeText(parentView.route!!.context, "Edited!", Toast.LENGTH_SHORT)
                                                 .show()
                                     }
 
