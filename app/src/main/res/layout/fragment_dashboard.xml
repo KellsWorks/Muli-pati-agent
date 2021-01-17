@@ -26,6 +26,32 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="34dp"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_office_building_marker"
+                android:layout_gravity="center"
+                app:tint="@color/red" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BLANTYRE"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/red"
+                android:layout_gravity="center"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="75dp"
@@ -73,22 +99,216 @@
             android:layout_below="@id/dotsContainer"
             android:layout_marginTop="10dp"
             >
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
+                android:orientation="vertical"
                 android:background="@drawable/rounded_white"
-                />
-            <TextView
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MK 43, 600"
+                    android:textColor="#02B80A"
+                    android:textSize="22sp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="7dp"
+                    android:textStyle="bold"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total earnings"
+                    android:textSize="15sp"
+                    android:layout_gravity="center"
+                    android:textStyle="bold"
+                    />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/statisticsHeader"
+                        >
+                        <ImageView
+                            android:layout_margin="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_chart_donut"
+                            android:padding="5dp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Trips statistics"
+                            android:layout_marginTop="20dp"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
+                            />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="3"
+                        android:layout_below="@id/statisticsHeader"
+                        android:padding="5dp"
+                        >
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="150dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:background="@drawable/rounded_primary"
+                            android:id="@+id/silverSubscription"
+                            >
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_car_connected"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="50dp"
+                                android:contentDescription="@string/icon"
+                                app:tint="?buttonStyle" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Upcoming"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="7dp"
+                                android:textStyle="bold"
+                                android:textColor="@color/white"
+                                />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="7dp"
+                                >
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="3"
+                                    android:textColor="@color/white"
+                                    android:textSize="18sp"
+                                    />
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="150dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:background="@drawable/rounded_primary"
+                            android:layout_marginLeft="5dp"
+                            >
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_car_plus"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="50dp"
+                                android:contentDescription="@string/icon"
+                                app:tint="?buttonStyle" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Completed"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="7dp"
+                                android:textStyle="bold"
+                                android:textColor="@color/white"
+                                />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="7dp"
+                                >
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="43"
+                                    android:textColor="@color/white"
+                                    android:textSize="18sp"
+                                    />
+
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="150dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:background="@drawable/rounded_primary"
+                            android:layout_marginLeft="5dp"
+                            >
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_car_arrow_left"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="50dp"
+                                android:contentDescription="@string/icon"
+                                app:tint="?buttonStyle" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Cancelled"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="7dp"
+                                android:textStyle="bold"
+                                android:textColor="@color/white"
+                                />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="7dp"
+                                >
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="15"
+                                    android:textColor="@color/white"
+                                    android:textSize="18sp"
+                                    />
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/your_trips"
-                android:textSize="22sp"
-                android:textStyle="bold"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginStart="20dp" />
+                android:layout_marginStart="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/your_trips"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_page_next"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="20dp" />
+            </RelativeLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"

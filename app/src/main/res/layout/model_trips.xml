@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        >
+        android:layout_marginStart="5dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,7 +38,6 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_map_marker_distance"
                 android:layout_gravity="center"
-                app:tint="#039BE5"
                 />
             <TextView
                 android:layout_width="wrap_content"
@@ -57,7 +56,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_cash_multiple"
-                app:tint="#038309"
                 android:layout_gravity="center"
                  />
             <TextView
