@@ -39,4 +39,6 @@
     <string name="terms_and_conditions">Terms and conditions</string>
     <string name="contact_and_support">Contact and support</string>
     <string name="your_trips">Your trips</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
 </resources>
