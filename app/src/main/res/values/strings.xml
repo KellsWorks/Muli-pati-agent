@@ -87,6 +87,21 @@
     <string name="allow_phone_to_receive_notifications">Allow phone to receive notifications</string>
     <string name="contact_amp_support"><![CDATA[Contact & support]]></string>
     <string name="_12_30_pm">12:30 PM</string>
+    <string name="write_your_message_here">Write your message here</string>
+    <string name="well_l_was_supposed_to">Well l was supposed to</string>
+    <string name="hello_can_we_help_you">Hello, can we help you</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="terms_conditions"><![CDATA[Terms & conditions]]></string>
+    <string name="store">Store</string>
+    <string name="google_playstore">Google PlayStore</string>
+    <string name="driver_app">Driver app</string>
+    <string name="user_app">User app</string>
+    <string name="by_creating_an_account_you_agree_to_all_the_terms_and_conditions_of_muli_pati_mobile_transportation_service_drivers_should_register_to_our_service_using_the_muli_pati_driver_app">By creating an account, you agree to all the terms and conditions of Muli pati mobile transportation service. Drivers should register to our service using the Muli pati driver app.</string>
+    <string name="terms_of_service">Terms of service</string>
+    <string name="about">About</string>
+    <string name="version_1_0_0">Version 1.0.0</string>
+    <string name="muli_pati_mobile_transport_service_is_a_malawian_transportation_system_it_offers_users_transport_from_trips_going_on_around_their_area_of_proximity">Muli pati mobile transport service is a malawian transportation system. It offers users transport from trips going on around their area of proximity.</string>
+    <string name="muli_pati">Muli pati?</string>
 
     <string-array name="cars">
         <item>Mazda Demio</item>
