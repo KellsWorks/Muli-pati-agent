@@ -54,6 +54,22 @@
     <string name="recent">Recent</string>
     <string name="notifications">Notifications</string>
     <string name="subscriptions">Subscriptions</string>
+    <string name="permanently_delete_this_account">Permanently delete this account</string>
+    <string name="account_deactivation">Account deactivation</string>
+    <string name="blantyre_malawi">Blantyre, Malawi</string>
+    <string name="location">Location</string>
+    <string name="_265_999_67_99_75">+265 999 67 99 75</string>
+    <string name="phone_number">Phone number</string>
+    <string name="jmsampha_mulipati_com">jmsampha@mulipati.com</string>
+    <string name="email_address">Email address</string>
+    <string name="user_details">User details</string>
+    <string name="_15">15</string>
+    <string name="cancelled">Cancelled</string>
+    <string name="_3">3</string>
+    <string name="completed">Completed</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="_0">0</string>
+    <string name="personal_info">Personal info</string>
 
     <string-array name="cars">
         <item>Mazda Demio</item>
