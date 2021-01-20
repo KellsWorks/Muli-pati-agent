@@ -52,7 +52,6 @@
     <string name="viewed">Viewed</string>
     <string name="recent">Recent</string>
     <string name="notifications">Notifications</string>
-    <string name="subscriptions">Subscriptions</string>
     <string name="permanently_delete_this_account">Permanently delete this account</string>
     <string name="account_deactivation">Account deactivation</string>
     <string name="blantyre_malawi">Blantyre, Malawi</string>
@@ -69,6 +68,8 @@
     <string name="upcoming">Upcoming</string>
     <string name="_0">0</string>
     <string name="personal_info">Personal info</string>
+    <string name="subscriptions">Subscriptions</string>
+    <string name="reset_subscription">Reset subscription</string>
 
     <string-array name="cars">
         <item>Mazda Demio</item>
