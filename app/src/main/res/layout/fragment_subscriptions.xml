@@ -19,7 +19,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="28dp"
-            android:id="@+id/personalBack"
+            android:id="@+id/subscriptionBack"
             android:src="@drawable/ic_arrow_back"
             android:contentDescription="@string/icon" />
 
@@ -40,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_below="@id/personalBack"
+            android:layout_below="@id/subscriptionBack"
             android:layout_marginTop="30dp"
             >
 
@@ -48,13 +48,14 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:layout_marginLeft="20dp"
-                   android:layout_marginStart="20dp">
+                   android:layout_marginStart="20dp"
+                   tools:ignore="UseCompoundDrawables">
                    <ImageView
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:src="@drawable/ic_silver_medal"
                        android:layout_gravity="center"
-                       />
+                       android:contentDescription="@string/image" />
                    <TextView
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
@@ -71,91 +72,96 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Plan benefits"
+                android:text="@string/plan_benefits"
                 android:layout_marginLeft="20dp"
                 android:textSize="22sp"
                 android:textStyle="bold"
-                />
+                android:layout_marginStart="20dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                >
+                tools:ignore="UseCompoundDrawables">
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_flash"
                     android:layout_marginLeft="20dp"
-                    />
+                    android:layout_marginStart="20dp"
+                    android:contentDescription="@string/image" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Unlimited customers in your reach"
+                    android:text="@string/unlimited_customers_in_your_reach"
                     android:textSize="17sp"
                     android:layout_marginLeft="10dp"
-                    />
+                    android:layout_marginStart="10dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                >
+                tools:ignore="UseCompoundDrawables">
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_shield_check"
                     android:layout_marginLeft="20dp"
-                    />
+                    android:contentDescription="@string/image"
+                    android:layout_marginStart="20dp" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Secure interaction"
+                    android:text="@string/secure_interaction"
                     android:textSize="17sp"
                     android:layout_marginLeft="10dp"
-                    />
+                    android:layout_marginStart="10dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                >
+                tools:ignore="UseCompoundDrawables">
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_phone_dial"
                     android:layout_marginLeft="20dp"
-                    app:tint="#9808D6" />
+                    app:tint="#9808D6"
+                    android:contentDescription="@string/image"
+                    android:layout_marginStart="20dp" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="24/7 service support"
+                    android:text="@string/_24_7_service_support"
                     android:textSize="17sp"
                     android:layout_marginLeft="10dp"
-                    />
+                    android:layout_marginStart="10dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                >
+                tools:ignore="UseCompoundDrawables">
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_car_plus"
                     android:layout_marginLeft="20dp"
                     android:layout_marginStart="20dp"
-                    app:tint="#FDD835" />
+                    app:tint="#FDD835"
+                    android:contentDescription="@string/image" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Post 10 rides per day"
+                    android:text="@string/post_10_rides_per_day"
                     android:textSize="17sp"
                     android:layout_marginLeft="10dp"
-                    />
+                    android:layout_marginStart="10dp" />
             </LinearLayout>
 
 
@@ -173,7 +179,9 @@
                     android:layout_alignParentRight="true"
                     android:layout_margin="20dp"
                     android:src="@drawable/ic_checkbox_multiple_marked_outline"
-                    app:tint="#969696" />
+                    app:tint="#969696"
+                    android:layout_alignParentEnd="true"
+                    android:contentDescription="@string/icon" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -183,20 +191,20 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Per month"
+                        android:text="@string/per_month"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="10dp"
                         android:textSize="17sp"
                         android:textStyle="bold"
-                        />
+                        android:layout_marginStart="10dp" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="MK1,000.00 in advance"
+                        android:text="@string/mk1_000_00_in_advance"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginBottom="10dp"
-                        />
+                        android:layout_marginStart="10dp" />
 
                 </LinearLayout>
             </RelativeLayout>
@@ -214,24 +222,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    >
+                    tools:ignore="UselessParent">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Per 6 month"
+                        android:text="@string/per_6_month"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="10dp"
                         android:textSize="17sp"
                         android:textStyle="bold"
-                        />
+                        android:layout_marginStart="10dp" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="MK6,000.00 in advance"
+                        android:text="@string/mk6_000_00_in_advance"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginBottom="10dp"
-                        />
+                        android:layout_marginStart="10dp" />
 
                 </LinearLayout>
             </RelativeLayout>
@@ -249,24 +257,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    >
+                    tools:ignore="UselessParent">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Per year"
+                        android:text="@string/per_year"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="10dp"
                         android:textSize="17sp"
                         android:textStyle="bold"
-                        />
+                        android:layout_marginStart="10dp" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="MK12,000.00 in advance"
+                        android:text="@string/mk12_000_00_in_advance"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginBottom="10dp"
-                        />
+                        android:layout_marginStart="10dp" />
 
                 </LinearLayout>
             </RelativeLayout>
@@ -279,14 +287,45 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    >
+                    tools:ignore="UseCompoundDrawables,UselessParent">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_cart_arrow_up"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        app:tint="#969696"
+                        android:contentDescription="@string/image"
+                        android:layout_marginStart="20dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/upgrade_plan"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginStart="10dp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    tools:ignore="UseCompoundDrawables,UselessParent">
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_restore"
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="10dp"
-                        app:tint="@color/red" />
+                        app:tint="@color/red"
+                        android:contentDescription="@string/icon"
+                        android:layout_marginStart="20dp" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -294,7 +333,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="10dp"
                         android:textColor="@color/red"
-                        />
+                        android:layout_marginStart="10dp" />
 
                 </LinearLayout>
             </RelativeLayout>

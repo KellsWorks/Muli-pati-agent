@@ -70,6 +70,18 @@
     <string name="personal_info">Personal info</string>
     <string name="subscriptions">Subscriptions</string>
     <string name="reset_subscription">Reset subscription</string>
+    <string name="upgrade_plan">Upgrade plan</string>
+    <string name="plan_benefits">Plan benefits</string>
+    <string name="unlimited_customers_in_your_reach">Unlimited customers in your reach</string>
+    <string name="secure_interaction">Secure interaction</string>
+    <string name="_24_7_service_support">24/7 service support</string>
+    <string name="post_10_rides_per_day">Post 10 rides per day</string>
+    <string name="per_month">Per month</string>
+    <string name="mk1_000_00_in_advance">MK1,000.00 in advance</string>
+    <string name="per_6_month">Per 6 month</string>
+    <string name="mk6_000_00_in_advance">MK6,000.00 in advance</string>
+    <string name="per_year">Per year</string>
+    <string name="mk12_000_00_in_advance">MK12,000.00 in advance</string>
 
     <string-array name="cars">
         <item>Mazda Demio</item>
