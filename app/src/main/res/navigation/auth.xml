@@ -53,5 +53,9 @@
     <fragment
         android:id="@+id/resetPasswordFragment"
         android:name="app.mulipati_agent.auth.forgot.ResetPasswordFragment"
-        android:label="ResetPasswordFragment" />
+        android:label="ResetPasswordFragment" >
+        <action
+            android:id="@+id/action_resetPasswordFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
 </navigation>

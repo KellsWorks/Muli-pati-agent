@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import app.mulipati_agent.MainActivity
+import app.mulipati_agent.R
 import app.mulipati_agent.databinding.FragmentResetPasswordBinding
 
 class ResetPasswordFragment : Fragment() {
@@ -30,16 +31,7 @@ class ResetPasswordFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         resetPasswordBinding.passwordToSign.setOnClickListener {
-            requireActivity()
-                .startActivity(
-                    Intent(
-                        requireActivity(), MainActivity::class.java
-                    )
-                )
-            requireActivity()
-                .overridePendingTransition(
-                    android.R.anim.slide_out_right, android.R.anim.slide_in_left
-                )
+            findNavController().navigate(R.id.action_resetPasswordFragment_to_signInFragment)
         }
 
         resetPasswordBinding.resetPasswordBack.setOnClickListener {
