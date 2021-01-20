@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import app.mulipati.data.Notifications
 import app.mulipati_agent.R
 import app.mulipati_agent.databinding.FragmentNotificationsBinding
@@ -24,6 +25,14 @@ class NotificationsFragment : Fragment() {
 
         return notificationsBinding.root
 
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        notificationsBinding.notificationsBack.setOnClickListener {
+            findNavController().navigateUp()
+        }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
