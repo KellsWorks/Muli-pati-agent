@@ -39,15 +39,11 @@ class SubscribeFragment : Fragment() {
         }
 
         subscribeBinding.bronzeSubscription.setOnClickListener {
-            requireActivity().startActivity(Intent(
-                    requireActivity(), MainActivity::class.java
-            ))
+            findNavController().navigate(R.id.action_subscribeFragment_to_continuePlanFragment)
         }
 
         subscribeBinding.goldSubscription.setOnClickListener {
-            requireActivity().startActivity(Intent(
-                    requireActivity(), MainActivity::class.java
-            ))
+            findNavController().navigate(R.id.action_subscribeFragment_to_continuePlanFragment)
         }
     }
 
