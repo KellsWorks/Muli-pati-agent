@@ -22,5 +22,13 @@
     <fragment
         android:id="@+id/subscribeFragment"
         android:name="app.mulipati_agent.auth.subscribe.SubscribeFragment"
-        android:label="SubscribeFragment" />
+        android:label="SubscribeFragment" >
+        <action
+            android:id="@+id/action_subscribeFragment_to_continuePlanFragment"
+            app:destination="@id/continuePlanFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/continuePlanFragment"
+        android:name="app.mulipati_agent.ui.plans.ContinuePlanFragment"
+        android:label="ContinuePlanFragment" />
 </navigation>

@@ -102,6 +102,7 @@
     <string name="version_1_0_0">Version 1.0.0</string>
     <string name="muli_pati_mobile_transport_service_is_a_malawian_transportation_system_it_offers_users_transport_from_trips_going_on_around_their_area_of_proximity">Muli pati mobile transport service is a malawian transportation system. It offers users transport from trips going on around their area of proximity.</string>
     <string name="muli_pati">Muli pati?</string>
+    <string name="continue_">Continue</string>
 
     <string-array name="cars">
         <item>Mazda Demio</item>
