@@ -22,6 +22,18 @@
         <action
             android:id="@+id/action_profileFragment_to_notificationsFragment"
             app:destination="@id/notificationsFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_subscriptionsFragment"
+            app:destination="@id/subscriptionsFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_termsFragment"
+            app:destination="@id/termsFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_supportFragment"
+            app:destination="@id/supportFragment" />
     </fragment>
     <fragment
         android:id="@+id/addTripFragment"
@@ -31,4 +43,20 @@
         android:id="@+id/notificationsFragment"
         android:name="app.mulipati_agent.ui.notifications.NotificationsFragment"
         android:label="NotificationsFragment" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="app.mulipati_agent.ui.settings.SettingsFragment"
+        android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/subscriptionsFragment"
+        android:name="app.mulipati_agent.ui.subscriptions.SubscriptionsFragment"
+        android:label="SubscriptionsFragment" />
+    <fragment
+        android:id="@+id/termsFragment"
+        android:name="app.mulipati_agent.ui.terms.TermsFragment"
+        android:label="TermsFragment" />
+    <fragment
+        android:id="@+id/supportFragment"
+        android:name="app.mulipati_agent.ui.support.SupportFragment"
+        android:label="SupportFragment" />
 </navigation>
