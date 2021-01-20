@@ -85,6 +85,8 @@
     <string name="theme">Theme</string>
     <string name="toggle_dark_theme">Toggle dark theme</string>
     <string name="allow_phone_to_receive_notifications">Allow phone to receive notifications</string>
+    <string name="contact_amp_support"><![CDATA[Contact & support]]></string>
+    <string name="_12_30_pm">12:30 PM</string>
 
     <string-array name="cars">
         <item>Mazda Demio</item>
