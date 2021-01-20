@@ -82,6 +82,9 @@
     <string name="mk6_000_00_in_advance">MK6,000.00 in advance</string>
     <string name="per_year">Per year</string>
     <string name="mk12_000_00_in_advance">MK12,000.00 in advance</string>
+    <string name="theme">Theme</string>
+    <string name="toggle_dark_theme">Toggle dark theme</string>
+    <string name="allow_phone_to_receive_notifications">Allow phone to receive notifications</string>
 
     <string-array name="cars">
         <item>Mazda Demio</item>
