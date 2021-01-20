@@ -30,6 +30,10 @@ class SubscribeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        subscribeBinding.subscribeBack.setOnClickListener {
+            findNavController().navigateUp()
+        }
+
         subscribeBinding.silverSubscription.setOnClickListener {
             findNavController().navigate(R.id.action_subscribeFragment_to_continuePlanFragment)
         }

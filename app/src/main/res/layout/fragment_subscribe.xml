@@ -14,7 +14,7 @@
             android:layout_marginStart="28dp"
             android:layout_marginLeft="28dp"
             android:layout_marginTop="32dp"
-            android:id="@+id/registerBack"
+            android:id="@+id/subscribeBack"
             android:src="@drawable/ic_arrow_back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -139,20 +139,6 @@
                             android:textStyle="bold"
                             tools:ignore="SmallSp" />
                     </LinearLayout>
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        >
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_book_information_variant"
-                            android:layout_alignParentRight="true"
-                            android:padding="2dp"
-                            android:background="@drawable/rounded_pure_white"
-                            android:layout_alignParentEnd="true"
-                            android:contentDescription="@string/icon" />
-                    </RelativeLayout>
                 </LinearLayout>
 
                 <LinearLayout
@@ -204,20 +190,7 @@
                             android:textStyle="bold"
                             tools:ignore="SmallSp" />
                     </LinearLayout>
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        >
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_book_information_variant"
-                            android:layout_alignParentRight="true"
-                            android:padding="2dp"
-                            android:background="@drawable/rounded_pure_white"
-                            android:layout_alignParentEnd="true"
-                            android:contentDescription="@string/icon" />
-                    </RelativeLayout>
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -269,20 +242,7 @@
                             android:textStyle="bold"
                             tools:ignore="SmallSp" />
                     </LinearLayout>
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        >
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_book_information_variant"
-                            android:layout_alignParentRight="true"
-                            android:padding="2dp"
-                            android:background="@drawable/rounded_pure_white"
-                            android:layout_alignParentEnd="true"
-                            android:contentDescription="@string/icon" />
-                    </RelativeLayout>
+
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
