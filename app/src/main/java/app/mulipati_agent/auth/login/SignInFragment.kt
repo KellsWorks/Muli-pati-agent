@@ -29,7 +29,17 @@ class SignInFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        signInBinding.createAccount.setOnClickListener {
+        navigate()
+    }
+
+    private fun navigate(){
+        signInBinding.forgotPassword.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_signInFragment_to_forgotPasswordFragment
+            )
+        }
+
+        signInBinding.SignInButton.setOnClickListener {
             requireActivity()
                 .startActivity(
                     Intent(
@@ -40,6 +50,12 @@ class SignInFragment : Fragment() {
                 .overridePendingTransition(
                     android.R.anim.slide_out_right, android.R.anim.slide_in_left
                 )
+        }
+
+        signInBinding.createAccount.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_signInFragment_to_registerFragment
+            )
         }
     }
 }
