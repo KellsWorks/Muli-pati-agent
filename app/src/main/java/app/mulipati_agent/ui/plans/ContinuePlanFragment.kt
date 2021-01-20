@@ -1,22 +1,34 @@
 package app.mulipati_agent.ui.plans
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import app.mulipati_agent.R
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import app.mulipati_agent.databinding.FragmentContinuePlanBinding
 
 
 class ContinuePlanFragment : Fragment() {
 
+    private lateinit var continuePlanBinding: FragmentContinuePlanBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_continue_plan, container, false)
+
+        continuePlanBinding = FragmentContinuePlanBinding.inflate(inflater, container, false)
+        continuePlanBinding.lifecycleOwner = this
+
+        return continuePlanBinding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        continuePlanBinding.continuePlanBack.setOnClickListener {
+            findNavController().navigateUp()
+        }
+    }
 }

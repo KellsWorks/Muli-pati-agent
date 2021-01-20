@@ -17,7 +17,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="28dp"
-            android:id="@+id/subscriptionBack"
+            android:id="@+id/continuePlanBack"
             android:src="@drawable/ic_close"
             android:contentDescription="@string/icon" />
 
