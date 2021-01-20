@@ -197,18 +197,18 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/continuePlan"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="40dp"
-            android:text="@string/continue_"
-            android:textColor="@color/white"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:textSize="17sp"
-            android:textAllCaps="false"
-            android:textStyle="bold"
+            android:layout_marginBottom="40dp"
             android:background="@drawable/button"
-            />
+            android:text="@string/continue_"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:textStyle="bold" />
     </RelativeLayout>
 </layout>

@@ -10,6 +10,9 @@
         <action
             android:id="@+id/action_signInFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_forgotPasswordFragment"
+            app:destination="@id/forgotPasswordFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -31,4 +34,24 @@
         android:id="@+id/continuePlanFragment"
         android:name="app.mulipati_agent.ui.plans.ContinuePlanFragment"
         android:label="ContinuePlanFragment" />
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="app.mulipati_agent.auth.forgot.ForgotPasswordFragment"
+        android:label="ForgotPasswordFragment" >
+        <action
+            android:id="@+id/action_forgotPasswordFragment_to_forgotPasswordResetFragment"
+            app:destination="@id/forgotPasswordResetFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgotPasswordResetFragment"
+        android:name="app.mulipati_agent.auth.forgot.ForgotPasswordResetFragment"
+        android:label="ForgotPasswordResetFragment" >
+        <action
+            android:id="@+id/action_forgotPasswordResetFragment_to_resetPasswordFragment"
+            app:destination="@id/resetPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resetPasswordFragment"
+        android:name="app.mulipati_agent.auth.forgot.ResetPasswordFragment"
+        android:label="ResetPasswordFragment" />
 </navigation>
