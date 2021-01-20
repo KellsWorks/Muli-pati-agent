@@ -26,11 +26,30 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        navigate()
+    }
+
+    private fun navigate(){
+
         profileBinding.notifictions.setOnClickListener {
             findNavController().navigate(R.id.action_profileFragment_to_notificationsFragment)
         }
-       
+
+        profileBinding.toSettings.setOnClickListener {
+            findNavController().navigate(R.id.action_profileFragment_to_settingsFragment)
+        }
+
+        profileBinding.toSubscription.setOnClickListener {
+            findNavController().navigate(R.id.action_profileFragment_to_subscriptionsFragment)
+        }
+
+        profileBinding.toTerms.setOnClickListener {
+            findNavController().navigate(R.id.action_profileFragment_to_termsFragment)
+        }
+
+        profileBinding.toSupport.setOnClickListener {
+            findNavController().navigate(R.id.action_profileFragment_to_supportFragment)
+        }
+
     }
-
-
 }
