@@ -43,15 +43,16 @@
             android:layout_marginRight="20dp"
             android:background="@drawable/rounded_white"
             android:padding="5dp"
+            android:id="@+id/detailsContainer"
             >
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 >
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/ic_map_marker_distance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_map_marker"
                     android:layout_gravity="center"
                     app:tint="@color/red"
                     android:contentDescription="@string/icon" />
@@ -61,6 +62,7 @@
                     android:text="@string/trip_details"
                     android:layout_gravity="center"
                     android:textSize="18sp"
+                    android:textStyle="bold"
                     android:layout_marginLeft="10dp"
                     android:layout_marginStart="10dp" />
             </LinearLayout>
@@ -112,7 +114,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Number of passengers"
+                    android:text="Number of passengers:"
                     />
                 <Spinner
                     android:layout_width="match_parent"
@@ -122,7 +124,132 @@
                     android:layout_gravity="center"
                     android:layout_marginStart="10dp" />
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pick_up_place"
+                    />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    android:background="@drawable/rectangle_stroked"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp" />
+            </LinearLayout>
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/rounded_white"
+            android:layout_below="@id/detailsContainer"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_cash_multiple"
+                    android:layout_gravity="center"
+                    app:tint="@color/teal_700"
+                    android:contentDescription="@string/icon" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pricing"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fare_per_passenger"
+                    />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/amount_in_kwacha"
+                    android:textSize="14sp"
+                    android:inputType="number"
+                    android:padding="5dp"
+                    android:background="@drawable/rectangle_stroked"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/car_type"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_margin="10dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/select_from_dropdown"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp" />
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/cars"
+                    />
+            </LinearLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/mazda_demio"
+                android:layout_marginTop="10dp"
+                />
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/button"
+            android:layout_marginLeft="28dp"
+            android:layout_marginRight="28dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="40dp"
+            android:text="@string/create_account"
+            android:id="@+id/RegisterButton"
+            android:textSize="17sp"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            />
     </RelativeLayout>
 
 </layout>
