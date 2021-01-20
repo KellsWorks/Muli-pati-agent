@@ -53,6 +53,7 @@
     <string name="viewed">Viewed</string>
     <string name="recent">Recent</string>
     <string name="notifications">Notifications</string>
+    <string name="subscriptions">Subscriptions</string>
 
     <string-array name="cars">
         <item>Mazda Demio</item>
