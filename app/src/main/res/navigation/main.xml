@@ -34,6 +34,9 @@
         <action
             android:id="@+id/action_profileFragment_to_supportFragment"
             app:destination="@id/supportFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_personalFragment"
+            app:destination="@id/personalFragment" />
     </fragment>
     <fragment
         android:id="@+id/addTripFragment"
@@ -59,4 +62,8 @@
         android:id="@+id/supportFragment"
         android:name="app.mulipati_agent.ui.support.SupportFragment"
         android:label="SupportFragment" />
+    <fragment
+        android:id="@+id/personalFragment"
+        android:name="app.mulipati_agent.ui.personal.PersonalFragment"
+        android:label="PersonalFragment" />
 </navigation>

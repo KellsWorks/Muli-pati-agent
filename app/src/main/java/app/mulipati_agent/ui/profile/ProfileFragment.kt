@@ -51,5 +51,8 @@ class ProfileFragment : Fragment() {
             findNavController().navigate(R.id.action_profileFragment_to_supportFragment)
         }
 
+        profileBinding.toPersonal.setOnClickListener {
+            findNavController().navigate(R.id.action_profileFragment_to_personalFragment)
+        }
     }
 }
