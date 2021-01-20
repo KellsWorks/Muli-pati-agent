@@ -50,6 +50,9 @@
     <string name="select_from_dropdown">Select from dropdown:</string>
     <string name="pick_up_place">Pick up place:</string>
     <string name="kameza_round_about">Kameza round about</string>
+    <string name="viewed">Viewed</string>
+    <string name="recent">Recent</string>
+    <string name="notifications">Notifications</string>
 
     <string-array name="cars">
         <item>Mazda Demio</item>
