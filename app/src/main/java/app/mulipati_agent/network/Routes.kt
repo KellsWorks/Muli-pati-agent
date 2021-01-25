@@ -11,7 +11,7 @@ interface Routes {
 
     //User routes
 
-    @POST("v1/register")
+    @POST("v1/register-admin")
     @FormUrlEncoded
     fun register(
         @Field("name") name: String?,

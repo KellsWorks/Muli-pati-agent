@@ -3,14 +3,17 @@
     package="app.mulipati_agent">
 
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_icon"
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_icon"
+        android:usesCleartextTraffic="true"
         android:supportsRtl="true"
         android:theme="@style/Theme.MuliPatiAgent">
-        <activity android:name=".auth.Authentication"></activity>
+        <activity android:name=".auth.Authentication"/>
         <activity android:name=".onboard.OnBoarding" />
         <activity
             android:name=".activities.SplashScreenActivity"

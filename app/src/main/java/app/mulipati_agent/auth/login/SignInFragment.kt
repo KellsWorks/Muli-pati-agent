@@ -1,11 +1,13 @@
 package app.mulipati_agent.auth.login
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import app.mulipati_agent.MainActivity
 import app.mulipati_agent.R
@@ -30,6 +32,25 @@ class SignInFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         navigate()
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        val tokenEdit = requireActivity()
+            .getSharedPreferences("remember_token", Context.MODE_PRIVATE)
+
+
+        if (tokenEdit.getString("token", "")?.isNotEmpty()!!){
+
+            findNavController().navigate(R.id.action_signInFragment_to_subscribeFragment)
+
+            Toast.makeText(
+                requireContext(),
+                "You are already registered...",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
     }
 
     private fun navigate(){

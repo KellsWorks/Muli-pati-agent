@@ -20,6 +20,7 @@ import app.mulipati_agent.network.responses.RegisterResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import timber.log.Timber
 
 class RegisterFragment : Fragment() {
 
@@ -64,22 +65,6 @@ class RegisterFragment : Fragment() {
         }
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-        val tokenEdit = requireActivity()
-            .getSharedPreferences("remember_token", Context.MODE_PRIVATE)
-        if (tokenEdit.getString("token", "")?.isNotEmpty()!!){
-
-            findNavController().navigate(R.id.action_registerFragment_to_subscribeFragment)
-
-            Toast.makeText(
-                requireContext(),
-                "You are already registered...",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
-    }
 
     private fun validate(): Boolean{
 
@@ -147,6 +132,7 @@ class RegisterFragment : Fragment() {
                     "A network error occurred...",
                     Toast.LENGTH_SHORT
                 ).show()
+                Timber.e(t)
                 dialog.dismiss()
             }
 
