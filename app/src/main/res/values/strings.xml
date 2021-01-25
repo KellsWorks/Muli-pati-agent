@@ -110,6 +110,7 @@
     <string name="enter_the_pin_code_sent_to_your_mobile_phone">Enter the pin code sent to your mobile phone.</string>
     <string name="reset_password">Reset password</string>
     <string name="new_password">New password</string>
+    <string name="confirm_password">Confirm password</string>
 
     <string-array name="cars">
         <item>Mazda Demio</item>

@@ -1,11 +1,14 @@
 package app.mulipati_agent.onboard
 
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.viewpager.widget.ViewPager
 import app.mulipati_agent.R
 import app.mulipati_agent.adapters.PagerAdapter
+import app.mulipati_agent.auth.Authentication
 import app.mulipati_agent.databinding.ActivityOnBoardingBinding
 
 class OnBoarding : AppCompatActivity() {
@@ -18,6 +21,20 @@ class OnBoarding : AppCompatActivity() {
         onBoardingBinding = DataBindingUtil.setContentView(this, R.layout.activity_on_boarding)
 
         setupViewPager()
+
+        val preferences = getSharedPreferences("onBoard", Context.MODE_PRIVATE)
+        val check: String = preferences.getString("isFirstTime", "").toString()
+
+        if (check == "yes"){
+            val intent = Intent(this, Authentication::class.java)
+            startActivity(intent)
+            finish()
+        }else{
+            val editor = preferences.edit()
+            editor.putString("isFirstTime", "yes")
+            editor.apply()
+        }
+
     }
 
 

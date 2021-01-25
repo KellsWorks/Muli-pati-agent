@@ -1,13 +1,11 @@
 package app.mulipati_agent.auth.subscribe
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import app.mulipati_agent.MainActivity
 import app.mulipati_agent.R
 import app.mulipati_agent.databinding.FragmentSubscribeBinding
 
