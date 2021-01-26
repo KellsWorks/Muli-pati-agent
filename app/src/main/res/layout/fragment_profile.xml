@@ -102,6 +102,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:src="@drawable/avatar04"
+                        android:id="@+id/userAvatar"
                         app:civ_border_width="4dp"
                         app:civ_border_color="@color/red"
                         app:civ_border_overlay="true"
@@ -132,6 +133,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/jerome_msapha"
+                            android:id="@+id/userName"
                             android:textStyle="bold"
                             android:textSize="18sp"
                             />
@@ -152,6 +154,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/phone_no"
+                            android:id="@+id/userPhone"
                             android:layout_marginLeft="10dp"
                             android:layout_marginStart="10dp" />
                     </LinearLayout>
