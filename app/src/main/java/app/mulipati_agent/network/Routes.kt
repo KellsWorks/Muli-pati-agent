@@ -1,7 +1,7 @@
 package app.mulipati_agent.network
 
 import app.mulipati.data.LocationResponse
-import app.mulipati.network.responses.account.AccountUpdateResponse
+import app.mulipati_agent.network.responses.AccountUpdateResponse
 import app.mulipati_agent.network.responses.RegisterResponse
 import app.mulipati_agent.network.responses.SubscriptionResponse
 import app.mulipati_agent.network.responses.User

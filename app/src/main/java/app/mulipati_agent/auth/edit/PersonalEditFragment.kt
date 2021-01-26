@@ -14,7 +14,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
-import app.mulipati.network.responses.account.AccountUpdateResponse
+import app.mulipati_agent.network.responses.AccountUpdateResponse
 import app.mulipati_agent.R
 import app.mulipati_agent.databinding.FragmentPersonalEditBinding
 import app.mulipati_agent.network.ApiClient
@@ -142,9 +142,9 @@ class PersonalEditFragment : Fragment() {
 
                         val userPref =
                             context?.getSharedPreferences("user", Context.MODE_PRIVATE)?.edit()
-                        userPref?.putString("name", response.body()?.user.name)
-                        userPref?.putString("phone", response.body()?.user.phone)
-                        userPref?.putString("email", response.body()?.profile.email)
+                        userPref?.putString("name", response.body()?.user?.name)
+                        userPref?.putString("phone", response.body()?.user?.phone)
+                        userPref?.putString("email", response.body()?.profile?.email)
                         userPref?.apply()
 
                         Toast.makeText(

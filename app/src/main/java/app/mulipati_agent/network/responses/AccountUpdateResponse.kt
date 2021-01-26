@@ -1,4 +1,4 @@
-package app.mulipati.network.responses.account
+package app.mulipati_agent.network.responses
 
 data class AccountUpdateResponse(
     val profile: Profile,
