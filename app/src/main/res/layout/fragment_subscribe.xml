@@ -85,6 +85,7 @@
                 android:text="@string/select_plan"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                android:layout_marginBottom="10dp"
                 />
 
             <LinearLayout
@@ -117,28 +118,6 @@
                         android:textColor="@color/white"
                         />
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="7dp"
-                        >
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/mk1_000"
-                            android:textColor="@color/white"
-                            android:textSize="13sp"
-                            />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/month"
-                            android:textSize="11sp"
-                            android:textColor="@color/white"
-                            android:textStyle="bold"
-                            tools:ignore="SmallSp" />
-                    </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
@@ -168,28 +147,6 @@
                         android:textColor="@color/white"
                         />
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="7dp"
-                        >
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/mk_2000"
-                            android:textColor="@color/white"
-                            android:textSize="13sp"
-                            />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/month"
-                            android:textSize="11sp"
-                            android:textColor="@color/white"
-                            android:textStyle="bold"
-                            tools:ignore="SmallSp" />
-                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -219,29 +176,6 @@
                         android:textStyle="bold"
                         android:textColor="@color/white"
                         />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="7dp"
-                        >
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/mk_5_000"
-                            android:textColor="@color/white"
-                            android:textSize="13sp"
-                            />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/month"
-                            android:textSize="11sp"
-                            android:textColor="@color/white"
-                            android:textStyle="bold"
-                            tools:ignore="SmallSp" />
-                    </LinearLayout>
 
                 </LinearLayout>
             </LinearLayout>

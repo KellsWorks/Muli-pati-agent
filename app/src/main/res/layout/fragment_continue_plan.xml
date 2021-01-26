@@ -31,7 +31,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="65dp"
             android:id="@+id/continuePlanTitle"
-            android:text="Continue with silver plan"
+            android:text=""
             android:textSize="30sp"
             android:textStyle="bold" />
 
@@ -152,9 +152,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="You have made no payment yet!"
+                android:text=""
                 android:textColor="@color/red"
                 android:layout_marginLeft="20dp"
+                android:id="@+id/subscribeBanner"
                 android:textStyle="bold"
                 android:layout_marginStart="20dp" />
 
@@ -174,6 +175,7 @@
                         android:layout_height="80dp"
                         android:layout_margin="20dp"
                         android:src="@drawable/mpamba"
+                        android:id="@+id/subscribeMpamba"
                         android:layout_gravity="center"
                         />
                 </LinearLayout>
@@ -190,6 +192,7 @@
                         android:layout_margin="20dp"
                         android:src="@drawable/airtel"
                         android:layout_gravity="center"
+                        android:id="@+id/subscribeAirtel"
                         />
                 </LinearLayout>
             </LinearLayout>

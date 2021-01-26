@@ -8,7 +8,6 @@
     tools:context=".ui.dashboard.DashboardFragment">
 
 
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -31,18 +30,20 @@
             android:layout_alignParentTop="true"
             android:layout_marginEnd="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginTop="34dp"
+            android:layout_marginTop="45dp"
             >
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_office_building_marker"
                 android:layout_gravity="center"
-                app:tint="@color/red" />
+                app:tint="@color/red"
+                android:contentDescription="@string/icon" />
             <Spinner
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:entries="@array/districts"
+                android:id="@+id/districtSelect"
                 android:layout_marginLeft="5dp"
                 android:textColor="@color/red"
                 android:layout_gravity="center"

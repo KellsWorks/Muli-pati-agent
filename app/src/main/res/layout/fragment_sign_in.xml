@@ -78,15 +78,16 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:startIconDrawable="@drawable/ic_user_avatar"
+                    app:startIconDrawable="@drawable/ic_phone"
                     app:boxBackgroundColor="?boxBackgroundColor"
+                    android:id="@+id/signInPhoneLayout"
                     >
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:hint="Username"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/phone_number"
                         android:textStyle="bold"
-
+                        android:id="@+id/signInPhone"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
@@ -102,13 +103,15 @@
                     app:passwordToggleEnabled="true"
                     app:boxBackgroundColor="?boxBackgroundColor"
                     app:startIconDrawable="@drawable/ic_lock_locked"
+                    android:id="@+id/signInPasswordLayout"
                     >
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="wrap_content"
                         android:hint="Password"
                         android:inputType="textPassword"
                         android:textStyle="bold"
+                        android:id="@+id/signInPassword"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
 

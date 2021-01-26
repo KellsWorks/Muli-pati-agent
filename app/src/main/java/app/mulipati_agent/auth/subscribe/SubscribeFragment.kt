@@ -1,5 +1,6 @@
 package app.mulipati_agent.auth.subscribe
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -32,17 +33,34 @@ class SubscribeFragment : Fragment() {
             findNavController().navigateUp()
         }
 
+
+
         subscribeBinding.silverSubscription.setOnClickListener {
+
+            getPlan("silver")
             findNavController().navigate(R.id.action_subscribeFragment_to_continuePlanFragment)
         }
 
         subscribeBinding.bronzeSubscription.setOnClickListener {
+
+            getPlan("bronze")
             findNavController().navigate(R.id.action_subscribeFragment_to_continuePlanFragment)
         }
 
         subscribeBinding.goldSubscription.setOnClickListener {
+
+            getPlan("premium")
             findNavController().navigate(R.id.action_subscribeFragment_to_continuePlanFragment)
         }
+    }
+
+    private fun getPlan(currentPlan: String){
+
+        val plan = context?.getSharedPreferences("plan", Context.MODE_PRIVATE)
+            ?.edit()
+        plan?.putString("current_plan", currentPlan)
+        plan?.apply()
+
     }
 
 }
