@@ -112,6 +112,8 @@
     <string name="new_password">New password</string>
     <string name="confirm_password">Confirm password</string>
     <string name="current_avatar">Current avatar</string>
+    <string name="update_your_personal_details">Update your personal details</string>
+    <string name="finish">Finish</string>
 
     <string-array name="cars">
         <item>Mazda Demio</item>

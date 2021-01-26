@@ -66,4 +66,25 @@
         android:id="@+id/personalFragment"
         android:name="app.mulipati_agent.ui.personal.PersonalFragment"
         android:label="PersonalFragment" />
+    <fragment
+        android:id="@+id/editProfileImageFragment"
+        android:name="app.mulipati_agent.auth.edit.EditProfileImageFragment"
+        android:label="fragment_edit_profile_image"
+        tools:layout="@layout/fragment_edit_profile_image" >
+        <action
+            android:id="@+id/action_editProfileImageFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_editProfileImageFragment_to_personalEditFragment"
+            app:destination="@id/personalEditFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/personalEditFragment"
+        android:name="app.mulipati_agent.auth.edit.PersonalEditFragment"
+        android:label="fragment_personal_edit"
+        tools:layout="@layout/fragment_personal_edit" >
+        <action
+            android:id="@+id/action_personalEditFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
 </navigation>
