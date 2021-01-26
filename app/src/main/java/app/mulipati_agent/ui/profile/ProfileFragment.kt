@@ -39,6 +39,10 @@ class ProfileFragment : Fragment() {
 
     private fun navigate(){
 
+        profileBinding.editProfile.setOnClickListener {
+            findNavController().navigate(R.id.action_profileFragment_to_editProfileImageFragment)
+        }
+
         profileBinding.notifictions.setOnClickListener {
             findNavController().navigate(R.id.action_profileFragment_to_notificationsFragment)
         }
@@ -77,5 +81,5 @@ class ProfileFragment : Fragment() {
             .into(profileBinding.userAvatar)
 
     }
-    
+
 }

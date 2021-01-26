@@ -1,10 +1,8 @@
 package app.mulipati_agent.network
 
 import app.mulipati.data.LocationResponse
-import app.mulipati_agent.network.responses.AccountUpdateResponse
-import app.mulipati_agent.network.responses.RegisterResponse
-import app.mulipati_agent.network.responses.SubscriptionResponse
-import app.mulipati_agent.network.responses.User
+import app.mulipati_agent.network.responses.*
+import app.mulipati_agent.network.responses.account.ImageResponse
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -35,7 +33,7 @@ interface Routes {
     fun photoUpdate(
         @Field("id") id: Int?,
         @Field("photo") photo: String?
-    ): Call<app.mulipati.data.Response?>?
+    ): Call<ImageResponse?>?
 
     @POST("v1/update-location")
     @FormUrlEncoded

@@ -139,7 +139,7 @@ class SignInFragment : Fragment() {
                     )?.edit()
 
                     response.body()?.id?.let { userPreferences?.putInt("id", it) }
-                    response.body()?.profile?.get(0)?.id.let {
+                    response.body()?.profile?.get(0)?.user_id.let {
                         if (it != null) {
                             userPreferences?.putInt("profile_id", it)
                         }

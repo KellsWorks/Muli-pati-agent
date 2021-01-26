@@ -37,6 +37,9 @@
         <action
             android:id="@+id/action_profileFragment_to_personalFragment"
             app:destination="@id/personalFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileImageFragment"
+            app:destination="@id/editProfileImageFragment" />
     </fragment>
     <fragment
         android:id="@+id/addTripFragment"
@@ -71,9 +74,6 @@
         android:name="app.mulipati_agent.auth.edit.EditProfileImageFragment"
         android:label="fragment_edit_profile_image"
         tools:layout="@layout/fragment_edit_profile_image" >
-        <action
-            android:id="@+id/action_editProfileImageFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
         <action
             android:id="@+id/action_editProfileImageFragment_to_personalEditFragment"
             app:destination="@id/personalEditFragment" />

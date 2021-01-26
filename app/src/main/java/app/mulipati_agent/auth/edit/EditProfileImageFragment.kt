@@ -18,11 +18,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
-import app.mulipati.data.Response
+import app.mulipati_agent.network.responses.Response
 import app.mulipati_agent.R
 import app.mulipati_agent.databinding.FragmentEditProfileImageBinding
 import app.mulipati_agent.network.ApiClient
 import app.mulipati_agent.network.Routes
+import app.mulipati_agent.network.responses.account.ImageResponse
 import app.mulipati_agent.util.Constants
 import com.bumptech.glide.Glide
 import retrofit2.Call
@@ -83,9 +84,10 @@ class EditProfileImageFragment : Fragment() {
         val api = ApiClient.client!!.create(Routes::class.java)
         val userPreferences = context?.getSharedPreferences("user", Context.MODE_PRIVATE)
 
-        val upload: Call<Response?>? = api.photoUpdate(userPreferences?.getInt("profile_id", 0), imageToString(bitmap).toString())
-        upload?.enqueue(object : Callback<Response?> {
-            override fun onFailure(call: Call<Response?>, t: Throwable) {
+
+        val upload: Call<ImageResponse?>? = api.photoUpdate(userPreferences?.getInt("profile_id", 0), imageToString(bitmap).toString())
+        upload?.enqueue(object : Callback<ImageResponse?> {
+            override fun onFailure(call: Call<ImageResponse?>, t: Throwable) {
                 Toast.makeText(
                     requireContext(),
                     t.message,
@@ -97,7 +99,7 @@ class EditProfileImageFragment : Fragment() {
                 dialog.dismiss()
             }
 
-            override fun onResponse(call: Call<Response?>, response: retrofit2.Response<Response?>) {
+            override fun onResponse(call: Call<ImageResponse?>, response: retrofit2.Response<ImageResponse?>) {
 
                 Toast.makeText(
                     requireContext(),
