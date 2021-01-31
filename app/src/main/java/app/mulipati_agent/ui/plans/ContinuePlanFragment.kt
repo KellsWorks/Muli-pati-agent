@@ -149,6 +149,14 @@ class ContinuePlanFragment : Fragment() {
                     Toast.LENGTH_SHORT
                 ).show()
 
+                startActivity(
+                        Intent(
+                                requireActivity(), MainActivity::class.java
+                        )
+                )
+                requireActivity().overridePendingTransition(
+                        android.R.anim.slide_out_right, android.R.anim.slide_in_left)
+
                 dialog.dismiss()
             }
 
