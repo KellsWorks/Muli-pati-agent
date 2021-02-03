@@ -9,8 +9,10 @@
     <string name="create_account">Create Account</string>
     <string name="icon">icon</string>
     <string name="dot">dot</string>
+    <string name="map_key">AIzaSyARXRQgvEWqc4hhoHq_WOPQwjRxDfijVm0"</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
+    <string name="default_notification_channel_id">Muli pati agent</string>
     <string name="already_registered">Already Registered?</string>
     <string name="sign_in">Sign in.</string>
     <string name="select_plan">Choose a pricing plan</string>
@@ -114,6 +116,21 @@
     <string name="current_avatar">Current avatar</string>
     <string name="update_your_personal_details">Update your personal details</string>
     <string name="finish">Finish</string>
+    <string name="ride_start">Ride start:</string>
+    <string name="add_this_trip">Add this trip</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+    <string name="verification">Verification</string>
+    <string name="fill_the_fields_below_to_add_a_trip">Fill the fields below to add a trip</string>
+    <string name="asterisk">*</string>
+    <string name="cred">Use my Muli pati? - agent user credentials</string>
+    <string name="cred_banner">Add trip agent name, profile picture</string>
+    <string name="details_of_trip">Details of trip</string>
+    <string name="enter_the_details_of_your_trip">Enter the details of your trip</string>
+    <string name="all_fields_are_required">All fields are required</string>
+    <string name="enter_your_start_location">Enter your start location</string>
+    <string name="show_preview">Show preview</string>
+    <string name="enter_your_destination">Enter your destination</string>
 
     <string-array name="cars">
         <item>Mazda Demio</item>

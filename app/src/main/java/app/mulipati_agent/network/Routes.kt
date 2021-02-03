@@ -1,6 +1,7 @@
 package app.mulipati_agent.network
 
 import app.mulipati.data.LocationResponse
+import app.mulipati_agent.firebase.receiver.SendToken
 import app.mulipati_agent.network.responses.*
 import app.mulipati_agent.network.responses.account.ImageResponse
 import retrofit2.Call
@@ -10,6 +11,15 @@ import retrofit2.http.POST
 
 
 interface Routes {
+
+    //Notifications token
+
+    @POST("v1/fcm-token/save")
+    @FormUrlEncoded
+    fun sendToken(
+            @Field("id") id: Int?,
+            @Field("token") token: String?
+    ): Call<SendToken?>?
 
     //User routes
 
@@ -58,5 +68,14 @@ interface Routes {
         @Field("agent_id") agent_id: Int?,
         @Field("plan") plan: String?
     ): Call<SubscriptionResponse?>?
+
+    //Subscriptions
+    @POST(" v1/subscription/subscribe")
+    @FormUrlEncoded
+    fun addTrip(
+            @Field("agent_id") agent_id: Int?,
+            @Field("plan") plan: String?
+    ): Call<SubscriptionResponse?>?
+
 
 }
