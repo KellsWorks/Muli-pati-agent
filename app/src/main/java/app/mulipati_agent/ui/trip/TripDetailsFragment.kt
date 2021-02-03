@@ -1,6 +1,10 @@
 package app.mulipati_agent.ui.trip
 
 import android.Manifest
+import android.annotation.SuppressLint
+import android.app.DatePickerDialog
+import android.app.DatePickerDialog.OnDateSetListener
+import android.app.TimePickerDialog
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.AsyncTask
@@ -24,6 +28,8 @@ import com.google.gson.Gson
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import timber.log.Timber
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class TripDetailsFragment : Fragment(), OnMapReadyCallback {
@@ -33,6 +39,7 @@ class TripDetailsFragment : Fragment(), OnMapReadyCallback {
     private lateinit var mGoogleMap: GoogleMap
 
     private lateinit var mPlacesClient: PlacesClient
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -119,12 +126,44 @@ class TripDetailsFragment : Fragment(), OnMapReadyCallback {
             tripDetailsBinding.showMap.visibility = View.GONE
             requireActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
+        tripDetailsBinding.setStartTime.setOnClickListener {
+            dateTimePicker()
+        }
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun dateTimePicker(){
+        val c: Calendar = Calendar.getInstance()
+        val mYear = c.get(Calendar.YEAR)
+        val mMonth = c.get(Calendar.MONTH)
+        val mDay = c.get(Calendar.DAY_OF_MONTH)
+
+
+        val datePickerDialog = DatePickerDialog(
+            requireContext(),
+            OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+                if (year.toString().isNotEmpty() && monthOfYear.toString().isNotEmpty() && dayOfMonth.toString().isNotEmpty()){
+                    val mHour = c[Calendar.HOUR_OF_DAY]
+                    val  mMinute = c[Calendar.MINUTE]
+                    val timePickerDialog = TimePickerDialog(
+                        requireContext(),
+                        TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute -> tripDetailsBinding.setStartTime.text = "$dayOfMonth-$monthOfYear-$year $hourOfDay:$minute" }, mHour, mMinute, false
+                    )
+                    timePickerDialog.show()
+                }
+            }, mYear, mMonth, mDay)
+        datePickerDialog.show()
+
+
     }
 
     private fun getDirectionURL(origin:LatLng, dest:LatLng) : String{
         return "https://maps.googleapis.com/maps/api/directions/json?origin=${origin.latitude},${origin.longitude}&destination=${dest.latitude},${dest.longitude}&sensor=false&mode=driving"
     }
 
+
+
+    @SuppressLint("StaticFieldLeak")
     private inner class GetDirection(val url : String) : AsyncTask<Void,Void,List<List<LatLng>>>(){
         override fun doInBackground(vararg params: Void?): List<List<LatLng>> {
             val client = OkHttpClient()

@@ -142,6 +142,14 @@
     <string name="car_specifications">Car specifications</string>
     <string name="_4_passengers">4 Passengers</string>
     <string name="car__">Mazda Demio</string>
+    <string name="rjnrgjng">Wed, Feb 10, 10:50 AM</string>
+    <string name="lorem_ipsum">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat sit sunt maxime reprehenderit natus non soluta, dolorem cumque, dolorum incidunt corrupti quidem rerum repudiandae delectus quos aut! In, harum? Praesentium?</string>
+    <string name="booking_approved">Booking approved!</string>
+    <string name="summary">Summary</string>
+    <string name="blantyre_to_zomba_trip">Blantyre to Zomba trip</string>
+    <string name="feb">12th February 2021</string>
+    <string name="mazda_demio">Mazda demio</string>
+    <string name="mk500_per_passenger">MK500 per passenger</string>
 
     <string-array name="cars">
         <item>Mazda Demio</item>
