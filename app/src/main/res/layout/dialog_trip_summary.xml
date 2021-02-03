@@ -37,6 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/blantyre_to_zomba_trip"
+            android:id="@+id/tripRoute"
             android:layout_marginLeft="5dp"
             android:layout_marginStart="5dp" />
     </LinearLayout>
@@ -54,6 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/feb"
+            android:id="@+id/tripDate"
             android:layout_marginLeft="5dp"
             android:layout_marginStart="5dp" />
     </LinearLayout>
@@ -89,6 +91,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/mk500_per_passenger"
+            android:id="@+id/summaryPrice"
             android:layout_marginLeft="5dp"
             android:layout_marginStart="5dp" />
     </LinearLayout>

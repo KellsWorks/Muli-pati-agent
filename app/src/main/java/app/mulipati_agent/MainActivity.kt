@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         setUpNavigation()
 
-        val id = getSharedPreferences("user", Context.MODE_PRIVATE).getInt("id", 0)
+        val id = getSharedPreferences("user", Context.MODE_PRIVATE).getInt("fcmId", 0)
 
         getInstance().instanceId.addOnSuccessListener { instanceIdResult ->
             BackgroundServices().sendTokenToServer(instanceIdResult.token, id)

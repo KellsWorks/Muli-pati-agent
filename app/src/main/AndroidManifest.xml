@@ -16,6 +16,7 @@
         android:roundIcon="@drawable/ic_icon"
         android:usesCleartextTraffic="true"
         android:supportsRtl="true"
+        android:name=".MuliPatiAgent"
         android:theme="@style/Theme.MuliPatiAgent">
         <activity android:name=".auth.Authentication"/>
         <activity android:name=".onboard.OnBoarding" />

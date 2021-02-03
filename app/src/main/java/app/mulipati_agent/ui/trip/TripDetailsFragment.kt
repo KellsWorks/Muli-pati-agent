@@ -5,22 +5,25 @@ import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.DatePickerDialog.OnDateSetListener
 import android.app.TimePickerDialog
+import android.content.Context
 import android.content.pm.PackageManager
-import android.graphics.Color
+import android.location.Address
+import android.location.Geocoder
 import android.os.AsyncTask
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import app.mulipati_agent.R
 import app.mulipati_agent.databinding.FragmentTripDetailsBinding
+import app.mulipati_agent.shared_preferences.SharedPreferences
 import app.mulipati_agent.util.GoogleMapDTO
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.MapsInitializer
-import com.google.android.gms.maps.OnMapReadyCallback
+import app.mulipati_agent.util.convertDate
+import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.*
 import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.net.PlacesClient
@@ -28,17 +31,22 @@ import com.google.gson.Gson
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import timber.log.Timber
+import java.io.IOException
 import java.util.*
 import kotlin.collections.ArrayList
 
 
-class TripDetailsFragment : Fragment(), OnMapReadyCallback {
+open class TripDetailsFragment : Fragment(), OnMapReadyCallback {
 
     private lateinit var tripDetailsBinding: FragmentTripDetailsBinding
 
     private lateinit var mGoogleMap: GoogleMap
 
     private lateinit var mPlacesClient: PlacesClient
+
+    private lateinit var locationStart: LatLng
+
+    private lateinit var locationDestination: LatLng
 
 
     override fun onCreateView(
@@ -67,20 +75,40 @@ class TripDetailsFragment : Fragment(), OnMapReadyCallback {
                 MapStyleOptions.loadRawResourceStyle(
                 requireActivity(), R.raw.map_style))
 
+            val location = context?.getSharedPreferences("user", Context.MODE_PRIVATE)?.getString("location", "")
+
+            locationStart = LatLng(-15.764963723689691, 35.011536779590564)
+            locationDestination = LatLng(-15.764963723689691, 35.011536779590564)
+
+            when(location){
+                "Blantyre"->{
+                    locationStart = LatLng(-15.764963723689691, 35.011536779590564)
+                    locationDestination = LatLng(-15.764963723689691, 35.011536779590564)
+                }
+                "Lilongwe"->{
+                    locationStart = LatLng(-13.96518639724504, 33.80457907535407)
+                    locationDestination = LatLng(-13.96518639724504, 33.80457907535407)
+                }
+                "Zomba"->{
+                    locationStart = LatLng(-15.375668824861341, 35.335528191089345)
+                    locationDestination = LatLng(-15.375668824861341, 35.335528191089345)
+                }
+                "Mzuzu"->{
+                    locationStart = LatLng(-11.437706025609216, 34.00710504561069)
+                    locationDestination = LatLng(-11.437706025609216, 34.00710504561069)
+                }
+            }
 
 
+            mGoogleMap.addMarker(MarkerOptions().position(locationStart).title("Start").snippet("Trip will start here"))
 
-            val start = LatLng(-15.811457319276274, 35.055391163368206)
-            mGoogleMap.addMarker(MarkerOptions().position(start).title("Start").snippet("Trip will start here"))
+            mGoogleMap.addMarker(MarkerOptions().position(locationDestination).title("Destination").snippet ("Trip will end here"))
 
-            val destination = LatLng(-14.00050023135735, 33.82105838913558)
-            mGoogleMap.addMarker(MarkerOptions().position(destination).title("Destination").snippet ("Trip will end here"))
-
-            val url = getDirectionURL(start, destination)
+            val url = getDirectionURL(locationStart, locationDestination)
             GetDirection(url).execute()
 
-            val camera = CameraPosition.builder().target(start).zoom(
-                6F
+            val camera = CameraPosition.builder().target(locationStart).zoom(
+                8F
             ).bearing(0F).tilt(45F).build()
             p0.moveCamera(CameraUpdateFactory.newCameraPosition(camera))
 
@@ -103,6 +131,8 @@ class TripDetailsFragment : Fragment(), OnMapReadyCallback {
         }
     }
 
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -120,19 +150,61 @@ class TripDetailsFragment : Fragment(), OnMapReadyCallback {
 
         tripDetailsBinding.showAPreview.setOnClickListener {
             tripDetailsBinding.showMap.visibility = View.VISIBLE
-            requireActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+            requireActivity().overridePendingTransition(
+                android.R.anim.fade_in,
+                android.R.anim.fade_out
+            )
+
+            val startLatLng = getLocationFromAddress(requireContext(), tripDetailsBinding.tripStart.text.toString()+"Malawi")
+            val destLatLng = getLocationFromAddress(requireContext(), tripDetailsBinding.tripDestination.text.toString()+"Malawi")
+
+            val url = getDirectionURL(startLatLng!!, destLatLng!!)
+            GetDirection(url).execute()
+
+            mGoogleMap.addMarker(MarkerOptions().position(startLatLng).title(tripDetailsBinding.tripStart.text.toString()).snippet("Trip will start here"))
+
+            mGoogleMap.addMarker(MarkerOptions().position(destLatLng).title(tripDetailsBinding.tripDestination.text.toString()).snippet ("Trip will end here"))
+
+
+            val cameraUpdate: CameraUpdate =
+                CameraUpdateFactory.newLatLngZoom(startLatLng, 8F)
+            mGoogleMap.animateCamera(cameraUpdate)
+
         }
         tripDetailsBinding.hidePreview.setOnClickListener {
             tripDetailsBinding.showMap.visibility = View.GONE
-            requireActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+            requireActivity().overridePendingTransition(
+                android.R.anim.fade_in,
+                android.R.anim.fade_out
+            )
         }
         tripDetailsBinding.setStartTime.setOnClickListener {
             dateTimePicker()
         }
+
+
+    }
+
+    open fun getLocationFromAddress(context: Context?, strAddress: String?): LatLng? {
+        val coder = Geocoder(context)
+        val address: List<Address>
+        var p1: LatLng? = null
+        try {
+            address = coder.getFromLocationName(strAddress, 5)
+            if (address == null) {
+                return null
+            }
+            val location: Address = address[0]
+            p1 = LatLng(location.latitude, location.longitude)
+        } catch (ex: IOException) {
+            ex.printStackTrace()
+        }
+        return p1
     }
 
     @SuppressLint("SetTextI18n")
     private fun dateTimePicker(){
+
         val c: Calendar = Calendar.getInstance()
         val mYear = c.get(Calendar.YEAR)
         val mMonth = c.get(Calendar.MONTH)
@@ -147,7 +219,27 @@ class TripDetailsFragment : Fragment(), OnMapReadyCallback {
                     val  mMinute = c[Calendar.MINUTE]
                     val timePickerDialog = TimePickerDialog(
                         requireContext(),
-                        TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute -> tripDetailsBinding.setStartTime.text = "$dayOfMonth-$monthOfYear-$year $hourOfDay:$minute" }, mHour, mMinute, false
+                        TimePickerDialog.OnTimeSetListener { _, hourOfDay, minute ->
+
+                            val getMonth = convertDate(monthOfYear)
+                            var timeExtension = ""
+
+                            timeExtension = if (hourOfDay > 12 ){
+                                "PM"
+                            }else{
+                                "AM"
+                            }
+
+                            tripDetailsBinding.setStartTime.text = "$dayOfMonth $getMonth, $year $hourOfDay:$minute $timeExtension"
+
+                            SharedPreferences(requireContext()).addTripPrefs("start_time", "$dayOfMonth-$monthOfYear-$year $hourOfDay:$minute")
+                            SharedPreferences(requireContext()).addTripPrefs("start", tripDetailsBinding.tripStart.text.toString())
+                            SharedPreferences(requireContext()).addTripPrefs("destination", tripDetailsBinding.tripDestination.text.toString())
+                            SharedPreferences(requireContext()).addTripPrefs("pick_up_place", tripDetailsBinding.tripPickUp.text.toString())
+
+
+
+                        }, mHour, mMinute, false
                     )
                     timePickerDialog.show()
                 }
@@ -158,7 +250,8 @@ class TripDetailsFragment : Fragment(), OnMapReadyCallback {
     }
 
     private fun getDirectionURL(origin:LatLng, dest:LatLng) : String{
-        return "https://maps.googleapis.com/maps/api/directions/json?origin=${origin.latitude},${origin.longitude}&destination=${dest.latitude},${dest.longitude}&sensor=false&mode=driving"
+        val apiKey = "AIzaSyAT8TT5ONNjFdWWp3enIDIZrVm5bKcm_G4"
+        return "https://maps.googleapis.com/maps/api/directions/json?origin=${origin.latitude},${origin.longitude}&destination=${dest.latitude},${dest.longitude}&sensor=false&mode=driving&key=$apiKey"
     }
 
 
@@ -187,12 +280,13 @@ class TripDetailsFragment : Fragment(), OnMapReadyCallback {
             return result
         }
 
+        @RequiresApi(Build.VERSION_CODES.M)
         override fun onPostExecute(result: List<List<LatLng>>) {
             val lineoption = PolylineOptions()
             for (i in result.indices){
                 lineoption.addAll(result[i])
                 lineoption.width(10f)
-                lineoption.color(Color.CYAN)
+                lineoption.color(requireActivity().getColor(R.color.red))
                 lineoption.geodesic(true)
             }
             mGoogleMap.addPolyline(lineoption)

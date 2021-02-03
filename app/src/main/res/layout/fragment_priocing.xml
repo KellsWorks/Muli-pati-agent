@@ -6,7 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.trip.PriocingFragment">
+    tools:context=".ui.trip.PricingFragment">
 
         <LinearLayout
             android:id="@+id/linearLayout4"
@@ -49,6 +49,7 @@
                     android:background="@drawable/rectangle_stroked"
                     android:hint="@string/enter_the_amount_in_malawian_kwacha"
                     android:inputType="number"
+                    android:id="@+id/addTripPricing"
                     />
 
             </com.google.android.material.textfield.TextInputLayout>

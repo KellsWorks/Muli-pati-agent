@@ -1,6 +1,10 @@
 package app.mulipati_agent.network
 
+import android.content.Context
+import android.location.Address
+import android.location.Geocoder
 import app.mulipati_agent.firebase.receiver.SendToken
+import com.google.android.gms.maps.model.LatLng
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -38,6 +42,23 @@ class BackgroundServices{
         }
     }
 
+//
+//    private fun decodeAddress(context: Context, location: String): LatLng {
+//
+//        GlobalScope.launch(Dispatchers.IO) {
+//            val geocode = Geocoder(context)
+//
+//            val addresses: List<Address> = geocode.getFromLocationName(location, 1)
+//            val address = addresses[0]
+//            val longitude = address.longitude
+//            val latitude = address.latitude
+//
+//            return LatLng(latitude, longitude)
+//
+//        }
+//
+//    }
+//
 
 
 }
