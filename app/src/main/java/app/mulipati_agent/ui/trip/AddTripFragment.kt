@@ -40,6 +40,8 @@ class AddTripFragment : Fragment() {
 
         adapter.addFragment(VerificationFragment() , " One ")
         adapter.addFragment(TripDetailsFragment() , " two ")
+        adapter.addFragment(PriocingFragment() , " three ")
+        adapter.addFragment(RideFragment() , " four ")
 
         addTripBinding.addTripPager.adapter = adapter
 

@@ -62,6 +62,7 @@ class TripDetailsFragment : Fragment(), OnMapReadyCallback {
 
 
 
+
             val start = LatLng(-15.811457319276274, 35.055391163368206)
             mGoogleMap.addMarker(MarkerOptions().position(start).title("Start").snippet("Trip will start here"))
 
@@ -112,9 +113,11 @@ class TripDetailsFragment : Fragment(), OnMapReadyCallback {
 
         tripDetailsBinding.showAPreview.setOnClickListener {
             tripDetailsBinding.showMap.visibility = View.VISIBLE
+            requireActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
         tripDetailsBinding.hidePreview.setOnClickListener {
             tripDetailsBinding.showMap.visibility = View.GONE
+            requireActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
     }
 

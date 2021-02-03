@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:background="@drawable/rectangle_stroked"
+    android:layout_margin="10dp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/car__"
+        android:textColor="@color/red"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/carName"
+        android:textStyle="bold"
+        />
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/mazda_demio"
+        android:id="@+id/carImage"
+        android:padding="5dp"
+        android:contentDescription="@string/image" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/car_specifications"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_seat_passenger"
+            android:layout_margin="10dp"
+            android:contentDescription="@string/icon" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_4_passengers"
+            android:id="@+id/carPassengers"
+            android:layout_gravity="center"
+            />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkCar"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

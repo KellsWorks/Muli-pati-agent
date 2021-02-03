@@ -44,7 +44,6 @@
     <string name="delete">Delete</string>
     <string name="add_trip">Add trip</string>
     <string name="trip_details">Details</string>
-    <string name="pricing">Pricing</string>
     <string name="amount_in_kwacha">Amount in kwacha</string>
     <string name="fare_per_passenger">Fare per passenger:</string>
     <string name="car_type">Car type</string>
@@ -131,6 +130,18 @@
     <string name="enter_your_start_location">Enter your start location</string>
     <string name="show_preview">Show preview</string>
     <string name="enter_your_destination">Enter your destination</string>
+    <string name="pricing">Pricing</string>
+    <string name="enter_the_price_that_you_will_charge_a_passenger">Enter the price that you will charge a passenger</string>
+    <string name="enter_the_amount_in_malawian_kwacha">Enter the amount in Malawian kwacha</string>
+    <string name="ride">Ride</string>
+    <string name="enter_your_ride_details">Enter your ride details</string>
+    <string name="pick_up_location">Pick up location</string>
+    <string name="click_here_to_set">Click here to set</string>
+    <string name="start_time">Start time:</string>
+    <string name="number_of_passengers">Number of passengers</string>
+    <string name="car_specifications">Car specifications</string>
+    <string name="_4_passengers">4 Passengers</string>
+    <string name="car__">Mazda Demio</string>
 
     <string-array name="cars">
         <item>Mazda Demio</item>
