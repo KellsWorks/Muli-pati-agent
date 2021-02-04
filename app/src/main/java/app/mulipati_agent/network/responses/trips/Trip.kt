@@ -1,6 +1,7 @@
 package app.mulipati_agent.network.responses.trips
 
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 
 @Entity(tableName = "trips")
@@ -10,6 +11,7 @@ data class Trip(
     val created_at: String,
     val destination: String,
     val end_time: String,
+    @PrimaryKey
     val id: Int,
     val location: String,
     val number_of_passengers: String,

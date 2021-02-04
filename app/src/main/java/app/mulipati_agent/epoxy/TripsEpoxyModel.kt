@@ -34,7 +34,7 @@ abstract class TripsEpoxyModel : EpoxyModelWithHolder<TripsEpoxyModel.RecentTrip
 
         Glide
             .with(holder.image!!.context)
-            .load(Constants.PROFILE_URL+ data!!.car_photo)
+            .load(Constants.CARS_URL+ data!!.car_photo)
             .centerCrop()
             .into(holder.image!!)
 
