@@ -3,8 +3,11 @@ package app.mulipati_agent.db.module
 import android.content.Context
 import app.mulipati_agent.db.AppDatabase
 import app.mulipati_agent.db.daos.NotificationsDao
+import app.mulipati_agent.db.daos.TripsDao
 import app.mulipati_agent.db.remote.NotificationsRemoteDataSource
+import app.mulipati_agent.db.remote.TripsRemoteDataSource
 import app.mulipati_agent.db.repositories.NotificationsRepository
+import app.mulipati_agent.db.repositories.TripsRepository
 import app.mulipati_agent.network.services.RemoteServices
 import app.mulipati_agent.util.Constants
 import com.google.gson.Gson
@@ -40,6 +43,21 @@ object AppModule {
         .client(okHttpClient)
         .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))
         .build()
+
+    //Trips
+
+    @Singleton
+    @Provides
+    fun provideTripsDao(db: AppDatabase) = db.tripsDao()
+
+    @Singleton
+    @Provides
+    fun provideTripsRepository(remoteDataSource: TripsRemoteDataSource,
+                                       localDataSource: TripsDao
+    ) =
+        TripsRepository(remoteDataSource, localDataSource)
+
+    //Notifications
 
     @Provides
     fun provideGson(): Gson = GsonBuilder().create()

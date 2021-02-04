@@ -1,6 +1,10 @@
-package app.mulipati_agent.data
+package app.mulipati_agent.network.responses.trips
 
-data class Trips(
+import androidx.room.Entity
+
+
+@Entity(tableName = "trips")
+data class Trip(
     val car_photo: String,
     val car_type: String,
     val created_at: String,

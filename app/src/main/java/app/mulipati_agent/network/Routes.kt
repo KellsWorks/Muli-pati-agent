@@ -61,6 +61,12 @@ interface Routes {
         @Field("phone") phone: String?
     ): Call<AccountUpdateResponse?>?
 
+    @POST("v1/delete")
+    @FormUrlEncoded
+    fun accountDelete(
+        @Field("id") id: Int?
+    ): Call<Basic?>?
+
     //Subscriptions
     @POST(" v1/subscription/subscribe")
     @FormUrlEncoded
@@ -108,5 +114,7 @@ interface Routes {
     fun deleteNotification(
         @Field("id") id: Int?
     ): Call<Basic?>?
+
+
 
 }

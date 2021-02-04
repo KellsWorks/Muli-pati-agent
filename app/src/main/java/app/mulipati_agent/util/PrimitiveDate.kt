@@ -1,6 +1,9 @@
 package app.mulipati_agent.util
 
+import timber.log.Timber
+import java.lang.Exception
 import java.text.SimpleDateFormat
+import java.util.*
 
 fun convertDate(month: Int): String{
     var monthName = ""
@@ -42,4 +45,16 @@ fun convertDate(month: Int): String{
         }
     }
     return monthName
+}
+
+fun getDisplayDateTime(timeStamp: String): String{
+    return try {
+        val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
+        val date = simpleDateFormat.parse(timeStamp)
+        val convertDateFormat = SimpleDateFormat("dd MMMM yyyy hh:mm a", Locale.getDefault())
+        convertDateFormat.format(date!!)
+    }catch (e: Exception){
+        Timber.e(e)
+        ""
+    }
 }

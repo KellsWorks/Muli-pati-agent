@@ -1,14 +1,17 @@
 package app.mulipati_agent.epoxy
 
+import android.annotation.SuppressLint
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import app.mulipati_agent.R
 import app.mulipati_agent.data.Trips
+import app.mulipati_agent.util.Constants
 import com.airbnb.epoxy.EpoxyAttribute
 import com.airbnb.epoxy.EpoxyHolder
 import com.airbnb.epoxy.EpoxyModelClass
 import com.airbnb.epoxy.EpoxyModelWithHolder
+import com.bumptech.glide.Glide
 import com.makeramen.roundedimageview.RoundedImageView
 
 
@@ -25,13 +28,19 @@ abstract class TripsEpoxyModel : EpoxyModelWithHolder<TripsEpoxyModel.RecentTrip
         return RecentTripsEpoxyModelViewHolder()
     }
 
+    @SuppressLint("SetTextI18n")
     override fun bind(holder: RecentTripsEpoxyModelViewHolder) {
         super.bind(holder)
 
-        holder.image!!.setImageResource(data!!.image)
-        holder.title!!.text = data!!.title
-        holder.route!!.text = data!!.route
-        holder.price!!.text = data!!.price
+        Glide
+            .with(holder.image!!.context)
+            .load(Constants.PROFILE_URL+ data!!.car_photo)
+            .centerCrop()
+            .into(holder.image!!)
+
+        holder.title!!.text = data!!.destination + " trip "
+                holder.route!!.text = data!!.start + " - " + data!!.destination
+        holder.price!!.text = data!!.passenger_fare
 
 
         holder.menu!!.setOnClickListener(click)

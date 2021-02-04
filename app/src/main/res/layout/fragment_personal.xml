@@ -14,10 +14,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
             android:layout_marginTop="28dp"
             android:id="@+id/personalBack"
             android:src="@drawable/ic_arrow_back"
@@ -27,10 +25,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="67dp"
-            android:layout_marginLeft="67dp"
             android:layout_marginTop="18dp"
             android:text="@string/personal_info"
             android:textSize="30sp"
@@ -54,6 +50,7 @@
                     android:layout_height="match_parent"
                     android:src="@drawable/avatar04"
                     app:civ_border_width="4dp"
+                    android:id="@+id/personalIcon"
                     app:civ_border_color="@color/red"
                     app:civ_border_overlay="true"
                     />
@@ -62,7 +59,6 @@
                     android:layout_height="20dp"
                     android:src="@drawable/ic_silver_medal"
                     android:layout_alignParentBottom="true"
-                    android:layout_alignParentRight="true"
                     android:background="@drawable/circle_primary"
                     android:padding="5dp"
                     android:layout_alignParentEnd="true"
@@ -74,8 +70,18 @@
                 android:text="@string/jerome_msapha"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                android:id="@+id/personalName"
                 android:layout_gravity="center"
                 android:layout_marginBottom="5dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/red"
+                android:id="@+id/membership"
                 />
             <LinearLayout
                 android:layout_width="match_parent"
@@ -97,7 +103,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:layout_marginRight="4dp"
                             android:layout_marginEnd="4dp">
                             <TextView
                                 android:layout_width="wrap_content"
@@ -110,6 +115,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/_0"
+                                android:id="@+id/upcomingCount"
                                 android:textSize="25sp"
                                 android:textStyle="bold"
                                 android:textColor="@color/red"
@@ -122,7 +128,6 @@
                             android:layout_height="50dp"
                             android:background="@color/grey"
                             android:layout_marginTop="15dp"
-                            android:layout_alignParentRight="true"
                             android:layout_alignParentEnd="true" />
                     </RelativeLayout>
                 </LinearLayout>
@@ -141,7 +146,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:layout_marginRight="4dp"
                             android:layout_marginEnd="4dp">
                             <TextView
                                 android:layout_width="wrap_content"
@@ -154,6 +158,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/_3"
+                                android:id="@+id/completedCount"
                                 android:textSize="25sp"
                                 android:textStyle="bold"
                                 android:textColor="@color/red"
@@ -166,7 +171,6 @@
                             android:layout_height="50dp"
                             android:background="@color/grey"
                             android:layout_marginTop="15dp"
-                            android:layout_alignParentRight="true"
                             android:layout_alignParentEnd="true" />
                     </RelativeLayout>
                 </LinearLayout>
@@ -184,7 +188,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:layout_marginRight="4dp"
                             android:layout_marginEnd="4dp">
                             <TextView
                                 android:layout_width="wrap_content"
@@ -197,6 +200,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/_15"
+                                android:id="@+id/cancelledCount"
                                 android:textSize="25sp"
                                 android:textStyle="bold"
                                 android:textColor="@color/red"
@@ -214,14 +218,12 @@
                 android:text="@string/user_details"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:layout_marginLeft="20dp"
                 android:layout_marginStart="20dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginLeft="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginStart="20dp">
@@ -246,7 +248,7 @@
                         android:text="@string/jmsampha_mulipati_com"
                         android:layout_marginTop="3dp"
                         android:textSize="14sp"
-                        android:layout_marginLeft="10dp"
+                        android:id="@+id/personalEmail"
                         android:layout_marginStart="10dp" />
                 </LinearLayout>
             </LinearLayout>
@@ -255,7 +257,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginLeft="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginStart="20dp">
@@ -278,9 +279,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/_265_999_67_99_75"
+                        android:id="@+id/personalPhone"
                         android:textSize="14sp"
                         android:layout_marginTop="3dp"
-                        android:layout_marginLeft="10dp"
                         android:layout_marginStart="10dp" />
                 </LinearLayout>
             </LinearLayout>
@@ -289,7 +290,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginLeft="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginStart="20dp">
@@ -312,9 +312,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/blantyre_malawi"
+                        android:id="@+id/personalLocation"
                         android:textSize="14sp"
                         android:layout_marginTop="3dp"
-                        android:layout_marginLeft="10dp"
                         android:layout_marginStart="10dp" />
                 </LinearLayout>
             </LinearLayout>
@@ -323,7 +323,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginLeft="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginStart="20dp">
@@ -347,11 +346,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/deleteAccount"
                         android:text="@string/permanently_delete_this_account"
                         android:textColor="@color/red"
                         android:textSize="14sp"
                         android:layout_marginTop="3dp"
-                        android:layout_marginLeft="10dp"
                         android:layout_marginStart="10dp" />
                 </LinearLayout>
             </LinearLayout>
