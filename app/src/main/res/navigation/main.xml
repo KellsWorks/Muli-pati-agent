@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_dashboardFragment_to_bookingsFragment"
             app:destination="@id/bookingsFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_tripsFragment"
+            app:destination="@id/tripsFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -108,6 +111,14 @@
         android:label="BookingsFragment" >
         <action
             android:id="@+id/action_bookingsFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tripsFragment"
+        android:name="app.mulipati_agent.ui.trips.TripsFragment"
+        android:label="TripsFragment" >
+        <action
+            android:id="@+id/action_tripsFragment_to_dashboardFragment"
             app:destination="@id/dashboardFragment" />
     </fragment>
 </navigation>

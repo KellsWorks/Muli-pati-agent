@@ -1,5 +1,6 @@
 package app.mulipati_agent.ui.dashboard
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -61,6 +62,7 @@ class DashboardFragment : Fragment() {
 
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
@@ -72,7 +74,12 @@ class DashboardFragment : Fragment() {
             findNavController().navigate(R.id.action_dashboardFragment_to_bookingsFragment)
         }
 
+        dashboardBinding.toTrips.setOnClickListener {
+            findNavController().navigate(R.id.action_dashboardFragment_to_tripsFragment)
+        }
+
         bindLocation()
+
     }
 
     private fun bindLocation() {
@@ -143,6 +150,7 @@ class DashboardFragment : Fragment() {
         })
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setUpObservers(){
         val getId = context?.getSharedPreferences("user", Context.MODE_PRIVATE)?.getInt("id", 0)
         val location = context?.getSharedPreferences("user", Context.MODE_PRIVATE)?.getString("location", "")
@@ -162,9 +170,13 @@ class DashboardFragment : Fragment() {
                                         trip.start_time, trip.status, trip.updated_at, trip.user_id
                                 ))
                             }
+
                         }
 
                         setUpRecycler(tripsList)
+                        val tripsCount = tripsList.count()
+                        dashboardBinding.toTrips.text = "See All ($tripsCount)"
+                        dashboardBinding.activeTrips.text = tripsCount.toString()
                     }
                 }
                 Resource.Status.LOADING -> {
@@ -194,6 +206,8 @@ class DashboardFragment : Fragment() {
                         }
 
                         setUpBookings(bookingsList)
+                        val bookingsCount = bookingsList.count()
+                        dashboardBinding.toBookings.text = "See All ($bookingsCount)"
                     }
                 }
                 Resource.Status.LOADING -> {

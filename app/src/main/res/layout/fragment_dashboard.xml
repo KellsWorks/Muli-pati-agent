@@ -68,6 +68,7 @@
                 android:layout_height="match_parent"
                 android:textColor="@color/red"
                 android:text="@string/_0"
+                android:id="@+id/activeTrips"
                 android:gravity="center"
                 android:padding="4dp"
                 android:background="@drawable/button_stroked_blue"
@@ -221,6 +222,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:text="@string/see_all_8"
+                    android:id="@+id/toTrips"
                     android:textSize="15sp"
                     android:layout_marginEnd="20dp"
                     tools:ignore="RelativeOverlap" />

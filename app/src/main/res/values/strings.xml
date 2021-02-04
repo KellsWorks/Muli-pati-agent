@@ -173,6 +173,7 @@
     <string name="enable_location_service">Enable location service</string>
     <string name="do_not_allow">Do not allow</string>
     <string name="access_your_location">Access your location</string>
+    <string name="update_trip_details">Update trip details</string>
 
     <string-array name="cars">
         <item>Mazda Demio</item>

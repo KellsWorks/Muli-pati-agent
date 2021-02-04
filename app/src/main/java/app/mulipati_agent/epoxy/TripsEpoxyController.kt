@@ -1,11 +1,13 @@
 package app.mulipati_agent.epoxy
 
+import android.util.DisplayMetrics
 import android.widget.PopupMenu
 import android.widget.Toast
 import app.mulipati_agent.R
 import app.mulipati_agent.data.Trips
-import app.mulipati_agent.network.responses.trips.Trip
 import com.airbnb.epoxy.Typed2EpoxyController
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import java.lang.reflect.Method
 
 class TripsEpoxyController: Typed2EpoxyController<Boolean?, List<Trips>>() {
@@ -22,8 +24,21 @@ class TripsEpoxyController: Typed2EpoxyController<Boolean?, List<Trips>>() {
                             popupMenu.setOnMenuItemClickListener { item ->
                                 when(item.itemId) {
                                     R.id.edit -> {
-                                        Toast.makeText(parentView.route!!.context, "Edited!", Toast.LENGTH_SHORT)
-                                                .show()
+
+                                        val dialog = parentView.title?.context?.let {
+                                            BottomSheetDialog(
+                                                it
+                                            )
+                                        }
+                                        val view = dialog?.layoutInflater?.inflate(R.layout.dialog_edit_trip, null)
+                                        if (view != null) {
+                                            dialog.setContentView(view)
+                                        }
+                                        val metrics = DisplayMetrics()
+                                        dialog?.behavior?.state = BottomSheetBehavior.STATE_EXPANDED
+                                        dialog?.behavior?.peekHeight = metrics.heightPixels
+                                        dialog?.dismissWithAnimation = true
+                                        dialog?.show()
                                     }
 
                                     R.id.delete -> {
