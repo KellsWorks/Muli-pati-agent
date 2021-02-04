@@ -6,13 +6,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import app.mulipati_agent.R
 import app.mulipati_agent.data.Trips
-import app.mulipati_agent.util.Constants
 import com.airbnb.epoxy.EpoxyAttribute
 import com.airbnb.epoxy.EpoxyHolder
 import com.airbnb.epoxy.EpoxyModelClass
 import com.airbnb.epoxy.EpoxyModelWithHolder
-import com.bumptech.glide.Glide
-import com.makeramen.roundedimageview.RoundedImageView
 
 
 @EpoxyModelClass(layout = R.layout.model_trips)
@@ -32,15 +29,9 @@ abstract class TripsEpoxyModel : EpoxyModelWithHolder<TripsEpoxyModel.RecentTrip
     override fun bind(holder: RecentTripsEpoxyModelViewHolder) {
         super.bind(holder)
 
-        Glide
-            .with(holder.image!!.context)
-            .load(Constants.CARS_URL+ data!!.car_photo)
-            .centerCrop()
-            .into(holder.image!!)
-
         holder.title!!.text = data!!.destination + " trip "
                 holder.route!!.text = data!!.start + " - " + data!!.destination
-        holder.price!!.text = data!!.passenger_fare
+        holder.passengers!!.text = "0 passengers | 3 remaining"
 
 
         holder.menu!!.setOnClickListener(click)
@@ -52,20 +43,17 @@ abstract class TripsEpoxyModel : EpoxyModelWithHolder<TripsEpoxyModel.RecentTrip
 
     class RecentTripsEpoxyModelViewHolder : EpoxyHolder() {
 
-        var image: RoundedImageView? = null
         var title: TextView? = null
         var route: TextView? = null
-        var price: TextView? = null
+        var passengers: TextView? = null
 
         var menu: ImageView? =  null
 
         override fun bindView(itemView: View) {
 
-            image = itemView.findViewById(R.id.tripsImage)
             title = itemView.findViewById(R.id.tripsTitle)
             route = itemView.findViewById(R.id.tripsRoutw)
-            price = itemView.findViewById(R.id.tripsPrice)
-
+            passengers = itemView.findViewById(R.id.tripsPassengers)
             menu = itemView.findViewById(R.id.tripsMenu)
         }
 

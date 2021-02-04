@@ -12,52 +12,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
             android:layout_marginTop="28dp"
             android:text="@string/dashboard"
             android:textSize="30sp"
             android:textStyle="bold"
             tools:ignore="RelativeOverlap" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="45dp"
-            >
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_office_building_marker"
-                android:layout_gravity="center"
-                app:tint="@color/red"
-                android:contentDescription="@string/icon" />
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:entries="@array/districts"
-                android:id="@+id/districtSelect"
-                android:layout_marginLeft="5dp"
-                android:textColor="@color/red"
-                android:layout_gravity="center"
-                android:layout_marginStart="5dp" />
 
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="75dp"
-            android:layout_marginLeft="20dp"
             android:id="@+id/dotsContainer"
             android:layout_alignParentStart="true"
             android:layout_marginStart="20dp">
@@ -71,11 +40,39 @@
             <ImageView
                 android:layout_width="10dp"
                 android:layout_height="10dp"
-                android:layout_marginLeft="5dp"
                 android:background="@drawable/circle_primary"
                 android:contentDescription="@string/image"
                 android:layout_marginStart="5dp" />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/button"
+            tools:ignore="RelativeOverlap">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="@string/active_trips"
+                android:layout_gravity="center"
+                android:padding="4dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textColor="@color/red"
+                android:text="@string/_0"
+                android:gravity="center"
+                android:padding="4dp"
+                android:background="@drawable/button_stroked_blue"
+                android:layout_gravity="center"
+                />
         </LinearLayout>
 
 
@@ -87,10 +84,8 @@
             app:iconSize="30dp"
             android:id="@+id/addTrip"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="44dp"
-            android:layout_marginRight="44dp"
             android:layout_marginBottom="54dp"
             android:contentDescription="@string/image" />
 
@@ -102,225 +97,165 @@
             android:layout_below="@id/dotsContainer"
             android:layout_marginTop="10dp"
             >
+
+
             <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/dashboardBanner"
+                android:background="@drawable/rounded_primary"
+                android:orientation="vertical"
+                android:layout_marginRight="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:text="@string/keep_your_location_up_to_date"
+                    android:layout_marginStart="10dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    >
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_office_building_marker"
+                        android:layout_gravity="center"
+                        app:tint="@color/white"
+                        android:contentDescription="@string/icon" />
+                    <Spinner
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/districts"
+                        android:id="@+id/districtSelect"
+                        android:textColor="@color/red"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="5dp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bookings"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    tools:ignore="RelativeOverlap" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_page_next"
+                    android:layout_alignParentEnd="true"
+                    android:text="@string/see_all_3"
+                    android:textSize="15sp"
+                    android:layout_marginEnd="20dp"
+                    tools:ignore="RelativeOverlap" />
+            </RelativeLayout>
+
+            <com.airbnb.epoxy.EpoxyRecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
+                android:id="@+id/bookingsRecycler"
+                tools:itemCount="3"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+             />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="@drawable/rounded_white"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="MK 43, 600"
-                    android:textColor="#02B80A"
-                    android:textSize="22sp"
+                android:id="@+id/noBookingsError"
+                android:visibility="gone"
+                tools:ignore="UseCompoundDrawables">
+                <ImageView
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:src="@drawable/not_present"
+                    android:contentDescription="@string/illustration"
                     android:layout_gravity="center"
-                    android:layout_marginTop="7dp"
-                    android:textStyle="bold"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Total earnings"
-                    android:textSize="15sp"
-                    android:layout_gravity="center"
+                    android:text="@string/no_bookings_present"
                     android:textStyle="bold"
+                    android:layout_gravity="center"
                     />
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    >
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/statisticsHeader"
-                        >
-                        <ImageView
-                            android:layout_margin="20dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_chart_donut"
-                            android:padding="5dp"
-                            />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Trips statistics"
-                            android:layout_marginTop="20dp"
-                            android:textSize="22sp"
-                            android:textStyle="bold"
-                            />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:weightSum="3"
-                        android:layout_below="@id/statisticsHeader"
-                        android:padding="5dp"
-                        >
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="150dp"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:background="@drawable/rounded_primary"
-                            android:id="@+id/silverSubscription"
-                            >
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/ic_car_connected"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="50dp"
-                                android:contentDescription="@string/icon"
-                                app:tint="?buttonStyle" />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Upcoming"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="7dp"
-                                android:textStyle="bold"
-                                android:textColor="@color/white"
-                                />
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="7dp"
-                                >
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="3"
-                                    android:textColor="@color/white"
-                                    android:textSize="18sp"
-                                    />
-
-                            </LinearLayout>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="150dp"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:background="@drawable/rounded_primary"
-                            android:layout_marginLeft="5dp"
-                            >
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/ic_car_plus"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="50dp"
-                                android:contentDescription="@string/icon"
-                                app:tint="?buttonStyle" />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Completed"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="7dp"
-                                android:textStyle="bold"
-                                android:textColor="@color/white"
-                                />
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="7dp"
-                                >
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="43"
-                                    android:textColor="@color/white"
-                                    android:textSize="18sp"
-                                    />
-
-                            </LinearLayout>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="150dp"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:background="@drawable/rounded_primary"
-                            android:layout_marginLeft="5dp"
-                            >
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/ic_car_arrow_left"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="50dp"
-                                android:contentDescription="@string/icon"
-                                app:tint="?buttonStyle" />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Cancelled"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="7dp"
-                                android:textStyle="bold"
-                                android:textColor="@color/white"
-                                />
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="7dp"
-                                >
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="15"
-                                    android:textColor="@color/white"
-                                    android:textSize="18sp"
-                                    />
-
-                            </LinearLayout>
-                        </LinearLayout>
-                    </LinearLayout>
-                </RelativeLayout>
             </LinearLayout>
+
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="20dp">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/your_trips"
-                    android:textSize="22sp"
+                    android:textSize="17sp"
                     android:textStyle="bold"
                     />
-                <ImageView
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_page_next"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="20dp"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="20dp" />
+                    android:text="@string/see_all_8"
+                    android:textSize="15sp"
+                    android:layout_marginEnd="20dp"
+                    tools:ignore="RelativeOverlap" />
             </RelativeLayout>
 
             <com.airbnb.epoxy.EpoxyRecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tripsRecycler"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:layout_margin="20dp"
                 android:orientation="vertical"
                 />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/noTripsError"
+                tools:ignore="UseCompoundDrawables">
+                <ImageView
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:src="@drawable/no_trips"
+                    android:visibility="gone"
+                    android:contentDescription="@string/illustration"
+                    android:layout_gravity="center"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/you_have_no_active_trips"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    />
+            </LinearLayout>
+
         </LinearLayout>
 
 

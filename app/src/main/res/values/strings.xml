@@ -154,6 +154,20 @@
     <string name="mk500_per_passenger">MK500 per passenger</string>
     <string name="trip_added_successfully">Trip added successfully!</string>
     <string name="records">No records available</string>
+    <string name="_4">4</string>
+    <string name="fcgvhbjn">Jerome Msampha</string>
+    <string name="wed">Wed</string>
+    <string name="location_blantyre">Location: Blantyre</string>
+    <string name="see_all_3">See All (3)</string>
+    <string name="bookings">Bookings</string>
+    <string name="fkfbi4kgk4">Location: Blantyre</string>
+    <string name="see_all_8">See All (8)</string>
+    <string name="keep_your_location_up_to_date">Keep your location up to date</string>
+    <string name="frfrfrfefe">Banda\'s trip</string>
+    <string name="trialss">0 passengers | 3 remaining</string>
+    <string name="active_trips">Active trips</string>
+    <string name="no_bookings_present">No bookings present</string>
+    <string name="you_have_no_active_trips">You have no active trips</string>
 
     <string-array name="cars">
         <item>Mazda Demio</item>

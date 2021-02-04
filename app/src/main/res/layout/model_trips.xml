@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="horizontal"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:background="@drawable/rounded_white"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="7dp"
+    android:layout_margin="5dp"
     >
 
-    <com.makeramen.roundedimageview.RoundedImageView
-        android:layout_width="150dp"
-        android:layout_height="match_parent"
-        android:src="@drawable/mazda_demio"
-        app:riv_corner_radius_bottom_right="10dp"
-        android:id="@+id/tripsImage"
-        />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginStart="5dp">
+        android:layout_marginStart="5dp"
+        tools:ignore="UselessParent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_more_vert"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="10dp"
+            android:id="@+id/tripsMenu"
+            android:contentDescription="@string/icon" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,9 +32,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Banda's trip"
+            android:text="@string/frfrfrfefe"
             android:id="@+id/tripsTitle"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             android:layout_margin="5dp"
             />
@@ -38,16 +42,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             >
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_map_marker_distance"
-                android:layout_gravity="center"
-                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="BT - LL"
+                android:text="@string/fkfbi4kgk4"
+                android:textSize="14sp"
                 android:id="@+id/tripsRoutw"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
@@ -57,30 +56,24 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            >
+            tools:ignore="UseCompoundDrawables">
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_cash_multiple"
-                android:layout_gravity="center"
-                 />
+                android:src="@drawable/ic_seat_passenger"
+                android:layout_margin="3dp"
+                app:tint="@color/red"
+                android:contentDescription="@string/icon" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="MK5, 000"
-                android:id="@+id/tripsPrice"
+                android:text="@string/trialss"
+                android:id="@+id/tripsPassengers"
+                android:textSize="14sp"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
                 />
         </LinearLayout>
     </LinearLayout>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_more_vert"
-            android:layout_alignParentRight="true"
-            android:layout_margin="10dp"
-            android:id="@+id/tripsMenu"
-            />
     </RelativeLayout>
     </LinearLayout>

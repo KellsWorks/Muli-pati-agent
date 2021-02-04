@@ -14,9 +14,11 @@ import androidx.navigation.fragment.findNavController
 import app.mulipati.data.LocationResponse
 import app.mulipati.util.Resource
 import app.mulipati_agent.R
+import app.mulipati_agent.data.Bookings
 import app.mulipati_agent.data.Trips
 import app.mulipati_agent.databinding.FragmentDashboardBinding
 import app.mulipati_agent.epoxy.TripsEpoxyController
+import app.mulipati_agent.epoxy.bookings.BookingsEpoxyController
 import app.mulipati_agent.network.ApiClient
 import app.mulipati_agent.network.Routes
 import app.mulipati_agent.util.autoCleared
@@ -51,7 +53,25 @@ class DashboardFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setUpObservers()
-        
+
+        val arrayList = ArrayList<Bookings>()
+
+        arrayList.add(Bookings(1, "6", "Tue", "Real user 1", "Location: Blantyre"))
+        arrayList.add(Bookings(1, "6", "Tue", "Real user 1", "Location: Blantyre"))
+        arrayList.add(Bookings(1, "6", "Tue", "Real user 1", "Location: Blantyre"))
+
+        if (arrayList.isEmpty()){
+            dashboardBinding.bookingsRecycler.visibility = View.GONE
+            dashboardBinding.noBookingsError.visibility = View.VISIBLE
+        }else{
+            dashboardBinding.bookingsRecycler.visibility = View.VISIBLE
+            dashboardBinding.noBookingsError.visibility = View.GONE
+        }
+
+        val bookingsEpoxyController = BookingsEpoxyController()
+        bookingsEpoxyController.setData(false, arrayList)
+
+        dashboardBinding.bookingsRecycler.setController(bookingsEpoxyController)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -166,6 +186,15 @@ class DashboardFragment : Fragment() {
     }
 
     private fun setUpRecycler(data: List<Trips>){
+
+        if (data.isEmpty()){
+            dashboardBinding.tripsRecycler.visibility = View.GONE
+            dashboardBinding.noTripsError.visibility = View.VISIBLE
+        }else{
+            dashboardBinding.tripsRecycler.visibility = View.VISIBLE
+            dashboardBinding.noTripsError.visibility = View.GONE
+        }
+
         controller = TripsEpoxyController()
         controller.setData(false, data)
 
