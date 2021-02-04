@@ -56,7 +56,11 @@
     <fragment
         android:id="@+id/settingsFragment"
         android:name="app.mulipati_agent.ui.settings.SettingsFragment"
-        android:label="SettingsFragment" />
+        android:label="SettingsFragment" >
+        <action
+            android:id="@+id/action_settingsFragment_to_notificationSettingFragment"
+            app:destination="@id/notificationSettingFragment" />
+    </fragment>
     <fragment
         android:id="@+id/subscriptionsFragment"
         android:name="app.mulipati_agent.ui.subscriptions.SubscriptionsFragment"
@@ -91,4 +95,8 @@
             android:id="@+id/action_personalEditFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/notificationSettingFragment"
+        android:name="app.mulipati_agent.ui.settings.NotificationSettingFragment"
+        android:label="NotificationSettingFragment" />
 </navigation>

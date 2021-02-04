@@ -58,3 +58,15 @@ fun getDisplayDateTime(timeStamp: String): String{
         ""
     }
 }
+
+fun getDay(timeStamp: String): String{
+    return try {
+        val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
+        val date = simpleDateFormat.parse(timeStamp)
+        val convertDateFormat = SimpleDateFormat("d", Locale.getDefault())
+        convertDateFormat.format(date!!)
+    }catch (e: Exception){
+        Timber.e(e)
+        ""
+    }
+}

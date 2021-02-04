@@ -1,5 +1,6 @@
 package app.mulipati_agent.network.services
 
+import app.mulipati_agent.network.responses.bookings.BookingResponse
 import app.mulipati_agent.network.responses.notifications.NotificationsResponse
 import app.mulipati_agent.network.responses.trips.TripsResponse
 import retrofit2.Response
@@ -16,5 +17,8 @@ interface RemoteServices {
     suspend fun getTrips(
     ) : Response<TripsResponse>
 
+    @POST("v1/trips/bookings")
+    suspend fun getBookings(
+    ) : Response<BookingResponse>
 
 }

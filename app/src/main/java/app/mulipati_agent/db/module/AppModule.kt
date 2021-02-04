@@ -2,10 +2,13 @@ package app.mulipati_agent.db.module
 
 import android.content.Context
 import app.mulipati_agent.db.AppDatabase
+import app.mulipati_agent.db.daos.BookingsDao
 import app.mulipati_agent.db.daos.NotificationsDao
 import app.mulipati_agent.db.daos.TripsDao
+import app.mulipati_agent.db.remote.BookingsRemoteDataSource
 import app.mulipati_agent.db.remote.NotificationsRemoteDataSource
 import app.mulipati_agent.db.remote.TripsRemoteDataSource
+import app.mulipati_agent.db.repositories.BookingsRepository
 import app.mulipati_agent.db.repositories.NotificationsRepository
 import app.mulipati_agent.db.repositories.TripsRepository
 import app.mulipati_agent.network.services.RemoteServices
@@ -56,6 +59,20 @@ object AppModule {
                                        localDataSource: TripsDao
     ) =
         TripsRepository(remoteDataSource, localDataSource)
+
+    //Bookings
+
+    @Singleton
+    @Provides
+    fun provideBookingsDao(db: AppDatabase) = db.bookingsDao()
+
+    @Singleton
+    @Provides
+    fun provideBookingsRepository(remoteDataSource: BookingsRemoteDataSource,
+                               localDataSource: BookingsDao
+    ) =
+            BookingsRepository(remoteDataSource, localDataSource)
+
 
     //Notifications
 

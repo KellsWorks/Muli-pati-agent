@@ -26,6 +26,7 @@
     <string name="mk_2000">MK, 2000</string>
     <string name="gold">Gold</string>
     <string name="mk_5_000">MK 5,000</string>
+    <string name="the_golden_rule_of_super_ants_is_location_please_enable_location_to_get_your_services">The golden rule of super ants is location. Please enable location to get your services.</string>
     <string name="silver_plan">Silver plan</string>
     <string name="dashboard">Dashboard</string>
     <string name="profile">Profile</string>
@@ -168,6 +169,11 @@
     <string name="active_trips">Active trips</string>
     <string name="no_bookings_present">No bookings present</string>
     <string name="you_have_no_active_trips">You have no active trips</string>
+    <string name="location">Location</string>
+    <string name="allow_app_to_use_location">Allow app to use location</string>
+    <string name="enable_location_service">Enable location service</string>
+    <string name="do_not_allow">Do not allow</string>
+    <string name="access_your_location">Access your location</string>
 
     <string-array name="cars">
         <item>Mazda Demio</item>

@@ -22,6 +22,7 @@ import app.mulipati_agent.epoxy.bookings.BookingsEpoxyController
 import app.mulipati_agent.network.ApiClient
 import app.mulipati_agent.network.Routes
 import app.mulipati_agent.util.autoCleared
+import app.mulipati_agent.util.getDay
 import dagger.hilt.android.AndroidEntryPoint
 import retrofit2.Call
 import retrofit2.Callback
@@ -38,7 +39,11 @@ class DashboardFragment : Fragment() {
 
     private val tripsViewModel: TripsViewModel by viewModels()
 
+    private val bookingsViewModel: BookingsViewModel by viewModels()
+
     private lateinit var tripsList: ArrayList<Trips>
+
+    private lateinit var bookingsList: ArrayList<Bookings>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -54,24 +59,6 @@ class DashboardFragment : Fragment() {
 
         setUpObservers()
 
-        val arrayList = ArrayList<Bookings>()
-
-        arrayList.add(Bookings(1, "6", "Tue", "Real user 1", "Location: Blantyre"))
-        arrayList.add(Bookings(1, "6", "Tue", "Real user 1", "Location: Blantyre"))
-        arrayList.add(Bookings(1, "6", "Tue", "Real user 1", "Location: Blantyre"))
-
-        if (arrayList.isEmpty()){
-            dashboardBinding.bookingsRecycler.visibility = View.GONE
-            dashboardBinding.noBookingsError.visibility = View.VISIBLE
-        }else{
-            dashboardBinding.bookingsRecycler.visibility = View.VISIBLE
-            dashboardBinding.noBookingsError.visibility = View.GONE
-        }
-
-        val bookingsEpoxyController = BookingsEpoxyController()
-        bookingsEpoxyController.setData(false, arrayList)
-
-        dashboardBinding.bookingsRecycler.setController(bookingsEpoxyController)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -154,6 +141,7 @@ class DashboardFragment : Fragment() {
 
     private fun setUpObservers(){
         val getId = context?.getSharedPreferences("user", Context.MODE_PRIVATE)?.getInt("id", 0)
+        val location = context?.getSharedPreferences("user", Context.MODE_PRIVATE)?.getString("location", "")
         tripsViewModel.trips.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
             when(it.status){
                 Resource.Status.SUCCESS -> {
@@ -183,6 +171,52 @@ class DashboardFragment : Fragment() {
                 }
             }
         })
+
+
+        bookingsViewModel.bookings.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+            when(it.status){
+                Resource.Status.SUCCESS -> {
+                    if (it.data!!.isNotEmpty()){
+
+                        bookingsList = ArrayList()
+
+                        for (trip in it.data){
+
+                            if (trip.user_id == getId){
+                                bookingsList.add(Bookings(
+                                        trip.id, getDay(trip.created_at) , getDay(trip.created_at), trip.user_id.toString(), "Location: "+ location.toString()
+                                ))
+                            }
+                        }
+
+                        setUpBookings(bookingsList)
+                    }
+                }
+                Resource.Status.LOADING -> {
+
+                }
+                Resource.Status.ERROR -> {
+                    Timber.e("Error")
+                }
+            }
+        })
+    }
+
+    private fun setUpBookings(data: List<Bookings>){
+
+        if (data.isEmpty()){
+            dashboardBinding.bookingsRecycler.visibility = View.GONE
+            dashboardBinding.noBookingsError.visibility = View.VISIBLE
+        }else{
+            dashboardBinding.bookingsRecycler.visibility = View.VISIBLE
+            dashboardBinding.noBookingsError.visibility = View.GONE
+        }
+
+        val bookingsEpoxyController = BookingsEpoxyController()
+        bookingsEpoxyController.setData(false, data)
+
+        dashboardBinding.bookingsRecycler.setController(bookingsEpoxyController)
+
     }
 
     private fun setUpRecycler(data: List<Trips>){
