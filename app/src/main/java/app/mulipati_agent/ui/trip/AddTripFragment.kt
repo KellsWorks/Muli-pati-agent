@@ -200,10 +200,11 @@ class AddTripFragment : Fragment() {
                         val mediaPlayer = MediaPlayer.create(requireContext(), R.raw.success)
                         mediaPlayer.start()
                         successDialog.setContentView(R.layout.dialog_success)
+                        successDialog.show()
                         Handler().postDelayed({
                             successDialog.dismiss()
                             findNavController().navigate(R.id.action_addTripFragment_to_dashboardFragment)
-                        }, 2000)
+                        }, 3000)
 
                     }else ->{
                     Timber.e(response.errorBody()?.string())
