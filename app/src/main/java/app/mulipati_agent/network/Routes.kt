@@ -95,4 +95,18 @@ interface Routes {
         @Field("car_photo") car_photo: String?
     ): Call<Basic?>?
 
+
+    //Notifications routes
+    @POST("v1/notifications/user-mark-notification")
+    @FormUrlEncoded
+    fun markAsRead(
+        @Field("id") id: Int?
+    ): Call<Basic?>?
+
+    @POST("v1/notifications/user-notification-delete")
+    @FormUrlEncoded
+    fun deleteNotification(
+        @Field("id") id: Int?
+    ): Call<Basic?>?
+
 }

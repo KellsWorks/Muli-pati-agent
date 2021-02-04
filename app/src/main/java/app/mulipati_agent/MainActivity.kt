@@ -11,8 +11,10 @@ import androidx.navigation.ui.setupWithNavController
 import app.mulipati_agent.databinding.ActivityMainBinding
 import app.mulipati_agent.network.BackgroundServices
 import com.google.firebase.iid.FirebaseInstanceId.*
+import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding

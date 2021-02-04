@@ -2,9 +2,16 @@ package app.mulipati_agent.epoxy.notification
 
 import android.widget.PopupMenu
 import android.widget.Toast
-import app.mulipati.data.Notifications
 import app.mulipati_agent.R
+import app.mulipati_agent.data.Notifications
+import app.mulipati_agent.network.ApiClient
+import app.mulipati_agent.network.Routes
+import app.mulipati_agent.network.responses.Basic
 import com.airbnb.epoxy.Typed2EpoxyController
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import timber.log.Timber
 import java.lang.reflect.Method
 
 
@@ -22,13 +29,61 @@ class NotificationsEpoxyController: Typed2EpoxyController<Boolean?, List<Notific
                         popupMenu.setOnMenuItemClickListener { item ->
                             when(item.itemId) {
                                 R.id.asRead -> {
-                                    Toast.makeText(parentView.datetime!!.context, "Marked as read!", Toast.LENGTH_SHORT)
-                                        .show()
+
+                                    val apiClient = ApiClient.client!!.create(Routes::class.java)
+                                    val markAsRead = apiClient.markAsRead(parentView.id)
+
+                                    markAsRead?.enqueue(object : Callback<Basic?>{
+                                        override fun onFailure(call: Call<Basic?>, t: Throwable) {
+                                            Toast.makeText(
+                                                parentView.content?.context, "A network error occurred", Toast.LENGTH_SHORT
+                                            ).show()
+                                        }
+
+                                        override fun onResponse(
+                                            call: Call<Basic?>,
+                                            response: Response<Basic?>
+                                        ) {
+                                            when(response.code()){
+                                                200 ->{
+                                                    Toast.makeText(
+                                                        parentView.content?.context, "Marked as read", Toast.LENGTH_SHORT
+                                                    ).show()
+                                                }
+                                            }
+                                        }
+
+                                    })
                                 }
 
                                 R.id.delete -> {
-                                    Toast.makeText(parentView.datetime!!.context, "Deleted!", Toast.LENGTH_SHORT)
-                                        .show()
+
+                                    val apiClient = ApiClient.client!!.create(Routes::class.java)
+                                    val delete = apiClient.deleteNotification(parentView.id)
+
+                                    delete?.enqueue(object : Callback<Basic?>{
+                                        override fun onFailure(call: Call<Basic?>, t: Throwable) {
+                                            Toast.makeText(
+                                                parentView.content?.context, "A network error occurred", Toast.LENGTH_SHORT
+                                            ).show()
+                                        }
+
+                                        override fun onResponse(
+                                            call: Call<Basic?>,
+                                            response: Response<Basic?>
+                                        ) {
+                                            when(response.code()){
+                                                200 ->{
+                                                    Toast.makeText(
+                                                        parentView.content?.context, "Deleted", Toast.LENGTH_SHORT
+                                                    ).show()
+                                                }else->{
+                                                 Timber.e(response.errorBody()?.string())
+                                            }
+                                            }
+                                        }
+
+                                    })
                                 }
                             }
                             true

@@ -3,7 +3,7 @@ package app.mulipati_agent.epoxy.notification
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import app.mulipati.data.Notifications
+import app.mulipati_agent.data.Notifications
 import app.mulipati_agent.R
 import com.airbnb.epoxy.EpoxyAttribute
 import com.airbnb.epoxy.EpoxyHolder
@@ -16,6 +16,7 @@ abstract class NotificationsEpoxyModel : EpoxyModelWithHolder<NotificationsEpoxy
 
     @EpoxyAttribute
     var data: Notifications? = null
+
 
     @EpoxyAttribute
     var click: View.OnClickListener? = null
@@ -31,8 +32,11 @@ abstract class NotificationsEpoxyModel : EpoxyModelWithHolder<NotificationsEpoxy
         holder.title!!.text = data!!.title
         holder.content!!.text = data!!.content
         holder.datetime!!.text = data!!.time
+        holder.id = data!!.id
 
         holder.menu!!.setOnClickListener(click)
+
+
     }
 
     override fun getDefaultLayout(): Int {
@@ -45,6 +49,7 @@ abstract class NotificationsEpoxyModel : EpoxyModelWithHolder<NotificationsEpoxy
         var title: TextView? = null
         var content: TextView? = null
         var datetime: TextView? = null
+        var id: Int? = null
 
         var menu: ImageView? = null
 

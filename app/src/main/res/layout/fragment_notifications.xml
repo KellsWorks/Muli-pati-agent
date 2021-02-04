@@ -61,11 +61,34 @@
                 android:id="@+id/recentNotificationsRecycler"
                 />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/errorFirstLayout"
+                android:visibility="gone"
+                tools:ignore="UseCompoundDrawables">
+                <ImageView
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:src="@drawable/notifications"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/illustration"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/records"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"
+                    />
+            </LinearLayout>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/viewed"
-                android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
                 android:textSize="17sp"
                 android:textStyle="bold"
@@ -78,6 +101,30 @@
                 android:layout_margin="10dp"
                 android:id="@+id/viewedNotificationsRecycler"
                 />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/errorSecondLayout"
+                android:visibility="gone"
+                tools:ignore="UseCompoundDrawables">
+                <ImageView
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:src="@drawable/notifications"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/illustration"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/records"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"
+                    />
+            </LinearLayout>
         </LinearLayout>
 
     </RelativeLayout>

@@ -7,7 +7,7 @@ import retrofit2.http.POST
 interface RemoteServices {
 
     @POST("v1/notifications/user-notifications")
-    fun getUserNotifications(
+    suspend fun getUserNotifications(
     ) : Response<NotificationsResponse>
 
 }
