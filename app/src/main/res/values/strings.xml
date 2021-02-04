@@ -169,7 +169,6 @@
     <string name="active_trips">Active trips</string>
     <string name="no_bookings_present">No bookings present</string>
     <string name="you_have_no_active_trips">You have no active trips</string>
-    <string name="location">Location</string>
     <string name="allow_app_to_use_location">Allow app to use location</string>
     <string name="enable_location_service">Enable location service</string>
     <string name="do_not_allow">Do not allow</string>

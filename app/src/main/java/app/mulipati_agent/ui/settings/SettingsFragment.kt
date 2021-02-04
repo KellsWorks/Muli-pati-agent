@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import app.mulipati_agent.R
@@ -41,6 +42,12 @@ class SettingsFragment : Fragment() {
         val permission = ContextCompat.checkSelfPermission(requireActivity(),
                 Manifest.permission.ACCESS_NOTIFICATION_POLICY)
 
+        val locationFine = ContextCompat.checkSelfPermission(requireActivity(),
+            Manifest.permission.ACCESS_FINE_LOCATION)
+
+        val locationCoarse = ContextCompat.checkSelfPermission(requireActivity(),
+            Manifest.permission.ACCESS_COARSE_LOCATION)
+
         if (permission == PackageManager.PERMISSION_GRANTED) {
             settingsBinding.toggleNotifications.isActivated = true
             settingsBinding.toggleNotifications.isChecked = true
@@ -50,6 +57,16 @@ class SettingsFragment : Fragment() {
                 settingsBinding.toggleNotifications.isActivated = true
                 settingsBinding.toggleNotifications.isChecked = true
             }
+        }
+
+        if (locationFine == PackageManager.PERMISSION_GRANTED && locationCoarse == PackageManager.PERMISSION_GRANTED ){
+            settingsBinding.toggleLocation.isActivated = true
+            settingsBinding.toggleLocation.isChecked = true
+        }else{
+            settingsBinding.toggleLocation.isActivated = true
+            settingsBinding.toggleLocation.isChecked = true
+
+            requestPermissions()
         }
 
         val nightModeFlags = requireContext().resources.configuration.uiMode and
@@ -100,6 +117,17 @@ class SettingsFragment : Fragment() {
         settingsBinding.settingsBack.setOnClickListener {
             findNavController().navigateUp()
         }
+    }
+
+    private fun requestPermissions() {
+        ActivityCompat.requestPermissions(
+            requireActivity(),
+            arrayOf(
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ),
+            1
+        )
     }
 
 }
