@@ -68,6 +68,10 @@ class DashboardFragment : Fragment() {
             findNavController().navigate(R.id.action_dashboardFragment_to_addTripFragment)
         }
 
+        dashboardBinding.toBookings.setOnClickListener {
+            findNavController().navigate(R.id.action_dashboardFragment_to_bookingsFragment)
+        }
+
         bindLocation()
     }
 

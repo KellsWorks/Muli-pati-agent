@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_dashboardFragment_to_addTripFragment"
             app:destination="@id/addTripFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_bookingsFragment"
+            app:destination="@id/bookingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -99,4 +102,12 @@
         android:id="@+id/notificationSettingFragment"
         android:name="app.mulipati_agent.ui.settings.NotificationSettingFragment"
         android:label="NotificationSettingFragment" />
+    <fragment
+        android:id="@+id/bookingsFragment"
+        android:name="app.mulipati_agent.ui.bookings.BookingsFragment"
+        android:label="BookingsFragment" >
+        <action
+            android:id="@+id/action_bookingsFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+    </fragment>
 </navigation>

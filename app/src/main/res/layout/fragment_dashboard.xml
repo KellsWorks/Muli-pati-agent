@@ -165,6 +165,7 @@
                     android:src="@drawable/ic_page_next"
                     android:layout_alignParentEnd="true"
                     android:text="@string/see_all_3"
+                    android:id="@+id/toBookings"
                     android:textSize="15sp"
                     android:layout_marginEnd="20dp"
                     tools:ignore="RelativeOverlap" />
