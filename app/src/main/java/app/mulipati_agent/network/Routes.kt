@@ -78,4 +78,21 @@ interface Routes {
     ): Call<SubscriptionResponse?>?
 
 
+    ///Trips create *******important routes*********
+    @POST(" v1/trips/create")
+    @FormUrlEncoded
+    fun addNewTrip(
+        @Field("id") id: Int?,
+        @Field("start") start: String?,
+        @Field("destination") destination: String?,
+        @Field("start_time") start_time: String?,
+        @Field("end_time") end_time: String?,
+        @Field("pick_up_place") pick_up_place: String?,
+        @Field("location") location: String?,
+        @Field("number_of_passengers") number_of_passengers: String?,
+        @Field("passenger_fare") passenger_fare: String?,
+        @Field("car_type") car_type: String?,
+        @Field("car_photo") car_photo: String?
+    ): Call<Basic?>?
+
 }

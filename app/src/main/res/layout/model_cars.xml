@@ -3,6 +3,7 @@
     android:orientation="vertical" android:layout_width="wrap_content"
     android:background="@drawable/rectangle_stroked"
     android:layout_margin="10dp"
+    android:id="@+id/selectCar"
     android:layout_height="wrap_content">
 
     <TextView

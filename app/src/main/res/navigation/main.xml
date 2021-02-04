@@ -44,7 +44,11 @@
     <fragment
         android:id="@+id/addTripFragment"
         android:name="app.mulipati_agent.ui.trip.AddTripFragment"
-        android:label="AddTripFragment" />
+        android:label="AddTripFragment" >
+        <action
+            android:id="@+id/action_addTripFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+    </fragment>
     <fragment
         android:id="@+id/notificationsFragment"
         android:name="app.mulipati_agent.ui.notifications.NotificationsFragment"

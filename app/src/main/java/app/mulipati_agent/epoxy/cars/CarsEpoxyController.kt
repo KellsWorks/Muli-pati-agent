@@ -11,10 +11,16 @@ class CarsEpoxyController: Typed2EpoxyController<Boolean, List<Cars>>() {
                 CarsEpoxyModel_()
                     .id(car.name)
                     .data(car)
-                    .click { _, parentView, _, _ ->
-                            SharedPreferences(parentView.name!!.context).addTripPrefs("car_type", parentView.name!!.text.toString())
+                    .click { model, parentView, clickedView, position -> SharedPreferences(
+                        parentView.name!!.context
+                    ).addTripPrefs("car_type", parentView.name!!.text.toString())
+                        SharedPreferences(
+                            parentView.name!!.context
+                        ).addTripPrefs("car_photo", "mazda_demio.png")
+                        parentView.checkbox?.isChecked = true
                     }
                     .addTo(this)
+
             }
         }
     }

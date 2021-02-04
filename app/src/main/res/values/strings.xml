@@ -150,6 +150,7 @@
     <string name="feb">12th February 2021</string>
     <string name="mazda_demio">Mazda demio</string>
     <string name="mk500_per_passenger">MK500 per passenger</string>
+    <string name="trip_added_successfully">Trip added successfully!</string>
 
     <string-array name="cars">
         <item>Mazda Demio</item>

@@ -3,6 +3,7 @@ package app.mulipati_agent.epoxy.cars
 import android.view.View
 import android.widget.CheckBox
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import app.mulipati_agent.R
 import app.mulipati_agent.data.Cars
@@ -32,7 +33,7 @@ abstract class CarsEpoxyModel : EpoxyModelWithHolder<CarsEpoxyModel.CarsEpoxyMod
         holder.name!!.text = data!!.name
         holder.passengers!!.text = data!!.passengers
 
-        holder.checkbox!!.setOnClickListener(click)
+        holder.main!!.setOnClickListener(click)
     }
 
     override fun getDefaultLayout(): Int {
@@ -47,6 +48,7 @@ abstract class CarsEpoxyModel : EpoxyModelWithHolder<CarsEpoxyModel.CarsEpoxyMod
 
 
         var checkbox: CheckBox? =  null
+        var main: LinearLayout? = null
 
         override fun bindView(itemView: View) {
 
@@ -55,6 +57,7 @@ abstract class CarsEpoxyModel : EpoxyModelWithHolder<CarsEpoxyModel.CarsEpoxyMod
             passengers = itemView.findViewById(R.id.carPassengers)
 
             checkbox = itemView.findViewById(R.id.checkCar)
+            main = itemView.findViewById(R.id.selectCar)
         }
 
     }

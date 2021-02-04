@@ -59,7 +59,7 @@
                     android:layout_gravity="center"
                     />
                 <EditText
-                    android:layout_width="50dp"
+                    android:layout_width="80dp"
                     android:layout_height="50dp"
                     android:background="@drawable/rectangle_stroked"
                     android:layout_margin="7dp"
@@ -68,19 +68,11 @@
                     android:textSize="18sp"
                     android:layout_gravity="center"
                     android:textAlignment="center"
+                    android:maxLength="2"
+                    android:imeOptions="actionDone"
+                    android:id="@+id/passengersOne"
                     tools:ignore="RtlSymmetry" />
-                <EditText
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/rectangle_stroked"
-                    android:layout_margin="7dp"
-                    android:paddingLeft="5dp"
-                    android:paddingStart="5dp"
-                    android:textSize="18sp"
-                    android:layout_gravity="center"
-                    android:textAlignment="center"
-                    tools:ignore="RtlSymmetry"
-                    />
+
             </LinearLayout>
         </LinearLayout>
 
