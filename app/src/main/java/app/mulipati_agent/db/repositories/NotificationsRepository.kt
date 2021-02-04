@@ -13,7 +13,12 @@ class NotificationsRepository @Inject constructor(
     fun getNotifications() = performGetOperation(
         databaseQuery = { localDataSource.getNotifications() },
         networkCall = { remoteDataSource.getNotifications() },
-        saveCallResult = { localDataSource.insertNotifications(it.notifications) }
+        saveCallResult = {
+
+            localDataSource.deleteNotifications()
+            localDataSource.insertNotifications(it.notifications)
+
+        }
     )
 
 }

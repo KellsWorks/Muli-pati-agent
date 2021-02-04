@@ -108,6 +108,14 @@ class NotificationsFragment : Fragment() {
         controller = NotificationsEpoxyController()
         controller.setData(true, data)
 
+        if (data.isNotEmpty()){
+            notificationsBinding.recentNotificationsRecycler.visibility = View.VISIBLE
+            notificationsBinding.errorFirstLayout.visibility = View.GONE
+        }else{
+            notificationsBinding.recentNotificationsRecycler.visibility = View.GONE
+            notificationsBinding.errorFirstLayout.visibility = View.VISIBLE
+        }
+
         notificationsBinding.recentNotificationsRecycler
             .setController(controller)
 

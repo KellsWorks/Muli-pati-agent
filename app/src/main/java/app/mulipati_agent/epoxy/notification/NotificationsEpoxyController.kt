@@ -61,6 +61,8 @@ class NotificationsEpoxyController: Typed2EpoxyController<Boolean?, List<Notific
                                     val apiClient = ApiClient.client!!.create(Routes::class.java)
                                     val delete = apiClient.deleteNotification(parentView.id)
 
+                                    Timber.e(parentView.id.toString())
+
                                     delete?.enqueue(object : Callback<Basic?>{
                                         override fun onFailure(call: Call<Basic?>, t: Throwable) {
                                             Toast.makeText(

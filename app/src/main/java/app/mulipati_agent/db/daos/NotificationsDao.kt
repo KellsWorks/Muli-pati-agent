@@ -17,5 +17,6 @@ interface NotificationsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertNotifications(trips: List<Notification>)
 
-
+    @Query("DELETE FROM notifications")
+    fun deleteNotifications()
 }
