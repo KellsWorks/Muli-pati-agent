@@ -7,4 +7,6 @@ object Constants {
     const val PROFILE_URL = "http://192.168.43.200:322/storage/profile/"
 
     const val IMAGE_REQUEST = 1
+
+    const val DB_NAME = "Muli_pati_agent"
 }
