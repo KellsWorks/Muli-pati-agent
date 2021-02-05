@@ -174,6 +174,8 @@
     <string name="do_not_allow">Do not allow</string>
     <string name="access_your_location">Access your location</string>
     <string name="update_trip_details">Update trip details</string>
+    <string name="timen">10:00PM</string>
+    <string name="start_typing">Start typing...</string>
 
     <string-array name="cars">
         <item>Mazda Demio</item>

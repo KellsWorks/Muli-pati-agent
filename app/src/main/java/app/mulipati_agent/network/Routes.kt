@@ -1,9 +1,11 @@
 package app.mulipati_agent.network
 
 import app.mulipati.data.LocationResponse
+import app.mulipati_agent.network.responses.chat.MessagesResponse
 import app.mulipati_agent.firebase.receiver.SendToken
 import app.mulipati_agent.network.responses.*
 import app.mulipati_agent.network.responses.account.ImageResponse
+import app.mulipati_agent.network.responses.chat.MessageSent
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -116,5 +118,21 @@ interface Routes {
     ): Call<Basic?>?
 
 
+    //Messages
+    @POST("v1/message/get-messages")
+    @FormUrlEncoded
+    fun tripMessages(
+        @Field("toId")toId: Int?,
+        @Field("fromId")fromId: Int?
+    ): Call<MessagesResponse>
+
+    @POST("v1/message/create")
+    @FormUrlEncoded
+    fun sendMessage(
+        @Field("to") to: Int?,
+        @Field("from") from: Int?,
+        @Field("message") message: String?,
+        @Field("time") time: String?
+    ): Call<MessageSent>
 
 }

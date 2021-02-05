@@ -14,6 +14,7 @@ import app.mulipati_agent.data.Bookings
 import app.mulipati_agent.databinding.FragmentBookingsBinding
 import app.mulipati_agent.epoxy.bookings.BookingsEpoxyController
 import app.mulipati_agent.ui.dashboard.BookingsViewModel
+import app.mulipati_agent.ui.dashboard.TripsViewModel
 import app.mulipati_agent.util.autoCleared
 import app.mulipati_agent.util.getDay
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,6 +25,8 @@ class BookingsFragment : Fragment() {
     private var bookingsBinding: FragmentBookingsBinding by autoCleared()
 
     private val bookingsViewModel: BookingsViewModel by viewModels()
+
+    private val tripsViewModel: TripsViewModel by viewModels()
 
     private lateinit var bookingsList: ArrayList<Bookings>
 
@@ -44,7 +47,8 @@ class BookingsFragment : Fragment() {
         setUpObservers()
 
         bookingsBinding.bookingsBack.setOnClickListener {
-            findNavController().navigate(app.mulipati_agent.R.id.action_bookingsFragment_to_dashboardFragment)
+            findNavController().navigate(app.mulipati_agent.R.id.action_bookingsFragment_to_dashboardFragment
+            )
         }
 
         bookingsBinding.refreshBookings.setOnRefreshListener {
@@ -61,20 +65,24 @@ class BookingsFragment : Fragment() {
             when(it.status){
                 Resource.Status.SUCCESS -> {
                     bookingsBinding.refreshBookings.isRefreshing = false
-                    if (it.data!!.isNotEmpty()){
 
-                        bookingsList = ArrayList()
+                    val ids = getId?.let { it1 -> getTrips(it1) }
 
-                        for (trip in it.data){
+                    if (ids != null) {
+                        for (id in ids){
+                            bookingsList = ArrayList()
 
-                            if (trip.user_id == getId){
-                                bookingsList.add(Bookings(
-                                    trip.id, getDay(trip.created_at) , getDay(trip.created_at), trip.user_id.toString(), "Location: "+ location.toString()
-                                ))
-                            }
+                                for (trip in it.data!!){
+
+                                    if (trip.trip_id == id){
+                                        bookingsList.add(Bookings(trip.id, getDay(trip.created_at), getDay(trip.created_at), trip.user_id.toString(), location.toString()))
+                                    }
+
+
+                                }
+
+                                setUpBookings(bookingsList)
                         }
-
-                        setUpBookings(bookingsList)
                     }
                 }
                 Resource.Status.LOADING -> {
@@ -104,4 +112,36 @@ class BookingsFragment : Fragment() {
         bookingsBinding.bookingRecycler.layoutManager = LinearLayoutManager(requireContext())
 
     }
+
+    private fun getTrips(tripId: Int) : List<Int>{
+
+        val arrayList = ArrayList<Int>()
+
+        tripsViewModel.trips.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+            when(it.status){
+                Resource.Status.SUCCESS -> {
+                    if (it.data!!.isNotEmpty()){
+
+                        for (trip in it.data){
+
+                            if (trip.user_id == tripId){
+                                 arrayList.add(trip.id)
+                            }
+
+                        }
+
+                    }
+                }
+                Resource.Status.LOADING -> {
+
+                }
+                Resource.Status.ERROR -> {
+
+                }
+            }
+        })
+
+        return arrayList
+    }
+
 }
