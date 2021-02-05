@@ -12,10 +12,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
             android:layout_marginTop="28dp"
             android:id="@+id/continuePlanBack"
             android:src="@drawable/ic_close"
@@ -25,10 +23,8 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
             android:layout_marginTop="65dp"
             android:id="@+id/continuePlanTitle"
             android:text=""
@@ -48,7 +44,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="@string/plan_benefits"
-            android:layout_marginLeft="20dp"
             android:textSize="22sp"
             android:textStyle="bold"
             android:layout_marginStart="20dp" />
@@ -62,7 +57,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_flash"
-                android:layout_marginLeft="20dp"
                 android:layout_marginStart="20dp"
                 android:contentDescription="@string/image" />
             <TextView
@@ -70,7 +64,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/unlimited_customers_in_your_reach"
                 android:textSize="17sp"
-                android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp" />
         </LinearLayout>
 
@@ -83,7 +76,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_shield_check"
-                android:layout_marginLeft="20dp"
                 android:contentDescription="@string/image"
                 android:layout_marginStart="20dp" />
             <TextView
@@ -91,7 +83,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/secure_interaction"
                 android:textSize="17sp"
-                android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp" />
         </LinearLayout>
 
@@ -104,7 +95,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_phone_dial"
-                android:layout_marginLeft="20dp"
                 app:tint="#9808D6"
                 android:contentDescription="@string/image"
                 android:layout_marginStart="20dp" />
@@ -113,7 +103,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/_24_7_service_support"
                 android:textSize="17sp"
-                android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp" />
         </LinearLayout>
 
@@ -126,7 +115,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_car_plus"
-                android:layout_marginLeft="20dp"
                 android:layout_marginStart="20dp"
                 app:tint="#FDD835"
                 android:contentDescription="@string/image" />
@@ -135,7 +123,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/post_10_rides_per_day"
                 android:textSize="17sp"
-                android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp" />
         </LinearLayout>
 
@@ -143,8 +130,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Payment"
-                android:layout_marginLeft="20dp"
+                android:text="@string/payment"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 android:layout_marginStart="20dp" />
@@ -154,7 +140,6 @@
                 android:layout_height="wrap_content"
                 android:text=""
                 android:textColor="@color/red"
-                android:layout_marginLeft="20dp"
                 android:id="@+id/subscribeBanner"
                 android:textStyle="bold"
                 android:layout_marginStart="20dp" />
@@ -163,7 +148,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:weightSum="2"
-                >
+                android:baselineAligned="false">
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -177,7 +162,7 @@
                         android:src="@drawable/mpamba"
                         android:id="@+id/subscribeMpamba"
                         android:layout_gravity="center"
-                        />
+                        android:contentDescription="@string/image" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -196,22 +181,6 @@
                         />
                 </LinearLayout>
             </LinearLayout>
-
         </LinearLayout>
-
-        <Button
-            android:id="@+id/continuePlan"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="40dp"
-            android:background="@drawable/button"
-            android:text="@string/continue_"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="17sp"
-            android:textStyle="bold" />
     </RelativeLayout>
 </layout>

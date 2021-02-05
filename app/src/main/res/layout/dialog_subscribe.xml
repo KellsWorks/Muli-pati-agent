@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="?colorOnPrimary"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_close"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="20dp"
+        android:id="@+id/dialogSubscribeClose"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/icon" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="40dp"
+        >
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/mpamba"
+            android:layout_gravity="center"
+            android:id="@+id/subscribeIcon"
+            android:layout_margin="20dp"
+            android:contentDescription="@string/image" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            app:startIconDrawable="@drawable/ic_phone"
+            app:boxBackgroundColor="?boxBackgroundColor"
+            android:id="@+id/subscribePhoneLayout"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/phone_number"
+                android:textStyle="bold"
+                android:inputType="phone"
+                android:maxLength="10"
+                android:imeOptions="actionDone"
+                android:id="@+id/subscribePhone"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/enter_your_mpamba_pin"
+            android:textStyle="bold"
+            android:layout_marginTop="7dp"
+            android:layout_marginStart="20dp"
+            android:id="@+id/enterPinBanner"
+            />
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            >
+
+            <EditText
+                android:layout_width="60dp"
+                android:layout_height="71dp"
+                android:background="@drawable/rectangle_rounded"
+                android:textSize="28sp"
+                android:id="@+id/pinOne"
+                android:textStyle="bold"
+                android:imeOptions="actionNext"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:inputType="textPassword"
+                android:maxLength="1"
+                android:autofillHints="" />
+
+            <EditText
+                android:layout_width="60dp"
+                android:layout_height="71dp"
+                android:background="@drawable/rectangle_rounded"
+                android:layout_marginStart="20dp"
+                android:textSize="28sp"
+                android:id="@+id/pinTwo"
+                android:textStyle="bold"
+                android:imeOptions="actionNext"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:inputType="textPassword"
+                android:maxLength="1"
+                android:autofillHints="" />
+
+            <EditText
+                android:layout_width="60dp"
+                android:layout_height="71dp"
+                android:background="@drawable/rectangle_rounded"
+                android:layout_marginStart="20dp"
+                android:textSize="28sp"
+                android:id="@+id/pinThree"
+                android:textStyle="bold"
+                android:imeOptions="actionNext"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:inputType="textPassword"
+                android:autofillHints="" />
+
+            <EditText
+                android:layout_width="60dp"
+                android:layout_height="71dp"
+                android:background="@drawable/rectangle_rounded"
+                android:layout_marginStart="20dp"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:imeOptions="actionDone"
+                android:id="@+id/pinFour"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:inputType="textPassword"
+                android:maxLength="1"
+                android:autofillHints="" />
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="6dp"
+            android:id="@+id/agreementSubscribe"
+            android:text="@string/by_pressing_continue_you_agree_to_tnm_mpamba_terms_of_service"
+            />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="46dp"
+            android:text="@string/pay"
+            android:id="@+id/pay"
+            android:textAllCaps="false"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/button"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            />
+    </LinearLayout>
+</RelativeLayout>

@@ -13,10 +13,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
             android:layout_marginTop="28dp"
             android:id="@+id/notificationsBack"
             android:src="@drawable/ic_arrow_back"
@@ -26,28 +24,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="67dp"
-            android:layout_marginLeft="67dp"
             android:layout_marginTop="18dp"
             android:text="@string/notifications"
             android:textSize="30sp"
             android:textStyle="bold" />
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_alignParentTop="true"
             android:layout_marginTop="74dp"
-            android:orientation="vertical">
-
-
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/recent"
-                android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
                 android:textSize="17sp"
                 android:textStyle="bold"
@@ -125,7 +123,8 @@
                     android:textStyle="bold"
                     />
             </LinearLayout>
-        </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
 
     </RelativeLayout>
 

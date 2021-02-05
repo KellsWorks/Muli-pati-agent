@@ -21,7 +21,13 @@ class SubscriptionsEpoxyController : Typed2EpoxyController<Boolean, List<Subscri
                         val dialogClickListener = DialogInterface.OnClickListener { _, which ->
                             when (which) {
                                 DialogInterface.BUTTON_POSITIVE -> {
+
                                     parentView.title?.context?.getSharedPreferences("plan", Context.MODE_PRIVATE)?.edit()?.clear()?.apply()
+
+                                    val subscribed = parentView.title?.context?.getSharedPreferences("subscription", Context.MODE_PRIVATE)?.edit()
+                                    subscribed?.putBoolean("isSubscribed", false)
+                                    subscribed?.apply()
+
                                     parentView.title?.context?.startActivity(
                                         Intent(
                                             parentView.title?.context, Authentication::class.java

@@ -7,17 +7,22 @@ import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import app.mulipati_agent.MainActivity
+import app.mulipati_agent.R
 import app.mulipati_agent.databinding.FragmentContinuePlanBinding
 import app.mulipati_agent.network.ApiClient
 import app.mulipati_agent.network.Routes
 import app.mulipati_agent.network.responses.SubscriptionResponse
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.textfield.TextInputEditText
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -47,42 +52,76 @@ class ContinuePlanFragment : Fragment() {
             findNavController().navigateUp()
         }
 
-        continuePlanBinding.continuePlan.setOnClickListener {
-            val subscribed = context?.getSharedPreferences("subscription", Context.MODE_PRIVATE)
-
-            if (subscribed?.getBoolean("isSubscribed", false) == true){
-                requireActivity()
-                    .startActivity(
-                        Intent(
-                            requireActivity(), MainActivity::class.java
-                        )
-                    )
-            }else{
-                continuePlanBinding.subscribeBanner.text = "You do not have active subscriptions"
-            }
-
-        }
-
         bindItems()
     }
 
     @SuppressLint("SetTextI18n")
     private fun bindItems(){
 
-        val id = context?.getSharedPreferences("user", Context.MODE_PRIVATE)?.getInt("id", 0)
 
+        continuePlanBinding.subscribeMpamba.setOnClickListener{
+            dialogShow(R.drawable.mpamba, "Enter your TNM mpamba pin", "By pressing continue, you agree to TNM Mpamba terms of service.")
+        }
+        continuePlanBinding.subscribeAirtel.setOnClickListener {
+            dialogShow(R.drawable.airtel,"Enter your Airtel money pin", "By pressing continue, you agree to Airtel money terms of service.")
+        }
+    }
+
+    @SuppressLint("SetTextI18n", "InflateParams")
+    private fun dialogShow(icon: Int, pinBanner: String, agreePost: String){
+
+        val id = context?.getSharedPreferences("user", Context.MODE_PRIVATE)?.getInt("id", 0)
+        val phoneNumber = context?.getSharedPreferences("user", Context.MODE_PRIVATE)?.getString("phone", "")
         val plan = context?.getSharedPreferences("plan", Context.MODE_PRIVATE)?.getString("current_plan", "")
         continuePlanBinding.continuePlanTitle.text = "Continue with $plan plan"
 
-        continuePlanBinding.subscribeMpamba.setOnClickListener{
-            if (id != null) {
-                subscribe(id, plan.toString())
-            }
+        val dialog = BottomSheetDialog(requireContext())
+        val view = dialog.layoutInflater.inflate(R.layout.dialog_subscribe, null)
+
+        val operatorIcon  = view.findViewById<ImageView>(R.id.subscribeIcon)
+        operatorIcon.setImageResource(icon)
+
+        val pin = view.findViewById<TextView>(R.id.enterPinBanner)
+        pin.text = pinBanner
+
+        val agreement = view.findViewById<TextView>(R.id.agreementSubscribe)
+        agreement.text = agreePost
+
+        val close = view.findViewById<ImageView>(R.id.dialogSubscribeClose)
+        val pay = view.findViewById<Button>(R.id.pay)
+
+        val one = view.findViewById<EditText>(R.id.pinOne).text
+        val two = view.findViewById<EditText>(R.id.pinTwo).text
+        val three = view.findViewById<EditText>(R.id.pinThree).text
+        val four = view.findViewById<EditText>(R.id.pinFour).text
+
+        val phone = view.findViewById<TextInputEditText>(R.id.subscribePhone)
+        phone.setText(phoneNumber)
+
+        dialog.setContentView(view)
+        dialog.show()
+
+        val metrics = DisplayMetrics()
+        dialog.behavior.state = BottomSheetBehavior.STATE_EXPANDED
+        dialog.behavior.peekHeight = metrics.heightPixels
+        dialog.dismissWithAnimation = true
+
+        close.setOnClickListener {
+            dialog.dismiss()
         }
-        continuePlanBinding.subscribeAirtel.setOnClickListener {
+
+        pay.setOnClickListener {
+            dialog.dismiss()
+
+            val mobilePin = "$one$two$three$four"
+            val mobilePhoneNumber = phone.text
+
+            Timber.e("Pin: $mobilePin Phone number: $mobilePhoneNumber")
+
             if (id != null) {
-                subscribe(id, plan.toString())
+              subscribe(id, plan.toString())
             }
+
         }
     }
 
