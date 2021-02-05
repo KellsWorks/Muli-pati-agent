@@ -30,12 +30,12 @@ abstract class BookingsEpoxyModel : EpoxyModelWithHolder<BookingsEpoxyModel.Book
         super.bind(holder)
 
         holder.bookerLocation!!.text = data!!.bookerLocation
-        holder.bookerName!!.text = data!!.bookerName
+        holder.bookerName!!.text = data!!.name
         holder.date!!.text = data!!.date
         holder.day!!.text = data!!.day
 
 
-
+        holder.id = data!!.id
         holder.chat!!.setOnClickListener(click)
     }
 

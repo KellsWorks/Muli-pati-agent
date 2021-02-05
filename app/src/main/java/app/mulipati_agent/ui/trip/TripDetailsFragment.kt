@@ -9,6 +9,8 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.location.Address
 import android.location.Geocoder
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.AsyncTask
 import android.os.Build
 import android.os.Bundle
@@ -222,9 +224,8 @@ open class TripDetailsFragment : Fragment(), OnMapReadyCallback {
                         TimePickerDialog.OnTimeSetListener { _, hourOfDay, minute ->
 
                             val getMonth = convertDate(monthOfYear)
-                            var timeExtension = ""
 
-                            timeExtension = if (hourOfDay > 12 ){
+                            val timeExtension: String = if (hourOfDay > 12 ){
                                 "PM"
                             }else{
                                 "AM"
@@ -254,6 +255,33 @@ open class TripDetailsFragment : Fragment(), OnMapReadyCallback {
         return "https://maps.googleapis.com/maps/api/directions/json?origin=${origin.latitude},${origin.longitude}&destination=${dest.latitude},${dest.longitude}&sensor=false&mode=driving&key=$apiKey"
     }
 
+    fun isNetworkAvailable(context: Context?): Boolean {
+        if (context == null) return false
+        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            val capabilities = connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
+            if (capabilities != null) {
+                when {
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> {
+                        return true
+                    }
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> {
+                        return true
+                    }
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> {
+                        return true
+                    }
+                }
+            }
+        } else {
+            val activeNetworkInfo = connectivityManager.activeNetworkInfo
+            if (activeNetworkInfo != null && activeNetworkInfo.isConnected) {
+                return true
+            }
+        }
+        return false
+    }
+
 
 
     @SuppressLint("StaticFieldLeak")
@@ -261,22 +289,31 @@ open class TripDetailsFragment : Fragment(), OnMapReadyCallback {
         override fun doInBackground(vararg params: Void?): List<List<LatLng>> {
             val client = OkHttpClient()
             val request = Request.Builder().url(url).build()
-            val response = client.newCall(request).execute()
-            val data = response.body!!.string()
-            Timber.e(" data : $data")
             val result =  ArrayList<List<LatLng>>()
-            try{
-                val respObj = Gson().fromJson(data,GoogleMapDTO::class.java)
 
-                val path =  ArrayList<LatLng>()
 
-                for (i in 0 until respObj.routes[0].legs[0].steps.size){
-                    path.addAll(decodePolyline(respObj.routes[0].legs[0].steps[i].polyline.points))
+            if (isNetworkAvailable(requireContext())){
+                val response = client.newCall(request).execute()
+                try{
+                    val data = response.body!!.string()
+
+                    val respObj = Gson().fromJson(data,GoogleMapDTO::class.java)
+
+                    val path =  ArrayList<LatLng>()
+
+                    for (i in 0 until respObj.routes[0].legs[0].steps.size){
+                        path.addAll(decodePolyline(respObj.routes[0].legs[0].steps[i].polyline.points))
+                    }
+                    result.add(path)
+                }catch (e:Exception){
+                    e.printStackTrace()
                 }
-                result.add(path)
-            }catch (e:Exception){
-                e.printStackTrace()
             }
+            else{
+
+            }
+
+
             return result
         }
 

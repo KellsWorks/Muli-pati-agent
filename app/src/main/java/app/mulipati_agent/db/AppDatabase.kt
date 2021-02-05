@@ -7,18 +7,21 @@ import androidx.room.RoomDatabase
 import app.mulipati_agent.db.daos.BookingsDao
 import app.mulipati_agent.db.daos.NotificationsDao
 import app.mulipati_agent.db.daos.TripsDao
+import app.mulipati_agent.db.daos.UsersDao
 import app.mulipati_agent.network.responses.bookings.Booking
 import app.mulipati_agent.network.responses.notifications.Notification
 import app.mulipati_agent.network.responses.trips.Trip
+import app.mulipati_agent.network.responses.users.AppUser
 import app.mulipati_agent.util.Constants
 
-@Database(entities = [Notification::class, Trip::class, Booking::class], version = 1, exportSchema = true)
+@Database(entities = [Notification::class, Trip::class, Booking::class, AppUser::class], version = 2, exportSchema = true)
 
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun notificationsDao(): NotificationsDao
     abstract fun tripsDao(): TripsDao
     abstract fun bookingsDao() : BookingsDao
+    abstract fun userDao() : UsersDao
 
     companion object {
         @Volatile private var instance: AppDatabase? = null

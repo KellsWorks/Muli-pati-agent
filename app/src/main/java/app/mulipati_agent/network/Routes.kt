@@ -1,15 +1,13 @@
 package app.mulipati_agent.network
 
 import app.mulipati.data.LocationResponse
-import app.mulipati_agent.network.responses.chat.MessagesResponse
 import app.mulipati_agent.firebase.receiver.SendToken
 import app.mulipati_agent.network.responses.*
 import app.mulipati_agent.network.responses.account.ImageResponse
 import app.mulipati_agent.network.responses.chat.MessageSent
+import app.mulipati_agent.network.responses.chat.MessagesResponse
 import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
+import retrofit2.http.*
 
 
 interface Routes {
@@ -103,6 +101,13 @@ interface Routes {
         @Field("car_photo") car_photo: String?
     ): Call<Basic?>?
 
+    @POST("v1/trips/delete")
+    @FormUrlEncoded
+    fun deleteTrip(
+        @Field("id") id : Int?,
+        @Field("userId") userId : Int
+    ): Call<Basic>
+
 
     //Notifications routes
     @POST("v1/notifications/user-mark-notification")
@@ -134,5 +139,6 @@ interface Routes {
         @Field("message") message: String?,
         @Field("time") time: String?
     ): Call<MessageSent>
+
 
 }

@@ -5,12 +5,15 @@ import app.mulipati_agent.db.AppDatabase
 import app.mulipati_agent.db.daos.BookingsDao
 import app.mulipati_agent.db.daos.NotificationsDao
 import app.mulipati_agent.db.daos.TripsDao
+import app.mulipati_agent.db.daos.UsersDao
 import app.mulipati_agent.db.remote.BookingsRemoteDataSource
 import app.mulipati_agent.db.remote.NotificationsRemoteDataSource
 import app.mulipati_agent.db.remote.TripsRemoteDataSource
+import app.mulipati_agent.db.remote.UsersRemoteDataSource
 import app.mulipati_agent.db.repositories.BookingsRepository
 import app.mulipati_agent.db.repositories.NotificationsRepository
 import app.mulipati_agent.db.repositories.TripsRepository
+import app.mulipati_agent.db.repositories.UsersRepository
 import app.mulipati_agent.network.services.RemoteServices
 import app.mulipati_agent.util.Constants
 import com.google.gson.Gson
@@ -59,6 +62,20 @@ object AppModule {
                                        localDataSource: TripsDao
     ) =
         TripsRepository(remoteDataSource, localDataSource)
+
+    //users
+
+    @Singleton
+    @Provides
+    fun provideUserDao(db: AppDatabase) = db.userDao()
+
+    @Singleton
+    @Provides
+    fun provideUsersRepository(remoteDataSource: UsersRemoteDataSource,
+                               localDataSource: UsersDao
+    ) =
+        UsersRepository(remoteDataSource, localDataSource)
+
 
     //Bookings
 

@@ -24,6 +24,7 @@ import app.mulipati_agent.network.ApiClient
 import app.mulipati_agent.network.Routes
 import app.mulipati_agent.util.autoCleared
 import app.mulipati_agent.util.getDay
+import app.mulipati_agent.util.getDayExt
 import dagger.hilt.android.AndroidEntryPoint
 import retrofit2.Call
 import retrofit2.Callback
@@ -41,6 +42,8 @@ class DashboardFragment : Fragment() {
     private val tripsViewModel: TripsViewModel by viewModels()
 
     private val bookingsViewModel: BookingsViewModel by viewModels()
+
+    private val usersViewModel: UsersViewModel by viewModels()
 
     private lateinit var tripsList: ArrayList<Trips>
 
@@ -192,29 +195,34 @@ class DashboardFragment : Fragment() {
         bookingsViewModel.bookings.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
             when(it.status){
                 Resource.Status.SUCCESS -> {
-                    if (it.data!!.isNotEmpty()){
 
-                        bookingsList = ArrayList()
+                    val ids = getId?.let { it1 -> getTrips(it1) }
 
-                        for (trip in it.data){
+                    if (ids != null) {
+                        for (id in ids){
+                            bookingsList = ArrayList()
 
-                            if (trip.user_id == getId){
-                                bookingsList.add(Bookings(
-                                        trip.id, getDay(trip.created_at) , getDay(trip.created_at), trip.user_id.toString(), "Location: "+ location.toString()
-                                ))
+                            for (trip in it.data!!){
+
+                                if (trip.trip_id == id){
+                                    val name = getUserName(trip.user_id)
+                                    bookingsList.add(Bookings(trip.id,"User: $name", getDay(trip.created_at), getDayExt(trip.created_at), trip.user_id.toString(), "Location: "+location.toString()))
+                                }
+
                             }
-                        }
 
-                        setUpBookings(bookingsList)
-                        val bookingsCount = bookingsList.count()
-                        dashboardBinding.toBookings.text = "See All ($bookingsCount)"
+                            setUpBookings(bookingsList)
+
+                            val bookingsCount = bookingsList.count()
+                            dashboardBinding.toBookings.text = "See All ($bookingsCount)"
+                        }
                     }
                 }
                 Resource.Status.LOADING -> {
 
                 }
                 Resource.Status.ERROR -> {
-                    Timber.e("Error")
+
                 }
             }
         })
@@ -252,5 +260,64 @@ class DashboardFragment : Fragment() {
 
         dashboardBinding.tripsRecycler
             .setController(controller)
+    }
+
+
+    private fun getTrips(tripId: Int) : List<Int>{
+
+        val arrayList = ArrayList<Int>()
+
+        tripsViewModel.trips.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+            when(it.status){
+                Resource.Status.SUCCESS -> {
+                    if (it.data!!.isNotEmpty()){
+
+                        for (trip in it.data){
+
+                            if (trip.user_id == tripId){
+                                arrayList.add(trip.id)
+                            }
+
+                        }
+
+                    }
+                }
+                Resource.Status.LOADING -> {
+
+                }
+                Resource.Status.ERROR -> {
+
+                }
+            }
+        })
+
+        return arrayList
+    }
+
+    private fun getUserName(id: Int): String{
+        var user = ""
+
+        usersViewModel.users.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+
+            when(it.status){
+                Resource.Status.SUCCESS -> {
+                    for(i in it.data!!){
+                        if (i.id == id){
+                            user = i.name
+                            Timber.e(i.name)
+                        }
+                    }
+                }
+                Resource.Status.LOADING -> {
+
+                }
+                Resource.Status.ERROR -> {
+
+                }
+            }
+
+        })
+
+        return user
     }
 }

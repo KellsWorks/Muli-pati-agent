@@ -1,13 +1,23 @@
 package app.mulipati_agent.epoxy
 
+import android.app.AlertDialog
+import android.content.Context
+import android.content.DialogInterface
 import android.util.DisplayMetrics
 import android.widget.PopupMenu
 import android.widget.Toast
 import app.mulipati_agent.R
 import app.mulipati_agent.data.Trips
+import app.mulipati_agent.network.ApiClient
+import app.mulipati_agent.network.Routes
+import app.mulipati_agent.network.responses.Basic
 import com.airbnb.epoxy.Typed2EpoxyController
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import timber.log.Timber
 import java.lang.reflect.Method
 
 class TripsEpoxyController: Typed2EpoxyController<Boolean?, List<Trips>>() {
@@ -17,7 +27,7 @@ class TripsEpoxyController: Typed2EpoxyController<Boolean?, List<Trips>>() {
                 TripsEpoxyModel_()
                     .id(trip.id)
                     .data(trip)
-                        .click { _, parentView, _, _ ->
+                        .click { model, parentView, _, _ ->
                             val popupMenu = PopupMenu(parentView.menu!!.context, parentView.menu)
 
                             popupMenu.menuInflater.inflate(R.menu.trips, popupMenu.menu)
@@ -42,8 +52,55 @@ class TripsEpoxyController: Typed2EpoxyController<Boolean?, List<Trips>>() {
                                     }
 
                                     R.id.delete -> {
-                                        Toast.makeText(parentView.route!!.context, "Deleted!", Toast.LENGTH_SHORT)
-                                                .show()
+                                        val id = parentView?.title?.context?.getSharedPreferences("user", Context.MODE_PRIVATE)?.getInt("id", 0)
+                                        val dialogClickListener = DialogInterface.OnClickListener { _, which ->
+                                            when (which) {
+                                                DialogInterface.BUTTON_POSITIVE -> {
+
+                                                    val apiClient  = ApiClient.client!!.create(Routes::class.java)
+                                                    val delete = id?.let {
+                                                        apiClient.deleteTrip(model.data?.id,
+                                                            it
+                                                        )
+                                                    }
+
+                                                    delete?.enqueue(object: Callback<Basic>{
+                                                        override fun onFailure(
+                                                            call: Call<Basic>,
+                                                            t: Throwable
+                                                        ) {
+                                                            Timber.e(t)
+                                                        }
+
+                                                        override fun onResponse(
+                                                            call: Call<Basic>,
+                                                            response: Response<Basic>
+                                                        ) {
+                                                            when(response.code()){
+                                                                200->{
+                                                                    Toast.makeText(parentView.title?.context, "Trip deleted", Toast.LENGTH_SHORT).show()
+                                                                }else->{
+                                                                Timber.e(response.errorBody()?.string())
+                                                            }
+                                                            }
+                                                        }
+
+                                                    })
+                                                }
+                                                DialogInterface.BUTTON_NEGATIVE -> {}
+                                                DialogInterface.BUTTON_NEUTRAL -> {}
+                                            }
+                                        }
+
+                                        val mBuilder = AlertDialog.Builder(parentView.title?.context)
+                                            .setTitle("Delete trip")
+                                            .setMessage("Notice that this action can not be reversed. Do you wish ti continue?")
+                                            .setIcon(R.drawable.ic_icon)
+                                            .setNegativeButton("No", dialogClickListener)
+                                            .setPositiveButton("Yes", dialogClickListener)
+
+                                        mBuilder.show()
+
                                     }
                                 }
                                 true

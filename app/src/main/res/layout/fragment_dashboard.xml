@@ -234,6 +234,8 @@
                 android:id="@+id/tripsRecycler"
                 android:layout_margin="20dp"
                 android:orientation="vertical"
+                tools:itemCount="5"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 />
 
             <LinearLayout

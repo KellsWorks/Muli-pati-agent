@@ -11,7 +11,7 @@ class BookingsEpoxyController: Typed2EpoxyController<Boolean, List<Bookings>>() 
         if (bookings != null) {
             for (book in bookings){
                 BookingsEpoxyModel_()
-                        .id(book.id)
+                        .id(book.name)
                         .data(book)
                         .click { _, parentView, _, _ ->
 
