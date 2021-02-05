@@ -12,7 +12,11 @@ import app.mulipati_agent.databinding.ActivityMainBinding
 import app.mulipati_agent.network.BackgroundServices
 import com.google.firebase.iid.FirebaseInstanceId.*
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import timber.log.Timber
+import java.util.*
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -32,6 +36,8 @@ class MainActivity : AppCompatActivity() {
             Timber.e(instanceIdResult.token)
         }
 
+        newDay()
+
     }
 
     private fun setUpNavigation(){
@@ -39,5 +45,20 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
         binding.bottomMenu.setupWithNavController(navController)
 
+    }
+
+    private fun newDay(){
+
+        GlobalScope.launch(Dispatchers.IO) {
+
+            val calendar = Calendar.getInstance()
+            val hour = calendar.get(Calendar.HOUR_OF_DAY)
+
+            if (hour == 0){
+                getSharedPreferences("tripsCount", Context.MODE_PRIVATE)?.edit()?.clear()?.apply()
+                getSharedPreferences("tripsCount", Context.MODE_PRIVATE)?.edit()?.putInt("count", 0)?.apply()
+            }
+
+        }
     }
 }

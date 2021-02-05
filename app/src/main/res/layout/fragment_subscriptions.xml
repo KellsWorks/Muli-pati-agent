@@ -55,9 +55,10 @@
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:text="@string/silver_plan"
-                       android:textSize="18sp"
-                       android:textColor="@color/white"
-                       android:background="@drawable/button"
+                       android:id="@+id/currentPlan"
+                       android:textSize="15sp"
+                       android:textStyle="bold"
+                       android:textColor="@color/red"
                        android:padding="4dp"
                        android:layout_marginStart="10dp" />
                </LinearLayout>
@@ -146,182 +147,17 @@
                     android:layout_height="wrap_content"
                     android:text="@string/post_10_rides_per_day"
                     android:textSize="17sp"
+                    android:id="@+id/ridesCount"
                     android:layout_marginStart="10dp" />
             </LinearLayout>
 
-
-            <RelativeLayout
+            <com.airbnb.epoxy.EpoxyRecyclerView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:background="@drawable/rectangle_stroked"
-                >
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_margin="20dp"
-                    android:src="@drawable/ic_checkbox_multiple_marked_outline"
-                    app:tint="#969696"
-                    android:layout_alignParentEnd="true"
-                    android:contentDescription="@string/icon" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    >
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/per_month"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="17sp"
-                        android:textStyle="bold"
-                        android:layout_marginStart="10dp" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/mk1_000_00_in_advance"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginStart="10dp" />
-
-                </LinearLayout>
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:background="@drawable/rectangle_stroked"
-                >
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    tools:ignore="UselessParent">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/per_6_month"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="17sp"
-                        android:textStyle="bold"
-                        android:layout_marginStart="10dp" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/mk6_000_00_in_advance"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginStart="10dp" />
-
-                </LinearLayout>
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:background="@drawable/rectangle_stroked"
-                >
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    tools:ignore="UselessParent">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/per_year"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="17sp"
-                        android:textStyle="bold"
-                        android:layout_marginStart="10dp" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/mk12_000_00_in_advance"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginStart="10dp" />
-
-                </LinearLayout>
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    tools:ignore="UseCompoundDrawables,UselessParent">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_cart_arrow_up"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        app:tint="#969696"
-                        android:contentDescription="@string/image"
-                        android:layout_marginStart="20dp" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/upgrade_plan"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginStart="10dp" />
-
-                </LinearLayout>
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    tools:ignore="UseCompoundDrawables,UselessParent">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_restore"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        app:tint="@color/red"
-                        android:contentDescription="@string/icon"
-                        android:layout_marginStart="20dp" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/reset_subscription"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/red"
-                        android:layout_marginStart="10dp" />
-
-                </LinearLayout>
-            </RelativeLayout>
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_margin="20dp"
+                android:id="@+id/subscriptionsRecycler"
+                />
         </LinearLayout>
 
     </RelativeLayout>

@@ -215,7 +215,7 @@ open class TripDetailsFragment : Fragment(), OnMapReadyCallback {
 
         val datePickerDialog = DatePickerDialog(
             requireContext(),
-            OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+            OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
                 if (year.toString().isNotEmpty() && monthOfYear.toString().isNotEmpty() && dayOfMonth.toString().isNotEmpty()){
                     val mHour = c[Calendar.HOUR_OF_DAY]
                     val  mMinute = c[Calendar.MINUTE]

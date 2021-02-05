@@ -15,6 +15,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager.widget.ViewPager
@@ -50,7 +51,11 @@ class AddTripFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         addTripBinding.addTripBack.setOnClickListener {
-            findNavController().navigateUp()
+            findNavController().navigate(R.id.action_addTripFragment_to_dashboardFragment)
+        }
+
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner){
+            findNavController().navigate(R.id.action_addTripFragment_to_dashboardFragment)
         }
 
         setUpPagers()
@@ -159,11 +164,51 @@ class AddTripFragment : Fragment() {
         dialog.show()
 
         val finish = view.findViewById<Button>(R.id.addTripFinish)
-        finish.setOnClickListener {
-            addNewTrip(
-                idGet!!, start!!, destination!!, startTimeGet!!, startTimeGet,  pickUpPlace!!, locationGet.toString(), passengersGet!!, priceGet!!, carTypeGet!!, carPhoto!!
-            )
+        val plan = context?.getSharedPreferences("plan", Context.MODE_PRIVATE)?.getString("current_plan", "")
+        val count = context?.getSharedPreferences("tripsCount", Context.MODE_PRIVATE)?.getInt("count", 0)
+
+        when(plan){
+            "silver" -> {
+                if (count != null) {
+                    if (count <= 3){
+                        finish.setOnClickListener {
+                            addNewTrip(
+                                idGet!!, start!!, destination!!, startTimeGet!!, startTimeGet,  pickUpPlace!!, locationGet.toString(), passengersGet!!, priceGet!!, carTypeGet!!, carPhoto!!
+                            )
+                        }
+                    }else{
+                        Toast.makeText(requireContext(), "You have reached maximum trips post. Upgrade plan now", Toast.LENGTH_LONG).show()
+                    }
+                }
+            }
+            "bronze" -> {
+                if (count != null) {
+                    if (count <= 6){
+                        finish.setOnClickListener {
+                            addNewTrip(
+                                idGet!!, start!!, destination!!, startTimeGet!!, startTimeGet,  pickUpPlace!!, locationGet.toString(), passengersGet!!, priceGet!!, carTypeGet!!, carPhoto!!
+                            )
+                        }
+                    }else{
+                        Toast.makeText(requireContext(), "You have reached maximum trips post. Upgrade plan now", Toast.LENGTH_LONG).show()
+                    }
+                }
+            }
+            "premium" -> {
+                if (count != null) {
+                    if (count <= 10){
+                        finish.setOnClickListener {
+                            addNewTrip(
+                                idGet!!, start!!, destination!!, startTimeGet!!, startTimeGet,  pickUpPlace!!, locationGet.toString(), passengersGet!!, priceGet!!, carTypeGet!!, carPhoto!!
+                            )
+                        }
+                    }else{
+                        Toast.makeText(requireContext(), "You have reached maximum trips post. Upgrade plan now", Toast.LENGTH_LONG).show()
+                    }
+                }
+            }
         }
+
     }
 
     private fun addNewTrip(userId: Int, start: String, destination: String, start_time: String, end_time: String,
@@ -206,6 +251,17 @@ class AddTripFragment : Fragment() {
                             findNavController().navigate(R.id.action_addTripFragment_to_dashboardFragment)
                         }, 3000)
 
+                        val count =
+                            context?.getSharedPreferences("tripsCount", Context.MODE_PRIVATE)?.getInt("count", 0)
+                                ?.plus(1)
+
+                        count?.let {
+                                context?.getSharedPreferences("tripsCount", Context.MODE_PRIVATE)?.edit()?.putInt("count",
+                                    it
+                                )?.apply()
+                            }
+
+                        Timber.e(count.toString())
                     }else ->{
                     Timber.e(response.errorBody()?.string())
                 }
