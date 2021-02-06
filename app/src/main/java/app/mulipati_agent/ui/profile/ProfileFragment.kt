@@ -15,7 +15,6 @@ import app.mulipati_agent.R
 import app.mulipati_agent.databinding.FragmentProfileBinding
 import app.mulipati_agent.util.Constants
 import com.bumptech.glide.Glide
-import timber.log.Timber
 
 class ProfileFragment : Fragment() {
 
