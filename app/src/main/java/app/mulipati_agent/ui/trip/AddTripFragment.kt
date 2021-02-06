@@ -58,12 +58,17 @@ class AddTripFragment : Fragment() {
             findNavController().navigate(R.id.action_addTripFragment_to_dashboardFragment)
         }
 
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         setUpPagers()
     }
 
     private fun setUpPagers(){
 
-        val adapter = PagerAdapter(requireActivity().supportFragmentManager)
+        val adapter = PagerAdapter(childFragmentManager)
 
         adapter.addFragment(VerificationFragment() , " One ")
         adapter.addFragment(TripDetailsFragment() , " two ")

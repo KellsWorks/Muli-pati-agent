@@ -184,6 +184,7 @@
     <string name="enter_your_mpamba_pin">Enter your mpamba pin</string>
     <string name="by_pressing_continue_you_agree_to_tnm_mpamba_terms_of_service">By pressing continue, you agree to TNM Mpamba terms of service.</string>
     <string name="pay">Pay</string>
+    <string name="clear_chat">Clear chat</string>
 
     <string-array name="cars">
         <item>Mazda Demio</item>
