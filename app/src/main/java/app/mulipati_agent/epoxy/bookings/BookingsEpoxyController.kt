@@ -18,7 +18,7 @@ class BookingsEpoxyController: Typed2EpoxyController<Boolean, List<Bookings>>() 
                                 parentView.bookerName?.findNavController()?.navigate(R.id.action_bookingsFragment_to_tripChatFragment)
                                 val chatID = parentView.bookerName?.context?.getSharedPreferences("chatID", Context.MODE_PRIVATE)?.edit()
                                 chatID?.putString("title", parentView.bookerName!!.text.toString())
-                                chatID?.putInt("id", parentView.bookerName!!.text!!.toString().toInt())?.apply()
+                                chatID?.putInt("id", parentView.id!!)?.apply()
 
                         }
                     .addTo(this)

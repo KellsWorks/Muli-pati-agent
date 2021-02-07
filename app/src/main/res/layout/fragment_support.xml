@@ -122,6 +122,7 @@
                 android:layout_marginStart="10dp"
                 android:id="@+id/supportEditor"
                 android:background="@null"
+                android:fontFamily="@font/poppins_regular"
                 android:textIsSelectable="true"
                 android:importantForAutofill="no" />
             <ImageView

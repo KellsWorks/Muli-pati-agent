@@ -31,7 +31,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/enter_your_ride_details"
-                android:layout_marginLeft="20dp"
                 android:layout_marginStart="20dp" />
 
         <LinearLayout
@@ -58,12 +57,13 @@
                     android:layout_margin="20dp"
                     android:layout_gravity="center"
                     />
-                <EditText
+
+
+                <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="80dp"
                     android:layout_height="50dp"
                     android:background="@drawable/rectangle_stroked"
                     android:layout_margin="7dp"
-                    android:paddingLeft="5dp"
                     android:paddingStart="5dp"
                     android:textSize="18sp"
                     android:layout_gravity="center"
@@ -71,7 +71,8 @@
                     android:maxLength="2"
                     android:imeOptions="actionDone"
                     android:id="@+id/passengersOne"
-                    tools:ignore="RtlSymmetry" />
+                    tools:ignore="RtlSymmetry"
+                     />
 
             </LinearLayout>
         </LinearLayout>
