@@ -68,7 +68,7 @@ class SupportFragment : Fragment() {
         val chatID = 1
         val userId = context?.getSharedPreferences("user", Context.MODE_PRIVATE)?.getInt("id", 0)
 
-        val adpater = TripChatAdapter(arrayList, userId!!, chatID!!, userId)
+        val adpater = TripChatAdapter(arrayList, userId!!, chatID, userId)
         supportBinding.supportRecycler.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = adpater

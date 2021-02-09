@@ -14,7 +14,8 @@
         app:layout_constraintEnd_toStartOf="@+id/searchFullText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="7dp" />
+        android:layout_marginRight="7dp"
+        android:contentDescription="TODO" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/searchFullText"

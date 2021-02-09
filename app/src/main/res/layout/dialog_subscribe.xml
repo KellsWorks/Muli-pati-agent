@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:background="?colorOnPrimary"
@@ -83,7 +84,8 @@
                 android:textAlignment="center"
                 android:inputType="textPassword"
                 android:maxLength="1"
-                android:autofillHints="" />
+                android:autofillHints=""
+                tools:ignore="LabelFor" />
 
             <EditText
                 android:layout_width="60dp"

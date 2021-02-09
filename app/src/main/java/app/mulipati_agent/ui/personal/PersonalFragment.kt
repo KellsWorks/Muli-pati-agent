@@ -15,7 +15,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import app.mulipati_agent.R
@@ -44,7 +43,6 @@ class PersonalFragment : Fragment() {
 
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -66,7 +64,6 @@ class PersonalFragment : Fragment() {
 
 
     @SuppressLint("SetTextI18n")
-    @RequiresApi(Build.VERSION_CODES.O)
     private fun bindUser(){
 
         val userPreferences = context?.getSharedPreferences("user", Context.MODE_PRIVATE)
@@ -85,7 +82,11 @@ class PersonalFragment : Fragment() {
         }
 
 
-        val phoneUtil = PhoneNumberUtils.formatNumber(userPreferences.getString("phone", ""), "MW")
+        val phoneUtil = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            PhoneNumberUtils.formatNumber(userPreferences.getString("phone", ""), "MW")
+        } else {
+            TODO("VERSION.SDK_INT < LOLLIPOP")
+        }
         val phone =removeFirstChar(phoneUtil)
 
         personalBinding.personalPhone.text = "+265 $phone"
