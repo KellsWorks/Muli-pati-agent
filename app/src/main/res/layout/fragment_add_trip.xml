@@ -18,11 +18,15 @@
             android:contentDescription="@string/icon"
             android:layout_alignParentEnd="true" />
 
-        <androidx.viewpager.widget.ViewPager
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="40dp"
-            android:id="@+id/addTripPager"/>
+            android:layout_height="match_parent">
+            <androidx.viewpager.widget.ViewPager
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:id="@+id/addTripPager"/>
+        </ScrollView>
 
         <RelativeLayout
             android:id="@+id/relativeLayout"
@@ -38,7 +42,7 @@
                 android:layout_height="wrap_content"
                 app:dotsColor="?tabIndicatorColor"
                 app:dotsCornerRadius="8dp"
-                app:dotsSize="10dp"
+                app:dotsSize="8dp"
                 app:dotsSpacing="4dp"
                 app:dotsWidthFactor="2.5"
                 app:selectedDotColor="?tabIndicatorColor"
@@ -67,8 +71,8 @@
                 android:textStyle="bold"
                 android:id="@+id/nextPage"
                 android:layout_margin="10dp"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
+                android:layout_alignParentEnd="true"
+                tools:ignore="RelativeOverlap" />
 
         </RelativeLayout>
 

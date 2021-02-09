@@ -3,10 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".auth.register.RegisterFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
         <ImageView
             android:layout_width="25dp"
@@ -162,16 +166,6 @@
 
             </LinearLayout>
 
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            >
-
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -181,6 +175,7 @@
                 android:text="@string/create_account"
                 android:id="@+id/RegisterButton"
                 android:textSize="17sp"
+                android:layout_marginTop="20dp"
                 android:textAllCaps="false"
                 android:textStyle="bold"
                 android:textColor="@color/white"
@@ -221,8 +216,11 @@
                         />
                 </LinearLayout>
             </RelativeLayout>
+
+
         </LinearLayout>
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>

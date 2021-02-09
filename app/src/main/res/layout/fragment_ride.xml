@@ -8,15 +8,19 @@
     android:layout_height="match_parent"
     tools:context=".ui.trip.RideFragment">
 
-        <LinearLayout
+        <ScrollView
             android:id="@+id/linearLayout4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
@@ -87,13 +91,30 @@
             </LinearLayout>
         </LinearLayout>
 
-            <com.airbnb.epoxy.EpoxyRecyclerView
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="20sp"
-                android:id="@+id/carsRecycler"
-                />
-        </LinearLayout>
+                android:text="@string/select_your_car_type"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/cars"
+                android:id="@+id/districtSelect"
+                android:textColor="@color/red"
+                android:layout_marginStart="20dp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:src="@drawable/mazda_demio"
+                android:layout_margin="20dp"
+                android:contentDescription="@string/image" />
+            </LinearLayout>
+        </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

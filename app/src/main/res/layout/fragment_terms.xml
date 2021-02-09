@@ -11,10 +11,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
             android:layout_marginTop="28dp"
             android:id="@+id/termsBack"
             android:src="@drawable/ic_arrow_back"
@@ -24,21 +22,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="67dp"
-            android:layout_marginLeft="67dp"
             android:layout_marginTop="18dp"
             android:text="@string/terms_conditions"
             android:textSize="30sp"
             android:textStyle="bold" />
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_marginTop="75dp"
             >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
             <ImageView
                 android:layout_width="70dp"
                 android:layout_height="70dp"
@@ -68,7 +67,6 @@
                 android:text="@string/about"
                 android:textSize="17sp"
                 android:textStyle="bold"
-                android:layout_marginLeft="20dp"
                 android:layout_marginStart="20dp" />
             <TextView
                 android:layout_width="wrap_content"
@@ -86,7 +84,6 @@
                 android:text="@string/terms_of_service"
                 android:textSize="17sp"
                 android:textStyle="bold"
-                android:layout_marginLeft="20dp"
                 android:layout_marginStart="20dp" />
             <TextView
                 android:layout_width="wrap_content"
@@ -114,7 +111,6 @@
                     android:layout_height="wrap_content"
                     android:text="@string/store"
                     android:textSize="18sp"
-                    android:layout_marginLeft="10dp"
                     android:layout_gravity="center"
                     android:textStyle="bold"
                     android:layout_marginStart="10dp" />
@@ -124,13 +120,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/user_app"
-                android:layout_marginLeft="20dp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginStart="20dp" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
                 android:layout_marginStart="20dp"
                 tools:ignore="UseCompoundDrawables">
                 <ImageView
@@ -144,7 +138,6 @@
                     android:text="@string/google_playstore"
                     android:textSize="22sp"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="5dp"
                     android:textStyle="bold"
                     android:textColor="#039BE5"
                     android:layout_marginStart="5dp" />
@@ -155,13 +148,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="@string/driver_app"
-                android:layout_marginLeft="20dp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginStart="20dp" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
                 android:layout_marginStart="20dp"
                 tools:ignore="UseCompoundDrawables">
                 <ImageView
@@ -175,12 +166,12 @@
                     android:text="@string/google_playstore"
                     android:textSize="22sp"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="5dp"
                     android:textStyle="bold"
                     android:textColor="#039BE5"
                     android:layout_marginStart="5dp" />
             </LinearLayout>
-        </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
     </RelativeLayout>
 
 </layout>

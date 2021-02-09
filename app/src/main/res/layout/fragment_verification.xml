@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.trip.VerificationFragment">
 
         <LinearLayout
             android:id="@+id/linearLayout4"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -30,15 +30,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/fill_the_fields_below_to_add_a_trip"
-                android:layout_marginLeft="20dp"
                 android:fontFamily="@font/poppins_medium"
                 android:layout_marginStart="20dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Profile information"
-                android:layout_marginLeft="20dp"
+                android:text="@string/profile_information"
                 android:layout_marginTop="20dp"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -55,8 +53,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/asterisk"
                     android:textColor="?tabIndicatorColor"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true" />
+                    android:layout_alignParentEnd="true"
+                    tools:ignore="RelativeOverlap" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -76,6 +74,6 @@
 
 
         </LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </layout>

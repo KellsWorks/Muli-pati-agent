@@ -16,12 +16,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/get_started"
-                android:layout_alignParentRight="true"
                 android:layout_margin="10dp"
-                android:background="@drawable/button"
                 android:padding="4dp"
                 android:id="@+id/getStarted"
-                android:textColor="@color/white"
+                android:textColor="@color/red"
                 android:layout_alignParentEnd="true" />
         </RelativeLayout>
 
@@ -29,15 +27,15 @@
             android:layout_width="250dp"
             android:layout_height="200dp"
             android:src="@drawable/onboard_two"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="160dp"
             android:layout_gravity="center"
             android:id="@+id/firstImage"
-            android:layout_marginBottom="100dp"
+            android:layout_marginBottom="70dp"
             android:contentDescription="@string/illustration" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Get rated"
+            android:text="@string/get_ratings"
             android:textSize="32sp"
             android:textStyle="bold"
             android:gravity="center"
@@ -48,7 +46,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="More rating attracts customers to book your trips"
+            android:text="@string/more_rating_attracts_customers_to_book_your_trips"
             android:layout_gravity="center"
             android:textAlignment="center"
             android:gravity="center"

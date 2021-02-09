@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import app.mulipati_agent.R
 import android.content.Context
 import android.view.inputmethod.EditorInfo
+import android.widget.PopupMenu
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import app.mulipati_agent.adapters.TripChatAdapter
 import app.mulipati_agent.data.Messages
@@ -51,25 +53,29 @@ class TripChatFragment : Fragment() {
         tripsChatBinding.chatTitle.text = chatTitle
 
 
-        val adpater = TripChatAdapter(arrayList, userId!!, chatID!!, userId)
+        val chatAdapter = TripChatAdapter(arrayList, userId!!, chatID!!, userId)
         tripsChatBinding.tripChatRecycler.apply {
             layoutManager = LinearLayoutManager(requireContext())
-            adapter = adpater
+            adapter = chatAdapter
         }
 
-        loadMessage(arrayList, adpater, userId, chatID)
+        loadMessage(arrayList, chatAdapter, userId, chatID)
 
         tripsChatBinding.refreshChat.setOnRefreshListener {
-            loadMessage(arrayList, adpater, userId, chatID)
+            loadMessage(arrayList, chatAdapter, userId, chatID)
         }
 
-        val lastPosition = adpater.itemCount - 1
+        tripsChatBinding.tripChatBack.setOnClickListener {
+            findNavController().navigateUp()
+        }
+
+        val lastPosition = chatAdapter.itemCount - 1
 
         fun sendMessage(message: String){
             if (message.isNotEmpty()){
                 sendAMessage(userId, message, getCurrentTime(),chatID )
                 arrayList.add(Messages(chatID, message, getCurrentTime(), userId))
-                adpater.notifyDataSetChanged()
+                chatAdapter.notifyDataSetChanged()
                 tripsChatBinding.senderMessage.setText("")
                 tripsChatBinding.tripChatRecycler.scrollToPosition(lastPosition)
             }
@@ -93,6 +99,16 @@ class TripChatFragment : Fragment() {
                 sendMessage(v.toString())
             }
             handled
+        }
+
+        leaveChat()
+    }
+
+    private fun leaveChat(){
+        tripsChatBinding.chatMenu.setOnClickListener {
+            val popupMenu = PopupMenu(requireContext(), it)
+            popupMenu.menuInflater.inflate(R.menu.chat, popupMenu.menu)
+            popupMenu.show()
         }
     }
 

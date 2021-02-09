@@ -2,25 +2,29 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         tools:context=".onboard.SecondSlider">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
         <ImageView
             android:layout_width="250dp"
-            android:layout_height="200dp"
+            android:layout_height="170dp"
             android:src="@drawable/subscribe"
             android:layout_marginTop="200dp"
             android:layout_gravity="center"
             android:id="@+id/firstImage"
-            android:layout_marginBottom="100dp"
+            android:layout_marginBottom="70dp"
             android:contentDescription="@string/illustration" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Subscribe to our service"
+            android:text="@string/subscribe_to_our_service"
             android:textSize="32sp"
             android:textStyle="bold"
             android:gravity="center"
@@ -31,13 +35,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Get basic, bronze and premium subscriptions to reach out more"
+            android:text="@string/get_basic_bronze_and_premium_subscriptions_to_reach_out_more"
             android:layout_gravity="center"
             android:textAlignment="center"
             android:gravity="center"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             />
-    </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
 </layout>

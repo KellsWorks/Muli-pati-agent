@@ -189,6 +189,14 @@
     <string name="check_your_bookings">Check your bookings</string>
     <string name="muli_pati_user">Muli pati user</string>
     <string name="see_all">See All (*)</string>
+    <string name="select_your_car_type">Select your car type</string>
+    <string name="leave_chat">Leave chat</string>
+    <string name="get_ratings">Get ratings</string>
+    <string name="more_rating_attracts_customers_to_book_your_trips">More rating attracts customers to book your trips</string>
+    <string name="subscribe_to_our_service">Subscribe to our service</string>
+    <string name="get_basic_bronze_and_premium_subscriptions_to_reach_out_more">Get basic, bronze and premium subscriptions to reach out more</string>
+    <string name="re_enter_password">Re-enter password</string>
+    <string name="profile_information">Profile information</string>
 
     <string-array name="cars">
         <item>Mazda Demio</item>

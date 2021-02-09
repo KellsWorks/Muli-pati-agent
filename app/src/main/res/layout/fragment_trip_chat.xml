@@ -26,6 +26,7 @@
             android:layout_marginEnd="20dp"
             android:layout_marginTop="28dp"
             android:id="@+id/chatMenu"
+            android:visibility="gone"
             android:src="@drawable/ic_more_vert"
             android:contentDescription="@string/icon" />
 

@@ -17,6 +17,7 @@ import app.mulipati_agent.ui.dashboard.BookingsViewModel
 import app.mulipati_agent.ui.dashboard.TripsViewModel
 import app.mulipati_agent.util.autoCleared
 import app.mulipati_agent.util.getDay
+import app.mulipati_agent.util.getDayExt
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -75,7 +76,7 @@ class BookingsFragment : Fragment() {
                                 for (trip in it.data!!){
 
                                     if (trip.trip_id == id){
-                                        bookingsList.add(Bookings(trip.user_id, "Muli pati user", getDay(trip.created_at), getDay(trip.created_at), location.toString()))
+                                        bookingsList.add(Bookings(trip.user_id, "Muli pati user", getDay(trip.created_at), getDayExt(trip.created_at), location.toString()))
                                     }
 
 

@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package app.mulipati_agent.auth.register
 
 import android.app.ProgressDialog

@@ -34,21 +34,23 @@ class TripsEpoxyController: Typed2EpoxyController<Boolean?, List<Trips>>() {
                             popupMenu.setOnMenuItemClickListener { item ->
                                 when(item.itemId) {
                                     R.id.edit -> {
+                                        Toast.makeText(parentView.title?.context, "Trip already published", Toast.LENGTH_SHORT)
+                                            .show()
 
-                                        val dialog = parentView.title?.context?.let {
-                                            BottomSheetDialog(
-                                                it
-                                            )
-                                        }
-                                        val view = dialog?.layoutInflater?.inflate(R.layout.dialog_edit_trip, null)
-                                        if (view != null) {
-                                            dialog.setContentView(view)
-                                        }
-                                        val metrics = DisplayMetrics()
-                                        dialog?.behavior?.state = BottomSheetBehavior.STATE_EXPANDED
-                                        dialog?.behavior?.peekHeight = metrics.heightPixels
-                                        dialog?.dismissWithAnimation = true
-                                        dialog?.show()
+//                                        val dialog = parentView.title?.context?.let {
+//                                            BottomSheetDialog(
+//                                                it
+//                                            )
+//                                        }
+//                                        val view = dialog?.layoutInflater?.inflate(R.layout.dialog_edit_trip, null)
+//                                        if (view != null) {
+//                                            dialog.setContentView(view)
+//                                        }
+//                                        val metrics = DisplayMetrics()
+//                                        dialog?.behavior?.state = BottomSheetBehavior.STATE_EXPANDED
+//                                        dialog?.behavior?.peekHeight = metrics.heightPixels
+//                                        dialog?.dismissWithAnimation = true
+//                                        dialog?.show()
                                     }
 
                                     R.id.delete -> {

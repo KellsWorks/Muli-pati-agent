@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package app.mulipati_agent.ui.trip
 
 import android.Manifest
@@ -309,9 +311,7 @@ open class TripDetailsFragment : Fragment(), OnMapReadyCallback {
                     e.printStackTrace()
                 }
             }
-            else{
 
-            }
 
 
             return result

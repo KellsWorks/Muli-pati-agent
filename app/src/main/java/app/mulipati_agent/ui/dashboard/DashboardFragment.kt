@@ -17,16 +17,12 @@ import androidx.navigation.fragment.findNavController
 import app.mulipati.data.LocationResponse
 import app.mulipati.util.Resource
 import app.mulipati_agent.R
-import app.mulipati_agent.data.Bookings
 import app.mulipati_agent.data.Trips
 import app.mulipati_agent.databinding.FragmentDashboardBinding
 import app.mulipati_agent.epoxy.TripsEpoxyController
-import app.mulipati_agent.epoxy.bookings.BookingsEpoxyController
 import app.mulipati_agent.network.ApiClient
 import app.mulipati_agent.network.Routes
 import app.mulipati_agent.util.autoCleared
-import app.mulipati_agent.util.getDay
-import app.mulipati_agent.util.getDayExt
 import dagger.hilt.android.AndroidEntryPoint
 import retrofit2.Call
 import retrofit2.Callback
@@ -43,13 +39,8 @@ class DashboardFragment : Fragment() {
 
     private val tripsViewModel: TripsViewModel by viewModels()
 
-    private val bookingsViewModel: BookingsViewModel by viewModels()
-
-    private val usersViewModel: UsersViewModel by viewModels()
 
     private lateinit var tripsList: ArrayList<Trips>
-
-    private lateinit var bookingsList: ArrayList<Bookings>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -170,7 +161,6 @@ class DashboardFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     private fun setUpObservers(){
         val getId = context?.getSharedPreferences("user", Context.MODE_PRIVATE)?.getInt("id", 0)
-        val location = context?.getSharedPreferences("user", Context.MODE_PRIVATE)?.getString("location", "")
         tripsViewModel.trips.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
             when(it.status){
                 Resource.Status.SUCCESS -> {
@@ -226,62 +216,4 @@ class DashboardFragment : Fragment() {
             .setController(controller)
     }
 
-
-    private fun getTrips(tripId: Int) : List<Int>{
-
-        val arrayList = ArrayList<Int>()
-
-        tripsViewModel.trips.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
-            when(it.status){
-                Resource.Status.SUCCESS -> {
-                    if (it.data!!.isNotEmpty()){
-
-                        for (trip in it.data){
-
-                            if (trip.user_id == tripId){
-                                arrayList.add(trip.id)
-                            }
-
-                        }
-
-                    }
-                }
-                Resource.Status.LOADING -> {
-
-                }
-                Resource.Status.ERROR -> {
-
-                }
-            }
-        })
-
-        return arrayList
-    }
-
-    private fun getUserName(id: Int){
-
-        usersViewModel.users.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
-
-            when(it.status){
-                Resource.Status.SUCCESS -> {
-                    for(i in it.data!!){
-                        if (i.id == id){
-                            context?.getSharedPreferences("booker", Context.MODE_PRIVATE)
-                                ?.edit()
-                                ?.putString("name", i.name)
-                                ?.apply()
-                        }
-                    }
-                }
-                Resource.Status.LOADING -> {
-
-                }
-                Resource.Status.ERROR -> {
-
-                }
-            }
-
-        })
-
-    }
 }
