@@ -3,7 +3,6 @@ package app.mulipati_agent.epoxy
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
-import android.util.DisplayMetrics
 import android.widget.PopupMenu
 import android.widget.Toast
 import app.mulipati_agent.R
@@ -12,8 +11,6 @@ import app.mulipati_agent.network.ApiClient
 import app.mulipati_agent.network.Routes
 import app.mulipati_agent.network.responses.Basic
 import com.airbnb.epoxy.Typed2EpoxyController
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

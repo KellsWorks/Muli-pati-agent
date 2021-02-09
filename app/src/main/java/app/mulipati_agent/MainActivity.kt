@@ -5,6 +5,7 @@ package app.mulipati_agent
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -37,6 +38,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         newDay()
+
+        Toast.makeText(this, "This is a beta build, bugs may occur", Toast.LENGTH_SHORT)
+            .show()
 
     }
 
