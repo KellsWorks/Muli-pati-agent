@@ -5,6 +5,7 @@ import androidx.navigation.findNavController
 import app.mulipati_agent.R
 import app.mulipati_agent.data.Bookings
 import com.airbnb.epoxy.Typed2EpoxyController
+import timber.log.Timber
 
 class BookingsEpoxyController: Typed2EpoxyController<Boolean, List<Bookings>>() {
     override fun buildModels(data1: Boolean?, bookings: List<Bookings>?) {
@@ -19,6 +20,8 @@ class BookingsEpoxyController: Typed2EpoxyController<Boolean, List<Bookings>>() 
                                 val chatID = parentView.bookerName?.context?.getSharedPreferences("chatID", Context.MODE_PRIVATE)?.edit()
                                 chatID?.putString("title", parentView.bookerName!!.text.toString())
                                 chatID?.putInt("id", parentView.id!!)?.apply()
+
+                            Timber.e(parentView.id!!.toString())
 
                         }
                     .addTo(this)

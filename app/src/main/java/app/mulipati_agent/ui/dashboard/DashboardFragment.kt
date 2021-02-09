@@ -181,6 +181,7 @@ class DashboardFragment : Fragment() {
                         for (trip in it.data){
 
                             if (trip.user_id == getId){
+                                tripsList.clear()
                                 tripsList.add(Trips(
                                         trip.car_photo, trip.car_type, trip.created_at, trip.destination, trip.end_time, trip.id,
                                         trip.location, trip.number_of_passengers, trip.passenger_fare, trip.pick_up_place, trip.start,
@@ -204,60 +205,9 @@ class DashboardFragment : Fragment() {
                 }
             }
         })
-
-
-        bookingsViewModel.bookings.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
-            when(it.status){
-                Resource.Status.SUCCESS -> {
-
-                    val ids = getId?.let { it1 -> getTrips(it1) }
-
-                    if (ids != null) {
-                        for (id in ids){
-                            bookingsList = ArrayList()
-
-                            for (trip in it.data!!){
-
-                                if (trip.trip_id == id){
-                                    val name = getUserName(trip.user_id)
-                                    bookingsList.add(Bookings(trip.id,"User: $name", getDay(trip.created_at), getDayExt(trip.created_at), trip.user_id.toString(), "Location: "+location.toString()))
-                                }
-
-                            }
-
-                            setUpBookings(bookingsList)
-
-                            val bookingsCount = bookingsList.count()
-                            dashboardBinding.toBookings.text = "See All ($bookingsCount)"
-                        }
-                    }
-                }
-                Resource.Status.LOADING -> {
-
-                }
-                Resource.Status.ERROR -> {
-
-                }
-            }
-        })
     }
 
-    private fun setUpBookings(data: List<Bookings>){
 
-        if (data.isEmpty()){
-            dashboardBinding.bookingsRecycler.visibility = View.GONE
-            dashboardBinding.noBookingsError.visibility = View.VISIBLE
-        }else{
-            dashboardBinding.bookingsRecycler.visibility = View.VISIBLE
-            dashboardBinding.noBookingsError.visibility = View.GONE
-        }
-
-        val bookingsEpoxyController = BookingsEpoxyController()
-        bookingsEpoxyController.setData(false, data)
-
-        dashboardBinding.bookingsRecycler.setController(bookingsEpoxyController)
-
-    }
 
     private fun setUpRecycler(data: List<Trips>){
 
@@ -308,8 +258,7 @@ class DashboardFragment : Fragment() {
         return arrayList
     }
 
-    private fun getUserName(id: Int): String{
-        var user = ""
+    private fun getUserName(id: Int){
 
         usersViewModel.users.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
 
@@ -317,8 +266,10 @@ class DashboardFragment : Fragment() {
                 Resource.Status.SUCCESS -> {
                     for(i in it.data!!){
                         if (i.id == id){
-                            user = i.name
-                            Timber.e(i.name)
+                            context?.getSharedPreferences("booker", Context.MODE_PRIVATE)
+                                ?.edit()
+                                ?.putString("name", i.name)
+                                ?.apply()
                         }
                     }
                 }
@@ -332,6 +283,5 @@ class DashboardFragment : Fragment() {
 
         })
 
-        return user
     }
 }

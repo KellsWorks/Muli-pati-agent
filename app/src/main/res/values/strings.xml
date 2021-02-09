@@ -185,6 +185,10 @@
     <string name="by_pressing_continue_you_agree_to_tnm_mpamba_terms_of_service">By pressing continue, you agree to TNM Mpamba terms of service.</string>
     <string name="pay">Pay</string>
     <string name="clear_chat">Clear chat</string>
+    <string name="done">Done</string>
+    <string name="check_your_bookings">Check your bookings</string>
+    <string name="muli_pati_user">Muli pati user</string>
+    <string name="see_all">See All (*)</string>
 
     <string-array name="cars">
         <item>Mazda Demio</item>

@@ -14,7 +14,7 @@ import app.mulipati_agent.network.responses.trips.Trip
 import app.mulipati_agent.network.responses.users.AppUser
 import app.mulipati_agent.util.Constants
 
-@Database(entities = [Notification::class, Trip::class, Booking::class, AppUser::class], version = 2, exportSchema = true)
+@Database(entities = [Notification::class, Trip::class, Booking::class, AppUser::class], version = 3, exportSchema = true)
 
 abstract class AppDatabase : RoomDatabase() {
 

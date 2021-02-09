@@ -2,7 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
-    android:background="@drawable/rectangle_stroked"
+    android:background="@drawable/rounded_white"
     android:layout_marginTop="10dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -11,7 +11,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/rounded_pale"
         android:padding="20sp">
         <TextView
             android:layout_width="wrap_content"
@@ -42,7 +41,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/fcgvhbjn"
+            android:text="@string/muli_pati_user"
             android:layout_marginTop="20sp"
             android:layout_marginStart="10dp"
             android:textSize="15sp"
@@ -62,13 +61,15 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_message_circle"
+            android:src="@drawable/ic_messenger"
             android:layout_alignParentEnd="true"
             android:id="@+id/bookChat"
             android:layout_margin="20sp"
-            />
+            android:contentDescription="@string/icon" />
+
     </RelativeLayout>
 </LinearLayout>

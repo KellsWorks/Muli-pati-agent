@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import app.mulipati_agent.R
-
 import android.content.Context
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast

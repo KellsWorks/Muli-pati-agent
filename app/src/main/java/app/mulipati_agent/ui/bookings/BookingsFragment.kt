@@ -15,7 +15,6 @@ import app.mulipati_agent.databinding.FragmentBookingsBinding
 import app.mulipati_agent.epoxy.bookings.BookingsEpoxyController
 import app.mulipati_agent.ui.dashboard.BookingsViewModel
 import app.mulipati_agent.ui.dashboard.TripsViewModel
-import app.mulipati_agent.ui.dashboard.UsersViewModel
 import app.mulipati_agent.util.autoCleared
 import app.mulipati_agent.util.getDay
 import dagger.hilt.android.AndroidEntryPoint
@@ -28,8 +27,6 @@ class BookingsFragment : Fragment() {
     private val bookingsViewModel: BookingsViewModel by viewModels()
 
     private val tripsViewModel: TripsViewModel by viewModels()
-
-    private val usersViewModel: UsersViewModel by viewModels()
 
     private lateinit var bookingsList: ArrayList<Bookings>
 
@@ -78,7 +75,7 @@ class BookingsFragment : Fragment() {
                                 for (trip in it.data!!){
 
                                     if (trip.trip_id == id){
-                                        bookingsList.add(Bookings(trip.id, getUserName(trip.id), getDay(trip.created_at), getDay(trip.created_at), trip.user_id.toString(), location.toString()))
+                                        bookingsList.add(Bookings(trip.user_id, "Muli pati user", getDay(trip.created_at), getDay(trip.created_at), location.toString()))
                                     }
 
 
@@ -147,28 +144,5 @@ class BookingsFragment : Fragment() {
         return arrayList
     }
 
-    private fun getUserName(id: Int): String{
-        var user = ""
-
-        usersViewModel.users.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
-
-            when(it.status){
-                Resource.Status.SUCCESS -> {
-                    for(i in it.data!!){
-                            user = i.name
-                        }
-                }
-                Resource.Status.LOADING -> {
-
-                }
-                Resource.Status.ERROR -> {
-
-                }
-            }
-
-        })
-
-        return user
-    }
 
 }

@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.dashboard.DashboardFragment">
 
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -91,13 +90,16 @@
             android:contentDescription="@string/image" />
 
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_below="@id/dotsContainer"
             android:layout_marginTop="10dp"
             >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
 
             <LinearLayout
@@ -160,46 +162,34 @@
                     android:textSize="17sp"
                     android:textStyle="bold"
                     tools:ignore="RelativeOverlap" />
-                <TextView
+                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_page_next"
+                    android:src="@drawable/ic_scroll"
                     android:layout_alignParentEnd="true"
-                    android:text="@string/see_all_3"
                     android:id="@+id/toBookings"
-                    android:textSize="15sp"
                     android:layout_marginEnd="20dp"
-                    tools:ignore="RelativeOverlap" />
+                    tools:ignore="RelativeOverlap"
+                    android:contentDescription="@string/icon" />
             </RelativeLayout>
-
-            <com.airbnb.epoxy.EpoxyRecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:id="@+id/bookingsRecycler"
-                tools:itemCount="3"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-             />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:id="@+id/noBookingsError"
-                android:visibility="gone"
                 tools:ignore="UseCompoundDrawables">
                 <ImageView
                     android:layout_width="250dp"
                     android:layout_height="250dp"
-                    android:src="@drawable/not_present"
+                    android:src="@drawable/first"
                     android:contentDescription="@string/illustration"
                     android:layout_gravity="center"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/no_bookings_present"
+                    android:text="@string/check_your_bookings"
                     android:textStyle="bold"
                     android:layout_gravity="center"
                     />
@@ -243,12 +233,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:id="@+id/noTripsError"
+                android:visibility="gone"
                 tools:ignore="UseCompoundDrawables">
                 <ImageView
                     android:layout_width="250dp"
                     android:layout_height="250dp"
                     android:src="@drawable/no_trips"
-                    android:visibility="gone"
                     android:contentDescription="@string/illustration"
                     android:layout_gravity="center"
                     />
@@ -260,10 +250,7 @@
                     android:layout_gravity="center"
                     />
             </LinearLayout>
-
-        </LinearLayout>
-
-
-    </RelativeLayout>
-
+            </LinearLayout>
+        </ScrollView>
+        </RelativeLayout>
 </layout>

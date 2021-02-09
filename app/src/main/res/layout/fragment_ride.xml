@@ -60,19 +60,29 @@
 
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="80dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/rectangle_stroked"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="7dp"
                     android:paddingStart="5dp"
-                    android:textSize="18sp"
+                    android:textSize="19sp"
                     android:layout_gravity="center"
                     android:textAlignment="center"
                     android:maxLength="2"
+                    android:id="@+id/passengers"
                     android:imeOptions="actionDone"
-                    android:id="@+id/passengersOne"
                     tools:ignore="RtlSymmetry"
                      />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/done"
+                    android:layout_gravity="center|end"
+                    android:enabled="true"
+                    android:textStyle="bold"
+                    android:id="@+id/passengersOne"
+                    android:textColor="@color/red"
+                    />
 
             </LinearLayout>
         </LinearLayout>
